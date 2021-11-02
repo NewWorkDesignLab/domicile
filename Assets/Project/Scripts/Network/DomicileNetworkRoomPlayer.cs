@@ -14,6 +14,49 @@ using Mirror;
 /// </summary>
 public class DomicileNetworkRoomPlayer : NetworkRoomPlayer
 {
+    public static DomicileNetworkRoomPlayer localPlayer;
+
+    GameObject lobbyPlayerUI;
+
+    public event System.Action<string> OnNameChanged;
+    public event System.Action<bool> OnReadyStateChanged;
+    public event System.Action<PlayerRole> OnRoleChanged;
+
+
+    [SyncVar(hook = nameof(NameChanged))]
+    public string name;
+
+    [SyncVar(hook = nameof(RoleChanged))]
+    private int _role;
+    public PlayerRole Role
+    {
+        get { return (PlayerRole)_role; }
+        set { _role = (int)value; }
+    }
+
+
+    private void NameChanged(string _, string newName)
+    {
+        OnNameChanged?.Invoke(newName);
+    }
+
+    private void RoleChanged(int _, int newRole)
+    {
+        OnRoleChanged?.Invoke((PlayerRole)newRole);
+    }
+
+    /// <summary>
+    /// This is a hook that is invoked on clients when a RoomPlayer switches between ready or not ready.
+    /// <para>This function is called when the a client player calls SendReadyToBeginMessage() or SendNotReadyToBeginMessage().</para>
+    /// </summary>
+    /// <param name="oldReadyState">The old readyState value</param>
+    /// <param name="newReadyState">The new readyState value</param>
+    public override void ReadyStateChanged(bool oldReadyState, bool newReadyState)
+    {
+        OnReadyStateChanged?.Invoke(newReadyState);
+    }
+
+
     #region Start & Stop Callbacks
 
     /// <summary>
@@ -33,19 +76,67 @@ public class DomicileNetworkRoomPlayer : NetworkRoomPlayer
     /// Called on every NetworkBehaviour when it is activated on a client.
     /// <para>Objects on the host have this function called, as there is a local client on the host. The values of SyncVars on object are guaranteed to be initialized correctly with the latest state from the server when this function is called on the client.</para>
     /// </summary>
-    public override void OnStartClient() { }
+    public override void OnStartClient()
+    {
+        lobbyPlayerUI = Instantiate(LobbyUIManager.instance.lobbyPlayerUIPrefab, LobbyUIManager.instance.lobbyPlayerUIParent.transform);
+
+        // Set this player object in PlayerUI to wire up event handlers
+        lobbyPlayerUI.GetComponent<LobbyPlayerUI>().SetPlayer(this, NetworkServer.active, isLocalPlayer);
+
+        // Invoke all event handlers with the current data
+        OnNameChanged?.Invoke(name);
+        OnRoleChanged?.Invoke(Role);
+        OnReadyStateChanged?.Invoke(readyToBegin);
+    }
 
     /// <summary>
     /// This is invoked on clients when the server has caused this object to be destroyed.
     /// <para>This can be used as a hook to invoke effects or do client specific cleanup.</para>
     /// </summary>
-    public override void OnStopClient() { }
+    public override void OnStopClient()
+    {
+        // Remove this player's UI object
+        Destroy(lobbyPlayerUI);
+    }
 
     /// <summary>
     /// Called when the local player object has been set up.
     /// <para>This happens after OnStartClient(), as it is triggered by an ownership message from the server. This is an appropriate place to activate components or functionality that should only be active for the local player, such as cameras and input.</para>
     /// </summary>
-    public override void OnStartLocalPlayer() { }
+    public override void OnStartLocalPlayer()
+    {
+        localPlayer = this;
+        CmdSetName(SessionManager.session.name);
+        CmdSetRole(PlayerRole.spectator);
+    }
+
+    [Command]
+    private void CmdSetName(string _n)
+    {
+        name = _n;
+    }
+
+    [Command]
+    public void CmdSetRole(PlayerRole _r)
+    {
+        Role = _r;
+    }
+
+    public void LeaveLobby()
+    {
+        if (NetworkServer.active && NetworkClient.isConnected)
+        {
+            DomicileNetworkRoomManager.instance.StopHost();
+        }
+        else if (NetworkClient.isConnected)
+        {
+            DomicileNetworkRoomManager.instance.StopClient();
+        }
+        else if (NetworkServer.active)
+        {
+            DomicileNetworkRoomManager.instance.StopServer();
+        }
+    }
 
     /// <summary>
     /// This is invoked on behaviours that have authority, based on context and <see cref="NetworkIdentity.hasAuthority">NetworkIdentity.hasAuthority</see>.
@@ -86,13 +177,7 @@ public class DomicileNetworkRoomPlayer : NetworkRoomPlayer
     /// <param name="newIndex">The new index value</param>
     public override void IndexChanged(int oldIndex, int newIndex) { }
 
-    /// <summary>
-    /// This is a hook that is invoked on clients when a RoomPlayer switches between ready or not ready.
-    /// <para>This function is called when the a client player calls SendReadyToBeginMessage() or SendNotReadyToBeginMessage().</para>
-    /// </summary>
-    /// <param name="oldReadyState">The old readyState value</param>
-    /// <param name="newReadyState">The new readyState value</param>
-    public override void ReadyStateChanged(bool oldReadyState, bool newReadyState) { }
+    
 
     #endregion
 

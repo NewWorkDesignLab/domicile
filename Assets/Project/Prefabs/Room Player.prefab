@@ -66,3 +66,5 @@ MonoBehaviour:
   showRoomGUI: 1
   readyToBegin: 0
   index: 0
+  lobbyPlayerUIPrefab: {fileID: 8360196074341007822, guid: 84c63c9287dd38448bfd91326051ccaa, type: 3}
+  name: 

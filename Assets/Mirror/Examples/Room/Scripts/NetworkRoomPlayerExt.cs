@@ -35,5 +35,10 @@ namespace Mirror.Examples.NetworkRoom
         {
             base.OnGUI();
         }
+
+        public void TestReadyState()
+        {
+            CmdChangeReadyState(true);
+        }
     }
 }

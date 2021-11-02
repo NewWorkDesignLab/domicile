@@ -3,6 +3,7 @@ using UnityEngine;
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     public static T instance { get; private set; }
+    public bool dontDestroyOnLoad = true;
 
     protected virtual void Awake ()
     {
@@ -13,6 +14,6 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             return;
         }
         instance = this as T;
-        DontDestroyOnLoad (this.gameObject);
+        if (dontDestroyOnLoad) DontDestroyOnLoad (this.gameObject);
     }
 }
