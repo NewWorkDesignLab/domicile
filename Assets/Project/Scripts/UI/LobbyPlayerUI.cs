@@ -5,7 +5,7 @@ using TMPro;
 
 public class LobbyPlayerUI : MonoBehaviour
 {
-    public TMP_Text name;
+    public TMP_Text nameField;
     public GameObject readyIcon;
     public GameObject notReadyIcon;
 
@@ -31,7 +31,7 @@ public class LobbyPlayerUI : MonoBehaviour
 
     private void UpdateDisplayedName()
     {
-        name.text = System.String.Format("{0} ({1})", latestName, TextGenerator.GenerateRoleText(latestRole));
+        nameField.text = System.String.Format("{0} ({1})", latestName, TextGenerator.GenerateRoleText(latestRole));
     }
 
     void OnNameChanged(string newName)

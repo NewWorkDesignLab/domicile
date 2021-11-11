@@ -22,27 +22,39 @@ public class DomicileNetworkRoomPlayer : NetworkRoomPlayer
     public event System.Action<bool> OnReadyStateChanged;
     public event System.Action<PlayerRole> OnRoleChanged;
 
+    #region Player Vars
 
     [SyncVar(hook = nameof(NameChanged))]
-    public string name;
+    public string playerName;
 
     [SyncVar(hook = nameof(RoleChanged))]
-    private int _role;
-    public PlayerRole Role
+    public int _role;
+    public PlayerRole role
     {
         get { return (PlayerRole)_role; }
         set { _role = (int)value; }
     }
 
+    [SyncVar(hook = nameof(GenderChanged))]
+    public int _gender;
+    public Gender gender
+    {
+        get { return (Gender)_gender; }
+        set { _gender = (int)value; }
+    }
+
+    #endregion
+
+    #region SyncVar Hooks
 
     private void NameChanged(string _, string newName)
     {
         OnNameChanged?.Invoke(newName);
     }
 
-    private void RoleChanged(int _, int newRole)
+    private void RoleChanged(int _, int newValue)
     {
-        OnRoleChanged?.Invoke((PlayerRole)newRole);
+        OnRoleChanged?.Invoke((PlayerRole)newValue);
     }
 
     /// <summary>
@@ -55,6 +67,10 @@ public class DomicileNetworkRoomPlayer : NetworkRoomPlayer
     {
         OnReadyStateChanged?.Invoke(newReadyState);
     }
+    
+    private void GenderChanged(int _, int newValue) {}
+
+    #endregion
 
 
     #region Start & Stop Callbacks
@@ -84,8 +100,8 @@ public class DomicileNetworkRoomPlayer : NetworkRoomPlayer
         lobbyPlayerUI.GetComponent<LobbyPlayerUI>().SetPlayer(this, NetworkServer.active, isLocalPlayer);
 
         // Invoke all event handlers with the current data
-        OnNameChanged?.Invoke(name);
-        OnRoleChanged?.Invoke(Role);
+        OnNameChanged?.Invoke(playerName);
+        OnRoleChanged?.Invoke(role);
         OnReadyStateChanged?.Invoke(readyToBegin);
     }
 
@@ -106,20 +122,62 @@ public class DomicileNetworkRoomPlayer : NetworkRoomPlayer
     public override void OnStartLocalPlayer()
     {
         localPlayer = this;
-        CmdSetName(SessionManager.session.name);
-        CmdSetRole(PlayerRole.spectator);
+        CmdInitPlayer(SessionManager.session.name, SessionManager.session.gender, PlayerRole.spectator);
+        if (SessionManager.session.target == SessionTarget.create)
+        {
+            CmdChangeReadyState(true);
+            CmdGetAuthority();
+        }
+        CmdInitNetworkedScenario();
+        // LobbyUIManager.instance.ShowUI();
     }
 
     [Command]
-    private void CmdSetName(string _n)
+    private void CmdInitPlayer(string _name, Gender _gender, PlayerRole _role)
     {
-        name = _n;
+        playerName = _name;
+        gender = _gender;
+        role = _role;
     }
 
     [Command]
-    public void CmdSetRole(PlayerRole _r)
+    public void CmdSetRole(PlayerRole _role)
     {
-        Role = _r;
+        role = _role;
+    }
+
+    [Command]
+    public void CmdGetAuthority()
+    {
+        SyncSceneProgress.instance.netIdentity.AssignClientAuthority(connectionToClient);
+        NetworkedScenario.instance.netIdentity.AssignClientAuthority(connectionToClient);
+    }
+
+    [Command]
+    public void CmdInitNetworkedScenario()
+    {
+        NetworkedScenario.instance.InitScenario(
+            SessionManager.session.scenario,
+            SessionManager.session.scenarioName,
+            SessionManager.session.rooms,
+            SessionManager.session.textures,
+            SessionManager.session.report,
+            SessionManager.session.tenant,
+            SessionManager.session.contract,
+            SessionManager.session.protocol
+        );
+    }
+
+    [Command]
+    public void CmdSetSceneIngame()
+    {
+        DomicileNetworkRoomManager.instance.ServerChangeScene(DomicileNetworkRoomManager.instance.GameplayScene);
+    }
+
+    [Command]
+    public void CmdSetSceneLobby()
+    {
+        DomicileNetworkRoomManager.instance.ServerChangeScene(DomicileNetworkRoomManager.instance.RoomScene);
     }
 
     public void LeaveLobby()

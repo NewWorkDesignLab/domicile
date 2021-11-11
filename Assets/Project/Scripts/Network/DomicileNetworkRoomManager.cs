@@ -18,12 +18,13 @@ using Mirror;
 /// </summary>
 public class DomicileNetworkRoomManager : NetworkRoomManager
 {
-    public static NetworkRoomManager instance;
+    public static DomicileNetworkRoomManager instance;
 
     private bool enableStartButton = false;
 
-    void Awake()
+    public override void Awake()
     {
+        base.Awake();
         instance = this;
     }
 
@@ -41,32 +42,22 @@ public class DomicileNetworkRoomManager : NetworkRoomManager
     /// This is called on the server when all the players in the room are ready.
     /// <para>The default implementation of this function uses ServerChangeScene() to switch to the game player scene. By implementing this callback you can customize what happens when all the players in the room are ready, such as adding a countdown or a confirmation for a group leader.</para>
     /// </summary>
+    [Server]
     public override void OnRoomServerPlayersReady()
     {
         // base.OnRoomServerPlayersReady();
         enableStartButton = true;
         Debug.Log("ALL PLAYERS READY");
-        // ServerChangeScene(GameplayScene);
+        LobbyUIManager.instance.Lobby_EnableStartButton(true);
     }
 
     /// <summary>
     /// This is called on the server when all the players previouly were ready but someone cancels ready-state.
     /// </summary>
     [Server]
-    public void OnRoomServerPlayersNotReady()
+    public override void OnRoomServerPlayersNotReady()
     {
         Debug.Log("ALL PLAYERS READY CANCELD");
+        LobbyUIManager.instance.Lobby_EnableStartButton(false);
     }
-
-    // public static string GetLocalIPAddress()
-    // {
-    //     var host = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName());
-    //     foreach (var ip in host.AddressList)
-    //     {
-    //         if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
-    //         {
-    //             return ip.ToString();
-    //         }
-    //     }
-    // }
 }

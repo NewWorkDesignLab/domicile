@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
-using Michsky.UI.ModernUIPack;
 
 public class LobbyUIManager : Singleton<LobbyUIManager>
 {
@@ -11,29 +11,68 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     public GameObject lobbyPlayerUIParent;
 
     [Header("Lobby UI")]
-    public TMP_Text scenarioName;
-    public ButtonManagerBasic lobbyDisplayReport;
+    public GameObject lobbyGroup;
     public TMP_Text lobbyCode;
+    public Button readyButton;
+    public Button startButton;
 
-    void Start()
+    [Header("Groups")]
+    public GameObject stage_1_A_G;
+    public GameObject stage_1_B_G;
+    public GameObject stage_1_C_G;
+    public GameObject stage_1_A_L;
+    public GameObject stage_1_BC_L;
+    public GameObject stage_2_A_G;
+    public GameObject stage_2_B_G;
+    public GameObject stage_2_C_G;
+    public GameObject stage_2_D_G;
+    public GameObject stage_2_E_G;
+    public GameObject stage_2_F_G;
+    public GameObject stage_2_AB_L;
+    public GameObject stage_2_CD_L;
+    public GameObject stage_2_EF_L;
+    public GameObject stage_12_SPECTATOR;
+
+
+    public void Start()
     {
+        HideAll();
+        lobbyGroup.SetActive(true);
         Lobby_UpdateUI();
     }
 
-    public void Lobby_UpdateUI()
-    {
-        // Scenario Name Display
-        scenarioName.text = SessionManager.session.scenarioName;
-
-        // Case Report Button
-        string reportTxt = TextGenerator.GenerateReportText(SessionManager.session.tenant, SessionManager.session.contract, SessionManager.session.protocol);
-        lobbyDisplayReport.buttonText = reportTxt;
-        lobbyDisplayReport.UpdateUI();
+    public void HideAll() {
+        lobbyGroup.SetActive(false);
+        stage_1_A_G.SetActive(false);
+        stage_1_B_G.SetActive(false);
+        stage_1_C_G.SetActive(false);
+        stage_1_A_L.SetActive(false);
+        stage_1_BC_L.SetActive(false);
+        stage_2_A_G.SetActive(false);
+        stage_2_B_G.SetActive(false);
+        stage_2_C_G.SetActive(false);
+        stage_2_D_G.SetActive(false);
+        stage_2_E_G.SetActive(false);
+        stage_2_F_G.SetActive(false);
+        stage_2_AB_L.SetActive(false);
+        stage_2_CD_L.SetActive(false);
+        stage_2_EF_L.SetActive(false);
+        stage_12_SPECTATOR.SetActive(false);
     }
 
-    public void Lobby_OpenReport()
+    #region Lobby
+
+    public void Lobby_UpdateUI()
     {
-        Application.OpenURL("https://tobiasbohn.com/particle-rush/tobias_bohn_particle_rush_dokumentation_umsetzung.pdf");
+        // Join / Ready Button
+        bool isCreator = SessionManager.session.target == SessionTarget.create;
+        readyButton.gameObject.SetActive(!isCreator);
+        startButton.gameObject.SetActive(isCreator);
+    }
+
+    public void Lobby_EnableStartButton(bool value)
+    {
+        startButton.interactable = value;
     }
 
     public void Lobby_CopyCode()
@@ -48,6 +87,7 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 
     public void Lobby_SetRole(int role)
     {
+        Debug.Log("Set Role");
         DomicileNetworkRoomPlayer.localPlayer.CmdSetRole((PlayerRole)role);
     }
 
@@ -61,4 +101,6 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     {
         DomicileNetworkRoomPlayer.localPlayer.LeaveLobby();
     }
+
+    #endregion
 }

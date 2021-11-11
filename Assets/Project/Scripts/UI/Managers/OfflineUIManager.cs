@@ -26,12 +26,15 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
     [Header("Join Scenario UI")]
     public GameObject scJoinGroup;
 
-    void Awake() {
+    protected override void Awake()
+    {
+        base.Awake();
         HideAll();
         mainLandingGroup.SetActive(true);
     }
 
-    public void HideAll() {
+    public void HideAll()
+    {
         mainLandingGroup.SetActive(false);
         mainMenuGroup.SetActive(false);
         scenarioCreateGroupA.SetActive(false);

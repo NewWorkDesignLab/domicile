@@ -6,8 +6,9 @@ public class SessionManager : Singleton<SessionManager>
 {
     public static Session session;
     
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         session = new Session();
     }
 
@@ -43,7 +44,7 @@ public class SessionManager : Singleton<SessionManager>
 
     public void SetSessionScenarioName(string value)
     {
-        session.scenarioName = value == "" ? "Scenario 1" : value;
+        session.scenarioName = value == "" ? "Scenario" : value;
     }
 
     public void SetSessionRooms(int value)
