@@ -28,6 +28,14 @@ public class DomicileNetworkRoomManager : NetworkRoomManager
         instance = this;
     }
 
+    public override void Start()
+    {
+        base.Start();
+#if UNITY_STANDALONE_LINUX
+        StartServer();
+#endif
+    }
+
     [ServerCallback]
     void Update()
     {

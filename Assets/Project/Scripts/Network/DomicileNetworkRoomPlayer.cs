@@ -97,7 +97,7 @@ public class DomicileNetworkRoomPlayer : NetworkRoomPlayer
         lobbyPlayerUI = Instantiate(LobbyUIManager.instance.lobbyPlayerUIPrefab, LobbyUIManager.instance.lobbyPlayerUIParent.transform);
 
         // Set this player object in PlayerUI to wire up event handlers
-        lobbyPlayerUI.GetComponent<LobbyPlayerUI>().SetPlayer(this, NetworkServer.active, isLocalPlayer);
+        lobbyPlayerUI.GetComponent<LobbyPlayerUI>().SetPlayer(this);
 
         // Invoke all event handlers with the current data
         OnNameChanged?.Invoke(playerName);
@@ -127,10 +127,20 @@ public class DomicileNetworkRoomPlayer : NetworkRoomPlayer
         {
             CmdChangeReadyState(true);
             CmdGetAuthority();
+            CmdInitNetworkedScenario(
+                SessionManager.session.scenario,
+                SessionManager.session.scenarioName,
+                SessionManager.session.rooms,
+                SessionManager.session.textures,
+                SessionManager.session.report,
+                SessionManager.session.tenant,
+                SessionManager.session.contract,
+                SessionManager.session.protocol
+            );
         }
-        CmdInitNetworkedScenario();
-        // LobbyUIManager.instance.ShowUI();
     }
+
+    #endregion
 
     [Command]
     private void CmdInitPlayer(string _name, Gender _gender, PlayerRole _role)
@@ -154,18 +164,9 @@ public class DomicileNetworkRoomPlayer : NetworkRoomPlayer
     }
 
     [Command]
-    public void CmdInitNetworkedScenario()
+    public void CmdInitNetworkedScenario(string _id, string _name, RoomCount _rooms, TextureDifficulty _textures, CaseReport _report, Tenant _tenant, RentalContract _contract, HandoverProtocol _protocol)
     {
-        NetworkedScenario.instance.InitScenario(
-            SessionManager.session.scenario,
-            SessionManager.session.scenarioName,
-            SessionManager.session.rooms,
-            SessionManager.session.textures,
-            SessionManager.session.report,
-            SessionManager.session.tenant,
-            SessionManager.session.contract,
-            SessionManager.session.protocol
-        );
+        NetworkedScenario.instance.InitScenario(_id, _name, _rooms, _textures, _report, _tenant, _contract, _protocol);
     }
 
     [Command]
@@ -195,56 +196,4 @@ public class DomicileNetworkRoomPlayer : NetworkRoomPlayer
             DomicileNetworkRoomManager.instance.StopServer();
         }
     }
-
-    /// <summary>
-    /// This is invoked on behaviours that have authority, based on context and <see cref="NetworkIdentity.hasAuthority">NetworkIdentity.hasAuthority</see>.
-    /// <para>This is called after <see cref="OnStartServer">OnStartServer</see> and before <see cref="OnStartClient">OnStartClient.</see></para>
-    /// <para>When <see cref="NetworkIdentity.AssignClientAuthority"/> is called on the server, this will be called on the client that owns the object. When an object is spawned with <see cref="NetworkServer.Spawn">NetworkServer.Spawn</see> with a NetworkConnection parameter included, this will be called on the client that owns the object.</para>
-    /// </summary>
-    public override void OnStartAuthority() { }
-
-    /// <summary>
-    /// This is invoked on behaviours when authority is removed.
-    /// <para>When NetworkIdentity.RemoveClientAuthority is called on the server, this will be called on the client that owns the object.</para>
-    /// </summary>
-    public override void OnStopAuthority() { }
-
-    #endregion
-
-    #region Room Client Callbacks
-
-    /// <summary>
-    /// This is a hook that is invoked on all player objects when entering the room.
-    /// <para>Note: isLocalPlayer is not guaranteed to be set until OnStartLocalPlayer is called.</para>
-    /// </summary>
-    public override void OnClientEnterRoom() { }
-
-    /// <summary>
-    /// This is a hook that is invoked on all player objects when exiting the room.
-    /// </summary>
-    public override void OnClientExitRoom() { }
-
-    #endregion
-
-    #region SyncVar Hooks
-
-    /// <summary>
-    /// This is a hook that is invoked on clients when the index changes.
-    /// </summary>
-    /// <param name="oldIndex">The old index value</param>
-    /// <param name="newIndex">The new index value</param>
-    public override void IndexChanged(int oldIndex, int newIndex) { }
-
-    
-
-    #endregion
-
-    #region Optional UI
-
-    public override void OnGUI()
-    {
-        base.OnGUI();
-    }
-
-    #endregion
 }

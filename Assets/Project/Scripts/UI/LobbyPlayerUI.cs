@@ -13,7 +13,7 @@ public class LobbyPlayerUI : MonoBehaviour
     string latestName;
     PlayerRole latestRole;
 
-    public void SetPlayer(DomicileNetworkRoomPlayer _player, bool _isOwner, bool _isLocalPlayer)
+    public void SetPlayer(DomicileNetworkRoomPlayer _player)
     {
         roomPlayer = _player;
         // subscribe to the events raised by SyncVar Hooks on the Player object

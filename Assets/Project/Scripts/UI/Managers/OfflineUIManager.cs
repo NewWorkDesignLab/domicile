@@ -53,6 +53,15 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
     }
 
     #endregion
+
+    #region Main Menu
+
+    public void MainLanding_SetGreeting()
+    {
+        mainMenuText.text = $"Hallo {SessionManager.session.name}. Was möchten Sie tun?";
+    }
+
+    #endregion
     
     #region Create Scenario
 
@@ -79,7 +88,7 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
 
     public void CreateScenario_CreateLobby()
     {
-        DomicileNetworkRoomManager.instance.StartHost();
+        DomicileNetworkRoomManager.instance.StartClient();
     }
 
     public void CreateScenario_JoinLobby()
