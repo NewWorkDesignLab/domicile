@@ -14,20 +14,22 @@ namespace Mirror.Examples.Additive
         [Tooltip("Assign the sub-scene to load for this zone")]
         public string subScene;
 
-        [ServerCallback]
         void OnTriggerEnter(Collider other)
         {
-            // Debug.Log($"Loading {subScene}");
+            if (!NetworkServer.active) return;
+
+            // Debug.LogFormat(LogType.Log, "Loading {0}", subScene);
 
             NetworkIdentity networkIdentity = other.gameObject.GetComponent<NetworkIdentity>();
             SceneMessage message = new SceneMessage{ sceneName = subScene, sceneOperation = SceneOperation.LoadAdditive };
             networkIdentity.connectionToClient.Send(message);
         }
 
-        [ServerCallback]
         void OnTriggerExit(Collider other)
         {
-            // Debug.Log($"Unloading {subScene}");
+            if (!NetworkServer.active) return;
+
+            // Debug.LogFormat(LogType.Log, "Unloading {0}", subScene);
 
             NetworkIdentity networkIdentity = other.gameObject.GetComponent<NetworkIdentity>();
             SceneMessage message = new SceneMessage{ sceneName = subScene, sceneOperation = SceneOperation.UnloadAdditive };

@@ -17,7 +17,9 @@ namespace Mirror.Examples.NetworkRoom
         {
             // spawn the initial batch of Rewards
             if (sceneName == GameplayScene)
+            {
                 Spawner.InitialSpawn();
+            }
         }
 
         /// <summary>

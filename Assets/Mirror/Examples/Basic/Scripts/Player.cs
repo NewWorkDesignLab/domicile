@@ -11,13 +11,15 @@ namespace Mirror.Examples.Basic
         public event System.Action<int> OnPlayerDataChanged;
 
         // Players List to manage playerNumber
-        static readonly List<Player> playersList = new List<Player>();
+        internal static readonly List<Player> playersList = new List<Player>();
 
         internal static void ResetPlayerNumbers()
         {
             int playerNumber = 0;
             foreach (Player player in playersList)
+            {
                 player.playerNumber = playerNumber++;
+            }
         }
 
         [Header("Player UI")]
@@ -114,9 +116,9 @@ namespace Mirror.Examples.Basic
             playerUI.GetComponent<PlayerUI>().SetPlayer(this, isLocalPlayer);
 
             // Invoke all event handlers with the current data
-            OnPlayerNumberChanged?.Invoke(playerNumber);
-            OnPlayerColorChanged?.Invoke(playerColor);
-            OnPlayerDataChanged?.Invoke(playerData);
+            OnPlayerNumberChanged.Invoke(playerNumber);
+            OnPlayerColorChanged.Invoke(playerColor);
+            OnPlayerDataChanged.Invoke(playerData);
         }
 
         /// <summary>

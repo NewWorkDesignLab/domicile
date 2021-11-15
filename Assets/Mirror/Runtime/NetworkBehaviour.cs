@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using Mirror.RemoteCalls;
 using UnityEngine;
 
@@ -60,9 +59,6 @@ namespace Mirror
         // SyncLists, SyncSets, etc.
         protected readonly List<SyncObject> syncObjects = new List<SyncObject>();
 
-        // NetworkBehaviourInspector needs to know if we have SyncObjects
-        internal bool HasSyncObjects() => syncObjects.Count > 0;
-
         // NetworkIdentity based values set from NetworkIdentity.Awake(),
         // which is way more simple and way faster than trying to figure out
         // component index from in here by searching all NetworkComponents.
@@ -91,18 +87,14 @@ namespace Mirror
         // TODO 64 SyncLists are too much. consider smaller mask later.
         internal ulong syncObjectDirtyBits;
 
-        // Weaver replaces '[SyncVar] int health' with 'Networkhealth' property.
-        // setter calls the hook if value changed.
-        // if we then modify the [SyncVar] from inside the setter,
-        // the setter would call the hook and we deadlock.
-        // hook guard prevents that.
+        // hook guard to avoid deadlocks when calling hooks in host mode
         ulong syncVarHookGuard;
 
         // USED BY WEAVER to set syncvars in host mode without deadlocking
         protected bool GetSyncVarHookGuard(ulong dirtyBit) =>
             (syncVarHookGuard & dirtyBit) != 0UL;
 
-        // Deprecated 2021-09-16 (old weavers used it)
+        // DEPRECATED 2021-09-16 (old weavers used it)
         [Obsolete("Renamed to GetSyncVarHookGuard (uppercase)")]
         protected bool getSyncVarHookGuard(ulong dirtyBit) => GetSyncVarHookGuard(dirtyBit);
 
@@ -117,7 +109,7 @@ namespace Mirror
                 syncVarHookGuard &= ~dirtyBit;
         }
 
-        // Deprecated 2021-09-16 (old weavers used it)
+        // DEPRECATED 2021-09-16 (old weavers used it)
         [Obsolete("Renamed to SetSyncVarHookGuard (uppercase)")]
         protected void setSyncVarHookGuard(ulong dirtyBit, bool value) => SetSyncVarHookGuard(dirtyBit, value);
 
@@ -128,7 +120,7 @@ namespace Mirror
             syncVarDirtyBits |= dirtyBit;
         }
 
-        // Deprecated 2021-09-19
+        // DEPRECATED 2021-09-19
         [Obsolete("SetDirtyBit was renamed to SetSyncVarDirtyBit because that's what it does")]
         public void SetDirtyBit(ulong dirtyBit) => SetSyncVarDirtyBit(dirtyBit);
 
@@ -228,7 +220,7 @@ namespace Mirror
             CommandMessage message = new CommandMessage
             {
                 netId = netId,
-                componentIndex = (byte)ComponentIndex,
+                componentIndex = ComponentIndex,
                 // type+func so Inventory.RpcUse != Equipment.RpcUse
                 functionHash = RemoteCallHelper.GetMethodHash(invokeClass, cmdName),
                 // segment to avoid reader allocations
@@ -263,7 +255,7 @@ namespace Mirror
             RpcMessage message = new RpcMessage
             {
                 netId = netId,
-                componentIndex = (byte)ComponentIndex,
+                componentIndex = ComponentIndex,
                 // type+func so Inventory.RpcUse != Equipment.RpcUse
                 functionHash = RemoteCallHelper.GetMethodHash(invokeClass, rpcName),
                 // segment to avoid reader allocations
@@ -310,7 +302,7 @@ namespace Mirror
             RpcMessage message = new RpcMessage
             {
                 netId = netId,
-                componentIndex = (byte)ComponentIndex,
+                componentIndex = ComponentIndex,
                 // type+func so Inventory.RpcUse != Equipment.RpcUse
                 functionHash = RemoteCallHelper.GetMethodHash(invokeClass, rpcName),
                 // segment to avoid reader allocations
@@ -321,10 +313,10 @@ namespace Mirror
         }
 
         // helper function for [SyncVar] GameObjects.
-        // needs to be public so that tests & NetworkBehaviours from other
-        // assemblies both find it
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static bool SyncVarGameObjectEqual(GameObject newGameObject, uint netIdField)
+        // IMPORTANT: keep as 'protected', not 'internal', otherwise Weaver
+        //            can't resolve it
+        // TODO make this static and adjust weaver to find it
+        protected bool SyncVarGameObjectEqual(GameObject newGameObject, uint netIdField)
         {
             uint newNetId = 0;
             if (newGameObject != null)
@@ -364,7 +356,7 @@ namespace Mirror
                 }
             }
 
-            //Debug.Log($"SetSyncVar GameObject {GetType().Name} bit:{dirtyBit} netfieldId:{netIdField} -> {newNetId}");
+            // Debug.Log("SetSyncVar GameObject " + GetType().Name + " bit [" + dirtyBit + "] netfieldId:" + netIdField + "->" + newNetId);
             SetSyncVarDirtyBit(dirtyBit);
             // assign new one on the server, and in case we ever need it on client too
             gameObjectField = newGameObject;
@@ -389,10 +381,9 @@ namespace Mirror
         }
 
         // helper function for [SyncVar] NetworkIdentities.
-        // needs to be public so that tests & NetworkBehaviours from other
-        // assemblies both find it
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static bool SyncVarNetworkIdentityEqual(NetworkIdentity newIdentity, uint netIdField)
+        // IMPORTANT: keep as 'protected', not 'internal', otherwise Weaver
+        //            can't resolve it
+        protected bool SyncVarNetworkIdentityEqual(NetworkIdentity newIdentity, uint netIdField)
         {
             uint newNetId = 0;
             if (newIdentity != null)
@@ -425,7 +416,7 @@ namespace Mirror
                 }
             }
 
-            //Debug.Log($"SetSyncVarNetworkIdentity NetworkIdentity {GetType().Name} bit:{dirtyBit} netIdField:{netIdField} -> {newNetId}");
+            // Debug.Log("SetSyncVarNetworkIdentity NetworkIdentity " + GetType().Name + " bit [" + dirtyBit + "] netIdField:" + netIdField + "->" + newNetId);
             SetSyncVarDirtyBit(dirtyBit);
             netIdField = newNetId;
             // assign new one on the server, and in case we ever need it on client too
@@ -448,7 +439,7 @@ namespace Mirror
             return identityField;
         }
 
-        protected static bool SyncVarNetworkBehaviourEqual<T>(T newBehaviour, NetworkBehaviourSyncVar syncField) where T : NetworkBehaviour
+        protected bool SyncVarNetworkBehaviourEqual<T>(T newBehaviour, NetworkBehaviourSyncVar syncField) where T : NetworkBehaviour
         {
             uint newNetId = 0;
             int newComponentIndex = 0;
@@ -545,19 +536,16 @@ namespace Mirror
             }
         }
 
-        protected static bool SyncVarEqual<T>(T value, ref T fieldValue)
+        protected bool SyncVarEqual<T>(T value, ref T fieldValue)
         {
             // newly initialized or changed value?
-            // value.Equals(fieldValue) allocates without 'where T : IEquatable'
-            // seems like we use EqualityComparer to avoid allocations,
-            // because not all SyncVars<T> are IEquatable
             return EqualityComparer<T>.Default.Equals(value, fieldValue);
         }
 
         // dirtyBit is a mask like 00010
         protected void SetSyncVar<T>(T value, ref T fieldValue, ulong dirtyBit)
         {
-            //Debug.Log($"SetSyncVar {GetType().Name} bit:{dirtyBit} fieldValue:{value}");
+            // Debug.Log("SetSyncVar " + GetType().Name + " bit [" + dirtyBit + "] " + fieldValue + "->" + value);
             SetSyncVarDirtyBit(dirtyBit);
             fieldValue = value;
         }

@@ -5,26 +5,26 @@ using Mono.CecilX.Cil;
 
 namespace Mirror.Weaver
 {
-    // Processes [SyncVar] attribute fields in NetworkBehaviour
+    // Processes [SyncVar] in NetworkBehaviour
     // not static, because ILPostProcessor is multithreaded
-    public class SyncVarAttributeProcessor
+    public class SyncVarProcessor
     {
         // ulong = 64 bytes
         const int SyncVarLimit = 64;
 
         AssemblyDefinition assembly;
         WeaverTypes weaverTypes;
-        SyncVarAccessLists syncVarAccessLists;
+        WeaverLists weaverLists;
         Logger Log;
 
         string HookParameterMessage(string hookName, TypeReference ValueType) =>
             $"void {hookName}({ValueType} oldValue, {ValueType} newValue)";
 
-        public SyncVarAttributeProcessor(AssemblyDefinition assembly, WeaverTypes weaverTypes, SyncVarAccessLists syncVarAccessLists, Logger Log)
+        public SyncVarProcessor(AssemblyDefinition assembly, WeaverTypes weaverTypes, WeaverLists weaverLists, Logger Log)
         {
             this.assembly = assembly;
             this.weaverTypes = weaverTypes;
-            this.syncVarAccessLists = syncVarAccessLists;
+            this.weaverLists = weaverLists;
             this.Log = Log;
         }
 
@@ -161,12 +161,10 @@ namespace Mirror.Weaver
             // if (!SyncVarEqual(value, ref playerData))
             Instruction endOfMethod = worker.Create(OpCodes.Nop);
 
-            // NOTE: SyncVar...Equal functions are static.
-            // don't Emit Ldarg_0 aka 'this'.
-
+            // this
+            worker.Emit(OpCodes.Ldarg_0);
             // new value to set
             worker.Emit(OpCodes.Ldarg_1);
-
             // reference to field to set
             // make generic version of SetSyncVar with field type
             if (fd.FieldType.Is<UnityEngine.GameObject>())
@@ -344,7 +342,7 @@ namespace Mirror.Weaver
             td.Methods.Add(get);
             td.Methods.Add(set);
             td.Properties.Add(propertyDefinition);
-            syncVarAccessLists.replacementSetterProperties[fd] = set;
+            weaverLists.replacementSetterProperties[fd] = set;
 
             // replace getter field if GameObject/NetworkIdentity so it uses
             // netId instead
@@ -352,7 +350,7 @@ namespace Mirror.Weaver
             //    end up in recursion.
             if (fd.FieldType.IsNetworkIdentityField())
             {
-                syncVarAccessLists.replacementGetterProperties[fd] = get;
+                weaverLists.replacementGetterProperties[fd] = get;
             }
         }
 
@@ -363,7 +361,7 @@ namespace Mirror.Weaver
 
             // the mapping of dirtybits to sync-vars is implicit in the order of the fields here. this order is recorded in m_replacementProperties.
             // start assigning syncvars at the place the base class stopped, if any
-            int dirtyBitCounter = syncVarAccessLists.GetSyncVarStart(td.BaseType.FullName);
+            int dirtyBitCounter = weaverLists.GetSyncVarStart(td.BaseType.FullName);
 
             // find syncvars
             foreach (FieldDefinition fd in td.Fields)
@@ -410,7 +408,7 @@ namespace Mirror.Weaver
             {
                 td.Fields.Add(fd);
             }
-            syncVarAccessLists.SetNumSyncVars(td.FullName, syncVars.Count);
+            weaverLists.SetNumSyncVars(td.FullName, syncVars.Count);
 
             return (syncVars, syncVarNetIds);
         }

@@ -14,10 +14,11 @@ namespace Mirror.Examples.Additive
         {
             if (characterController == null)
                 characterController = GetComponent<CharacterController>();
+        }
 
-            characterController.enabled = false;
-            GetComponent<Rigidbody>().isKinematic = true;
-            GetComponent<NetworkTransform>().clientAuthority = true;
+        void Start()
+        {
+            characterController.enabled = isLocalPlayer;
         }
 
         public override void OnStartLocalPlayer()
@@ -26,8 +27,6 @@ namespace Mirror.Examples.Additive
             Camera.main.transform.SetParent(transform);
             Camera.main.transform.localPosition = new Vector3(0f, 3f, -8f);
             Camera.main.transform.localEulerAngles = new Vector3(10f, 0f, 0f);
-
-            characterController.enabled = true;
         }
 
         void OnDisable()
@@ -57,7 +56,7 @@ namespace Mirror.Examples.Additive
 
         void Update()
         {
-            if (!isLocalPlayer || characterController == null || !characterController.enabled)
+            if (!isLocalPlayer || !characterController.enabled)
                 return;
 
             horizontal = Input.GetAxis("Horizontal");
@@ -89,7 +88,7 @@ namespace Mirror.Examples.Additive
 
         void FixedUpdate()
         {
-            if (!isLocalPlayer || characterController == null || !characterController.enabled)
+            if (!isLocalPlayer || characterController == null)
                 return;
 
             transform.Rotate(0f, turn * Time.fixedDeltaTime, 0f);

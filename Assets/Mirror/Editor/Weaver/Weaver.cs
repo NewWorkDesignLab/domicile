@@ -20,7 +20,7 @@ namespace Mirror.Weaver
         public const string MirrorAssemblyName = "Mirror";
 
         WeaverTypes weaverTypes;
-        SyncVarAccessLists syncVarAccessLists;
+        WeaverLists weaverLists;
         IAssemblyResolver Resolver;
         AssemblyDefinition CurrentAssembly;
         Writers writers;
@@ -78,7 +78,7 @@ namespace Mirror.Weaver
             bool modified = false;
             foreach (TypeDefinition behaviour in behaviourClasses)
             {
-                modified |= new NetworkBehaviourProcessor(CurrentAssembly, weaverTypes, syncVarAccessLists, writers, readers, Log, behaviour).Process(ref WeavingFailed);
+                modified |= new NetworkBehaviourProcessor(CurrentAssembly, weaverTypes, weaverLists, writers, readers, Log, behaviour).Process(ref WeavingFailed);
             }
             return modified;
         }
@@ -159,7 +159,7 @@ namespace Mirror.Weaver
                 CreateGeneratedCodeClass();
 
                 // WeaverList depends on WeaverTypes setup because it uses Import
-                syncVarAccessLists = new SyncVarAccessLists();
+                weaverLists = new WeaverLists();
 
                 // initialize readers & writers with this assembly.
                 // we need to do this in every Process() call.
@@ -187,7 +187,7 @@ namespace Mirror.Weaver
 
                 if (modified)
                 {
-                    SyncVarAttributeAccessReplacer.Process(moduleDefinition, syncVarAccessLists);
+                    PropertySiteProcessor.Process(moduleDefinition, weaverLists);
 
                     // add class that holds read/write functions
                     moduleDefinition.Types.Add(GeneratedCodeClass);
