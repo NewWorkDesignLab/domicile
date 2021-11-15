@@ -16,24 +16,24 @@ public class NetworkedScenario : NetworkBehaviour
 
     #endregion
 
-    public ScenarioReportButton[] reports;
-    public ScenarioNameDisplay[] names;
+    // public ScenarioReportButton[] reports;
+    // public ScenarioNameDisplay[] names;
 
-    void UpdateReports()
-    {
-        for (int i = 0; i < reports.Length; i++)
-        {
-            reports[i].UpdateVisuals();
-        }
-    }
+    // void UpdateReports()
+    // {
+    //     for (int i = 0; i < reports.Length; i++)
+    //     {
+    //         reports[i].UpdateVisuals();
+    //     }
+    // }
 
-    void UpdateNames()
-    {
-        for (int i = 0; i < names.Length; i++)
-        {
-            names[i].UpdateVisuals();
-        }
-    }
+    // void UpdateNames()
+    // {
+    //     for (int i = 0; i < names.Length; i++)
+    //     {
+    //         names[i].UpdateVisuals();
+    //     }
+    // }
 
     [SyncVar(hook = nameof(IDChanged))]
     public string scenarioID;
@@ -96,20 +96,20 @@ public class NetworkedScenario : NetworkBehaviour
 
     private void NameChanged(string _, string newValue)
     {
-        UpdateNames();
+        // UpdateNames();
     }
 
     private void TenantChanged(int _, int newValue)
     {
-        UpdateReports();
+        // UpdateReports();
     }
     private void ContractChanged(int _, int newValue)
     {
-        UpdateReports();
+        // UpdateReports();
     }
     private void ProtocolChanged(int _, int newValue)
     {
-        UpdateReports();
+        // UpdateReports();
     }
 
     public void InitScenario(string _id, string _name, RoomCount _rooms, TextureDifficulty _textures, CaseReport _report, Tenant _tenant, RentalContract _contract, HandoverProtocol _protocol)

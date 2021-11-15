@@ -28,13 +28,13 @@ public class SyncSceneProgress : NetworkBehaviour
         if (newStatus < SceneSyncSettings.Length)
         {
             SceneSyncSettings[newStatus].OnSceneSyncAll?.Invoke();
-            if (DomicileNetworkRoomPlayer.localPlayer.role == PlayerRole.guide) SceneSyncSettings[newStatus].OnSceneSyncGuide?.Invoke();
-            if (DomicileNetworkRoomPlayer.localPlayer.role == PlayerRole.learner) SceneSyncSettings[newStatus].OnSceneSyncLearner?.Invoke();
-            if (DomicileNetworkRoomPlayer.localPlayer.role == PlayerRole.spectator) SceneSyncSettings[newStatus].OnSceneSyncSpectator?.Invoke();
+            // if (DomicileNetworkRoomPlayer.localRoomPlayer.role == PlayerRole.guide) SceneSyncSettings[newStatus].OnSceneSyncGuide?.Invoke();
+            // if (DomicileNetworkRoomPlayer.localRoomPlayer.role == PlayerRole.learner) SceneSyncSettings[newStatus].OnSceneSyncLearner?.Invoke();
+            // if (DomicileNetworkRoomPlayer.localRoomPlayer.role == PlayerRole.spectator) SceneSyncSettings[newStatus].OnSceneSyncSpectator?.Invoke();
         }
         else
         {
-            DomicileNetworkRoomPlayer.localPlayer.CmdSetSceneIngame();
+            // DomicileNetworkRoomPlayer.localRoomPlayer.CmdSetSceneIngame();
         }
     }
 

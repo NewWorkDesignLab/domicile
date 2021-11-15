@@ -88,18 +88,18 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     public void Lobby_SetRole(int role)
     {
         Debug.Log("Set Role");
-        DomicileNetworkRoomPlayer.localPlayer.CmdSetRole((PlayerRole)role);
+        // TestRoomPlayer.localRoomPlayer.CmdSetTest(Random.Range(0, 100));
     }
 
     public void Lobby_ToogleReadyFlag()
     {
-        bool currentState = DomicileNetworkRoomPlayer.localPlayer.readyToBegin;
-        DomicileNetworkRoomPlayer.localPlayer.CmdChangeReadyState(!currentState);
+        // bool currentState = DomicileNetworkRoomPlayer.localRoomPlayer.readyToBegin;
+        // DomicileNetworkRoomPlayer.localRoomPlayer.CmdChangeReadyState(!currentState);
     }
 
     public void Lobby_LeaveLobby()
     {
-        DomicileNetworkRoomPlayer.localPlayer.LeaveLobby();
+        // DomicileNetworkRoomPlayer.localRoomPlayer.LeaveLobby();
     }
 
     #endregion

@@ -20,7 +20,7 @@ public class DomicileNetworkRoomManager : NetworkRoomManager
 {
     public static DomicileNetworkRoomManager instance;
 
-    private bool enableStartButton = false;
+    // private bool enableStartButton = false;
 
     public override void Awake()
     {
@@ -28,44 +28,33 @@ public class DomicileNetworkRoomManager : NetworkRoomManager
         instance = this;
     }
 
-    public override void Start()
-    {
-        base.Start();
-#if UNITY_STANDALONE_LINUX
-        StartServer();
-#endif
-    }
+    // [ServerCallback]
+    // void Update()
+    // {
+    //     if (!allPlayersReady && enableStartButton)
+    //     {
+    //         OnRoomServerPlayersNotReady();
+    //     }
+    // }
 
-    [ServerCallback]
-    void Update()
-    {
-        if (!allPlayersReady && enableStartButton)
-        {
-            enableStartButton = false;
-            OnRoomServerPlayersNotReady();
-        }
-    }
+    // /// <summary>
+    // /// This is called on the server when all the players in the room are ready.
+    // /// <para>The default implementation of this function uses ServerChangeScene() to switch to the game player scene. By implementing this callback you can customize what happens when all the players in the room are ready, such as adding a countdown or a confirmation for a group leader.</para>
+    // /// </summary>
+    // [Server]
+    // public override void OnRoomServerPlayersReady()
+    // {
+    //     enableStartButton = true;
+    //     // LobbyUIManager.instance.Lobby_EnableStartButton(true);
+    // }
 
-    /// <summary>
-    /// This is called on the server when all the players in the room are ready.
-    /// <para>The default implementation of this function uses ServerChangeScene() to switch to the game player scene. By implementing this callback you can customize what happens when all the players in the room are ready, such as adding a countdown or a confirmation for a group leader.</para>
-    /// </summary>
-    [Server]
-    public override void OnRoomServerPlayersReady()
-    {
-        // base.OnRoomServerPlayersReady();
-        enableStartButton = true;
-        Debug.Log("ALL PLAYERS READY");
-        LobbyUIManager.instance.Lobby_EnableStartButton(true);
-    }
-
-    /// <summary>
-    /// This is called on the server when all the players previouly were ready but someone cancels ready-state.
-    /// </summary>
-    [Server]
-    public override void OnRoomServerPlayersNotReady()
-    {
-        Debug.Log("ALL PLAYERS READY CANCELD");
-        LobbyUIManager.instance.Lobby_EnableStartButton(false);
-    }
+    // /// <summary>
+    // /// This is called on the server when all the players previouly were ready but someone cancels ready-state.
+    // /// </summary>
+    // [Server]
+    // public override void OnRoomServerPlayersNotReady()
+    // {
+    //     enableStartButton = false;
+    //     // LobbyUIManager.instance.Lobby_EnableStartButton(false);
+    // }
 }
