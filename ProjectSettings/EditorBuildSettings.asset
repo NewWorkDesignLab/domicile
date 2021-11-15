@@ -14,4 +14,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Project/Scenes/22_Online.unity
     guid: 0b8e63e5f18fdd841a4db9556cbba2c0
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9a37bac31a969094c82ad0eb1bb49e06, type: 2}
