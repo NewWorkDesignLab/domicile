@@ -11,6 +11,7 @@ using Mirror;
 
 public class OnlinePlayer : NetworkBehaviour
 {
+    public static OnlinePlayer localPlayer;
     public BasePlayer player;
 
     [SyncVar] public string playerName;
@@ -45,7 +46,20 @@ public class OnlinePlayer : NetworkBehaviour
     /// Called on every NetworkBehaviour when it is activated on a client.
     /// <para>Objects on the host have this function called, as there is a local client on the host. The values of SyncVars on object are guaranteed to be initialized correctly with the latest state from the server when this function is called on the client.</para>
     /// </summary>
-    public override void OnStartClient() { }
+    public override void OnStartClient()
+    {
+#if UNITY_STANDALONE_LINUX
+        Debug.Log ("[InactivePlayer Start] A new Player joined to Server: " + playerName + " - " + playerTarget + " - " + playerRole);
+        player.SetupInactivePlayer ();
+#else
+        if (isLocalPlayer) {
+            localPlayer = this;
+            player.SetupLocalPlayer ();
+        } else {
+            player.SetupVisablePlayer ();
+        }
+#endif
+    }
 
     /// <summary>
     /// This is invoked on clients when the server has caused this object to be destroyed.

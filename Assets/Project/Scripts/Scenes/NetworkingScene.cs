@@ -6,9 +6,9 @@ public class NetworkingScene : MonoBehaviour
     void Start()
     {
 #if UNITY_STANDALONE_LINUX
-        DomicileNetManager.instance.StartServer();
+        ((DomicileNetManager)NetworkManager.singleton).StartServer();
 #else
-        DomicileNetManager.instance.StartClient();
+        ((DomicileNetManager)NetworkManager.singleton).StartClient();
 #endif
     }
 }

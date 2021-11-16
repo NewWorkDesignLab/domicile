@@ -12,13 +12,12 @@ using Mirror;
 
 public class DomicileNetManager : NetworkManager
 {
-    public static DomicileNetManager instance;
-
     [Header("MultiScene Setup")]
     [Scene] public string gameScene;
+    [Scene] public string lobbyScene;
 
     // subscenes are added to this list as they're loaded
-    readonly List<Scene> subScenes = new List<Scene>();
+    SubScenarioList subScenarios = new SubScenarioList();
 
 
 
@@ -46,7 +45,6 @@ public class DomicileNetManager : NetworkManager
     public override void Awake()
     {
         base.Awake();
-        instance = this;
     }
 
     /// <summary>
@@ -169,6 +167,7 @@ public class DomicileNetManager : NetworkManager
     /// <param name="conn">Connection from client.</param>
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
+        Debug.Log("On Server Add Player");
         base.OnServerAddPlayer(conn);
     }
 
@@ -270,7 +269,63 @@ public class DomicileNetManager : NetworkManager
 
     void OnCreatePlayer (NetworkConnection conn, CreatePlayerMessage message)
     {
+        Debug.Log("On Create Player");
+        StartCoroutine(OnCreatePlayerDelayed(conn, message));
+    }
+
+    IEnumerator OnCreatePlayerDelayed(NetworkConnection conn, CreatePlayerMessage message)
+    {
+        // evaluate required scenario
+        SubScenario foundScenario = subScenarios.GetScenario(message.scenario);
+        SubScenario targetScenario = null;
+
+        if (message.target == SessionTarget.join && foundScenario != null)
+        {
+            // join existing scenario
+            Debug.LogWarning("Would join existing Scenario.");
+            yield break;
+        }
+        else if (message.target == SessionTarget.join && foundScenario == null)
+        {
+            // want to join scenario that doesnt exist
+            Debug.LogWarning("Scenario to join not found.");
+            yield break;
+        }
+        else if (message.target == SessionTarget.create)
+        {
+            // create mew scenario
+            int index = SceneManager.sceneCount;
+            yield return SceneManager.LoadSceneAsync(gameScene, LoadSceneMode.Additive);
+            Scene loadedGameScene = SceneManager.GetSceneAt(index);
+
+            index = SceneManager.sceneCount;
+            yield return SceneManager.LoadSceneAsync(lobbyScene, LoadSceneMode.Additive);
+            Scene loadedLobbyScene = SceneManager.GetSceneAt(index);
+
+            if (!loadedGameScene.IsValid() || !loadedLobbyScene.IsValid())
+            {
+                Debug.LogWarning("SCENE NOT VALID");
+                yield break;
+            }
+
+            targetScenario = subScenarios.AddScenario("ABCDE", loadedGameScene, loadedLobbyScene);
+        }
+
+        // wait for server to async load subscenes for game and lobby instances
+        while (targetScenario == null)
+            yield return null;
+
+        // Send Scene message to client to additively load the game scene
+        conn.Send(new SceneMessage { sceneName = lobbyScene, sceneOperation = SceneOperation.LoadAdditive });
+        conn.Send(new SceneMessage { sceneName = gameScene, sceneOperation = SceneOperation.LoadAdditive });
+
+        // Wait for end of frame before adding the player to ensure Scene Message goes first
+        yield return new WaitForEndOfFrame();
+
+        // create player
         GameObject gameobject = Instantiate (playerPrefab);
+        NetworkServer.Spawn (gameobject);
+
         OnlinePlayer player = gameobject.GetComponent<OnlinePlayer> ();
         player.playerName = message.name;
         player.playerGender = message.gender;
@@ -284,9 +339,12 @@ public class DomicileNetManager : NetworkManager
         player.playerTenant = message.tenant;
         player.playerContract = message.contract;
         player.playerProtocol = message.protocol;
-        
-        NetworkServer.Spawn (gameobject);
         NetworkServer.AddPlayerForConnection (conn, gameobject);
+
+        // Do this only on server, not on clients
+        // This is what allows the NetworkSceneChecker on player and scene objects
+        // to isolate matches per scene instance on server.
+        SceneManager.MoveGameObjectToScene(conn.identity.gameObject, targetScenario.lobbyScene);
     }
 
     /// <summary>
