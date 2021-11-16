@@ -29,7 +29,6 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
 
     [Header("Offline UI")]
     public GameObject offlineGroup;
-    [Scene] public string offlineSceneToLoad;
 
     protected override void Awake()
     {
@@ -90,25 +89,6 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
         string txt = TextGenerator.GenerateReportText(SessionManager.instance.session.tenant, SessionManager.instance.session.contract, SessionManager.instance.session.protocol);
         scenarioCreateDisplayReport.buttonText = txt;
         scenarioCreateDisplayReport.UpdateUI();
-    }
-
-    public void CreateScenario_CreateLobby()
-    {
-        DomicileNetworkRoomManager.instance.StartClient();
-    }
-
-    public void CreateScenario_JoinLobby()
-    {
-        DomicileNetworkRoomManager.instance.StartClient();
-    }
-
-    #endregion
-
-    #region Offline
-
-    public void Offline_LoadScene()
-    {
-        SceneManager.LoadScene(offlineSceneToLoad);
     }
 
     #endregion

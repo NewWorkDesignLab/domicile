@@ -1,7 +1,17 @@
 using Mirror;
 
 public struct CreatePlayerMessage : NetworkMessage {
-    public string email;
-    public int scenario;
+    public string name;
     public PlayerRole role;
+    public Gender gender;
+    public SessionTarget target;
+    public string scenario;
+    public string scenarioName;
+
+    public RoomCount rooms;
+    public TextureDifficulty textures;
+    public CaseReport report;
+    public Tenant tenant;
+    public RentalContract contract;
+    public HandoverProtocol protocol;
 }

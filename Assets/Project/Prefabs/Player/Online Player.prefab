@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7719062317763899477}
+  - component: {fileID: -1019676341344526936}
   - component: {fileID: 7719062317763899478}
   - component: {fileID: 7719062317763899479}
   - component: {fileID: 7719062317763899480}
   - component: {fileID: 7719062317763899481}
   m_Layer: 0
-  m_Name: Networked Player
+  m_Name: Online Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,6 +36,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1019676341344526936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719062317763899482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b73a5259df19ab4692b88a4b2f2707f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  player: {fileID: 6975699717313986405}
+  playerName: 
+  playerGender: 0
+  playerRole: 0
 --- !u!114 &7719062317763899478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8009079933650207456, guid: a57967d6020e0251d9be904f5dd7f148, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Base Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a57967d6020e0251d9be904f5dd7f148, type: 3}
@@ -204,6 +223,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1580225025982130353, guid: a57967d6020e0251d9be904f5dd7f148, type: 3}
   m_PrefabInstance: {fileID: 5353953219800643630}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6975699717313986405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3063496652184373067, guid: a57967d6020e0251d9be904f5dd7f148, type: 3}
+  m_PrefabInstance: {fileID: 5353953219800643630}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd619a9eb035a37ecb41edb3dd3152e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4246919223477084240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8123656578980616318, guid: a57967d6020e0251d9be904f5dd7f148, type: 3}

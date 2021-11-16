@@ -32,7 +32,7 @@ public class DomicileNetworkManager : NetworkManager {
         GameObject gameobject = Instantiate (playerPrefab);
         NetworkServer.Spawn (gameobject);
 
-        OfflinePlayer player = gameobject.GetComponent<OfflinePlayer> ();
+        BasePlayer player = gameobject.GetComponent<BasePlayer> ();
         // player.email = message.email;
         // player.scenario = message.scenario;
         // player.role = message.role;

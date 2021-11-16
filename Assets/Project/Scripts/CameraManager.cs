@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class CameraManager : Singleton<CameraManager>
 {
-    public bool enableCamOnStart = false;
+    public bool enableCamServer = false;
+    public bool enableCamNotServer = false;
     public Camera camBehaviour;
 
     void Start()
     {
-        if (enableCamOnStart) InitCamera();
+#if UNITY_STANDALONE_LINUX
+        if (enableCamServer) InitCamera();
+#else
+        if (enableCamNotServer) InitCamera();
+#endif
     }
 
     public void InitCamera()

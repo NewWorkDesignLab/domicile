@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class OfflinePlayerMovement : MonoBehaviour {
+public class BasePlayerMovement : MonoBehaviour {
     private bool movementIsFast = false;
     private float movementFactorSlow = 1f;
     private float movementFactorFast = 2f;
@@ -15,7 +15,7 @@ public class OfflinePlayerMovement : MonoBehaviour {
             return;
 
         movementStatus = PlayerMovementStatus.idle;
-        OfflinePlayer.localPlayer.Stand ();
+        BasePlayer.localPlayer.Stand ();
         if (HUD.instance != null)
             HUD.instance.positionText.text = "Stehen";
 
@@ -29,7 +29,7 @@ public class OfflinePlayerMovement : MonoBehaviour {
             return;
 
         movementStatus = PlayerMovementStatus.walk;
-        OfflinePlayer.localPlayer.Stand ();
+        BasePlayer.localPlayer.Stand ();
         if (HUD.instance != null)
             HUD.instance.positionText.text = "Laufen";
     }
@@ -39,7 +39,7 @@ public class OfflinePlayerMovement : MonoBehaviour {
             return;
 
         movementStatus = PlayerMovementStatus.crawl;
-        OfflinePlayer.localPlayer.Crawl ();
+        BasePlayer.localPlayer.Crawl ();
         if (HUD.instance != null)
             HUD.instance.positionText.text = "Hocken";
 

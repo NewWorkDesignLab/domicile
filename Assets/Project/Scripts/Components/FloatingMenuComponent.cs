@@ -78,7 +78,7 @@ public class FloatingMenuComponent : MonoBehaviour {
     }
 
     public void ToggleCrawlButton () {
-        OfflinePlayer.localPlayer.playerMovement.ToggleModeCrawl ();
+        BasePlayer.localPlayer.playerMovement.ToggleModeCrawl ();
         CloseMenu ();
     }
     public void ScreenshotButton () {
@@ -99,12 +99,12 @@ public class FloatingMenuComponent : MonoBehaviour {
     }
 
     public void TeleportButton () {
-        OfflinePlayer.localPlayer.TeleportPlayer ();
+        BasePlayer.localPlayer.TeleportPlayer ();
         CloseMenu ();
     }
 
     public void ToggleMovementSpeedButton () {
-        OfflinePlayer.localPlayer.playerMovement.ToggleMovementSpeed ();
+        BasePlayer.localPlayer.playerMovement.ToggleMovementSpeed ();
         CloseMenu ();
     }
 }
