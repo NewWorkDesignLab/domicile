@@ -109,20 +109,20 @@ public class DomicileNetworkRoomPlayer : NetworkRoomPlayer
     public override void OnStartLocalPlayer()
     {
         localRoomPlayer = this;
-    //     CmdInitPlayer(SessionManager.session.name, SessionManager.session.gender, PlayerRole.spectator);
-    //     if (SessionManager.session.target == SessionTarget.create)
+    //     CmdInitPlayer(SessionManager.instance.session.name, SessionManager.instance.session.gender, PlayerRole.spectator);
+    //     if (SessionManager.instance.session.target == SessionTarget.create)
     //     {
     //         CmdChangeReadyState(true);
     //         CmdGetAuthority();
     //         CmdInitNetworkedScenario(
-    //             SessionManager.session.scenario,
-    //             SessionManager.session.scenarioName,
-    //             SessionManager.session.rooms,
-    //             SessionManager.session.textures,
-    //             SessionManager.session.report,
-    //             SessionManager.session.tenant,
-    //             SessionManager.session.contract,
-    //             SessionManager.session.protocol
+    //             SessionManager.instance.session.scenario,
+    //             SessionManager.instance.session.scenarioName,
+    //             SessionManager.instance.session.rooms,
+    //             SessionManager.instance.session.textures,
+    //             SessionManager.instance.session.report,
+    //             SessionManager.instance.session.tenant,
+    //             SessionManager.instance.session.contract,
+    //             SessionManager.instance.session.protocol
     //         );
     //     }
     }

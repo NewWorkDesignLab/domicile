@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using Mirror;
 using TMPro;
 using Michsky.UI.ModernUIPack;
+using UnityEngine.SceneManagement;
 
 public class OfflineUIManager : Singleton<OfflineUIManager>
 {
@@ -26,6 +27,10 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
     [Header("Join Scenario UI")]
     public GameObject scJoinGroup;
 
+    [Header("Offline UI")]
+    public GameObject offlineGroup;
+    [Scene] public string offlineSceneToLoad;
+
     protected override void Awake()
     {
         base.Awake();
@@ -40,15 +45,16 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
         scenarioCreateGroupA.SetActive(false);
         scenarioCreateGroupB.SetActive(false);
         scJoinGroup.SetActive(false);
+        offlineGroup.SetActive(false);
     }
 
     #region Main Landing UI
 
     public void MainLanding_CheckButtonInteraction()
     {
-        bool nameReady = SessionManager.session.IsValidName();
-        bool genderReady = SessionManager.session.gender != Gender.unspecified;
-        bool consentReady = SessionManager.session.consent;
+        bool nameReady = SessionManager.instance.session.IsValidName();
+        bool genderReady = SessionManager.instance.session.gender != Gender.unspecified;
+        bool consentReady = SessionManager.instance.session.consent;
         mainLandingButton.interactable = nameReady && genderReady && consentReady;
     }
 
@@ -58,7 +64,7 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
 
     public void MainLanding_SetGreeting()
     {
-        mainMenuText.text = $"Hallo {SessionManager.session.name}. Was möchten Sie tun?";
+        mainMenuText.text = $"Hallo {SessionManager.instance.session.name}. Was möchten Sie tun?";
     }
 
     #endregion
@@ -67,21 +73,21 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
 
     public void CreateScenario_UpdateRoomDisplay()
     {
-        string txt = TextGenerator.GenerateRoomText(SessionManager.session.rooms);
+        string txt = TextGenerator.GenerateRoomText(SessionManager.instance.session.rooms);
         scenarioCreateDisplayRooms.buttonText = txt;
         scenarioCreateDisplayRooms.UpdateUI();
     }
 
     public void CreateScenario_UpdateTextureDisplay()
     {
-        string txt = TextGenerator.GenerateTextureText(SessionManager.session.textures);
+        string txt = TextGenerator.GenerateTextureText(SessionManager.instance.session.textures);
         scenarioCreateDisplayTextures.buttonText = txt;
         scenarioCreateDisplayTextures.UpdateUI();
     }
 
     public void CreateScenario_UpdateReportDisplay()
     {
-        string txt = TextGenerator.GenerateReportText(SessionManager.session.tenant, SessionManager.session.contract, SessionManager.session.protocol);
+        string txt = TextGenerator.GenerateReportText(SessionManager.instance.session.tenant, SessionManager.instance.session.contract, SessionManager.instance.session.protocol);
         scenarioCreateDisplayReport.buttonText = txt;
         scenarioCreateDisplayReport.UpdateUI();
     }
@@ -94,6 +100,15 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
     public void CreateScenario_JoinLobby()
     {
         DomicileNetworkRoomManager.instance.StartClient();
+    }
+
+    #endregion
+
+    #region Offline
+
+    public void Offline_LoadScene()
+    {
+        SceneManager.LoadScene(offlineSceneToLoad);
     }
 
     #endregion

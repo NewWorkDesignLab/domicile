@@ -65,7 +65,7 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     public void Lobby_UpdateUI()
     {
         // Join / Ready Button
-        bool isCreator = SessionManager.session.target == SessionTarget.create;
+        bool isCreator = SessionManager.instance.session.target == SessionTarget.create;
         readyButton.gameObject.SetActive(!isCreator);
         startButton.gameObject.SetActive(isCreator);
     }

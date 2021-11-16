@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class CameraManager : Singleton<CameraManager>
 {
-    public GameObject cameraPrefab;
+    public bool enableCamOnStart = false;
+    public Camera camBehaviour;
+
+    void Start()
+    {
+        if (enableCamOnStart) InitCamera();
+    }
 
     public void InitCamera()
     {
-        Instantiate(cameraPrefab, transform);
+        camBehaviour.enabled = true;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SessionManager : Singleton<SessionManager>
 {
-    public static Session session;
+    public Session session;
     
     protected override void Awake()
     {

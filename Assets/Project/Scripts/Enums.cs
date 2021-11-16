@@ -9,7 +9,8 @@ public enum SessionTarget
 {
     unspecified = 0,
     create = 1,
-    join = 2
+    join = 2,
+    offline = 3
 };
 
 public enum Gender
