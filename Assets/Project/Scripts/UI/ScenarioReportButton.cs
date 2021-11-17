@@ -15,9 +15,9 @@ public class ScenarioReportButton : MonoBehaviour
     public void UpdateVisuals()
     {
         string reportTxt = TextGenerator.GenerateReportText(
-            NetworkedScenario.instance.tenant,
-            NetworkedScenario.instance.contract,
-            NetworkedScenario.instance.protocol
+            OnlinePlayer.scenario.tenant,
+            OnlinePlayer.scenario.contract,
+            OnlinePlayer.scenario.protocol
         );
         button.buttonText = reportTxt;
         button.UpdateUI();

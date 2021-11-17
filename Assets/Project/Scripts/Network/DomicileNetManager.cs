@@ -14,22 +14,15 @@ public class DomicileNetManager : NetworkManager
 {
     [Header("MultiScene Setup")]
     [Scene] public string gameScene;
-    [Scene] public string lobbyScene;
+    public int instances = 20;
 
-    // subscenes are added to this list as they're loaded
-    SubScenarioList subScenarios = new SubScenarioList();
+    public GameObject networkedScenarioPrefab;
 
+    // This is set true after server loads all subscene instances
+    private bool scenePoolLoaded;
 
-
-
-
-
-
-
-
-
-
-
+    // subscenes are added to this pool as they're loaded
+    private ScenePool scenePool = new ScenePool();
 
     #region Unity Callbacks
 
@@ -167,7 +160,6 @@ public class DomicileNetManager : NetworkManager
     /// <param name="conn">Connection from client.</param>
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
-        Debug.Log("On Server Add Player");
         base.OnServerAddPlayer(conn);
     }
 
@@ -265,86 +257,87 @@ public class DomicileNetManager : NetworkManager
     {
         base.OnStartServer ();
         NetworkServer.RegisterHandler<CreatePlayerMessage> (OnCreatePlayer);
+        StartCoroutine(ServerLoadSubScenes());
     }
 
     void OnCreatePlayer (NetworkConnection conn, CreatePlayerMessage message)
     {
-        Debug.Log("On Create Player");
         StartCoroutine(OnCreatePlayerDelayed(conn, message));
     }
 
     IEnumerator OnCreatePlayerDelayed(NetworkConnection conn, CreatePlayerMessage message)
     {
-        // evaluate required scenario
-        SubScenario foundScenario = subScenarios.GetScenario(message.scenario);
-        SubScenario targetScenario = null;
-
-        if (message.target == SessionTarget.join && foundScenario != null)
-        {
-            // join existing scenario
-            Debug.LogWarning("Would join existing Scenario.");
-            yield break;
-        }
-        else if (message.target == SessionTarget.join && foundScenario == null)
-        {
-            // want to join scenario that doesnt exist
-            Debug.LogWarning("Scenario to join not found.");
-            yield break;
-        }
-        else if (message.target == SessionTarget.create)
-        {
-            // create mew scenario
-            int index = SceneManager.sceneCount;
-            yield return SceneManager.LoadSceneAsync(gameScene, LoadSceneMode.Additive);
-            Scene loadedGameScene = SceneManager.GetSceneAt(index);
-
-            index = SceneManager.sceneCount;
-            yield return SceneManager.LoadSceneAsync(lobbyScene, LoadSceneMode.Additive);
-            Scene loadedLobbyScene = SceneManager.GetSceneAt(index);
-
-            if (!loadedGameScene.IsValid() || !loadedLobbyScene.IsValid())
-            {
-                Debug.LogWarning("SCENE NOT VALID");
-                yield break;
-            }
-
-            targetScenario = subScenarios.AddScenario("ABCDE", loadedGameScene, loadedLobbyScene);
-        }
-
-        // wait for server to async load subscenes for game and lobby instances
-        while (targetScenario == null)
+        // wait for server to async load all subscenes for game instances
+        while (!scenePoolLoaded)
             yield return null;
 
+        // get or find scene from pool
+        ScenePoolItem targetScene = message.target switch
+        {
+            SessionTarget.unspecified => null,
+            SessionTarget.create => scenePool.GetUnused(),
+            SessionTarget.join => scenePool.Get(message.scenario),
+            SessionTarget.offline => null,
+            _ => null
+        };
+        
+        if (targetScene == null)
+        {
+            Debug.LogWarning("REQUESTED SCENE NOT FOUND OR NO SCENE AVAILABLE");
+            yield break;
+        }
+
         // Send Scene message to client to additively load the game scene
-        conn.Send(new SceneMessage { sceneName = lobbyScene, sceneOperation = SceneOperation.LoadAdditive });
         conn.Send(new SceneMessage { sceneName = gameScene, sceneOperation = SceneOperation.LoadAdditive });
 
         // Wait for end of frame before adding the player to ensure Scene Message goes first
         yield return new WaitForEndOfFrame();
 
         // create player
-        GameObject gameobject = Instantiate (playerPrefab);
-        NetworkServer.Spawn (gameobject);
-
-        OnlinePlayer player = gameobject.GetComponent<OnlinePlayer> ();
+        GameObject playerGo = Instantiate (playerPrefab);
+        OnlinePlayer player = playerGo.GetComponent<OnlinePlayer> ();
         player.playerName = message.name;
         player.playerGender = message.gender;
         player.playerRole = message.role;
         player.playerTarget = message.target;
-        player.playerScenario = message.scenario;
-        player.playerScenarioName = message.scenarioName;
-        player.playerRooms = message.rooms;
-        player.playerTextures = message.textures;
-        player.playerReport = message.report;
-        player.playerTenant = message.tenant;
-        player.playerContract = message.contract;
-        player.playerProtocol = message.protocol;
-        NetworkServer.AddPlayerForConnection (conn, gameobject);
+        NetworkServer.Spawn (playerGo);
+        NetworkServer.AddPlayerForConnection (conn, playerGo);
+
+        // create synced scenario
+        GameObject scenarioGo = Instantiate (networkedScenarioPrefab);
+        NetworkedScenario netScenario = scenarioGo.GetComponent<NetworkedScenario> ();
+        netScenario.scenarioID = targetScene.id;
+        netScenario.scenarioName = message.scenarioName;
+        netScenario.rooms = message.rooms;
+        netScenario.textures = message.textures;
+        netScenario.report = message.report;
+        netScenario.tenant = message.tenant;
+        netScenario.contract = message.contract;
+        netScenario.protocol = message.protocol;
+        NetworkServer.Spawn (scenarioGo);
+
 
         // Do this only on server, not on clients
         // This is what allows the NetworkSceneChecker on player and scene objects
         // to isolate matches per scene instance on server.
-        SceneManager.MoveGameObjectToScene(conn.identity.gameObject, targetScenario.lobbyScene);
+        SceneManager.MoveGameObjectToScene(playerGo, targetScene.scene);
+        SceneManager.MoveGameObjectToScene(scenarioGo, targetScene.scene);
+    }
+
+    // We're additively loading scenes, so GetSceneAt(0) will return the main "container" scene,
+    // therefore we start the index at one and loop through instances value inclusively.
+    // If instances is zero, the loop is bypassed entirely.
+    IEnumerator ServerLoadSubScenes()
+    {
+        for (int index = 1; index <= instances; index++)
+        {
+            yield return SceneManager.LoadSceneAsync(gameScene, LoadSceneMode.Additive);
+
+            Scene newScene = SceneManager.GetSceneAt(index);
+            scenePool.Add(newScene);
+        }
+
+        scenePoolLoaded = true;
     }
 
     /// <summary>
@@ -360,12 +353,43 @@ public class DomicileNetManager : NetworkManager
     /// <summary>
     /// This is called when a server is stopped - including when a host is stopped.
     /// </summary>
-    public override void OnStopServer() { }
+    public override void OnStopServer()
+    {
+        NetworkServer.SendToAll(new SceneMessage { sceneName = gameScene, sceneOperation = SceneOperation.UnloadAdditive });
+        StartCoroutine(ServerUnloadSubScenes());
+    }
+
+    // Unload the subScenes and unused assets and clear the subScenes list.
+    IEnumerator ServerUnloadSubScenes()
+    {
+        for (int index = 0; index < scenePool.Count; index++)
+            yield return SceneManager.UnloadSceneAsync(scenePool.Get(index).scene);
+
+        scenePool.Clear();
+        scenePoolLoaded = false;
+
+        yield return Resources.UnloadUnusedAssets();
+    }
 
     /// <summary>
     /// This is called when a client is stopped.
     /// </summary>
-    public override void OnStopClient() { }
+    public override void OnStopClient()
+    {
+        // make sure we're not in host mode
+        if (mode == NetworkManagerMode.ClientOnly)
+            StartCoroutine(ClientUnloadSubScenes());
+    }
+
+    // Unload all but the active scene, which is the "container" scene
+    IEnumerator ClientUnloadSubScenes()
+    {
+        for (int index = 0; index < SceneManager.sceneCount; index++)
+        {
+            if (SceneManager.GetSceneAt(index) != SceneManager.GetActiveScene())
+                yield return SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(index));
+        }
+    }
 
     #endregion
 }

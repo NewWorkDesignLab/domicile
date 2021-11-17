@@ -5,35 +5,15 @@ using Mirror;
 
 public class NetworkedScenario : NetworkBehaviour
 {
-    #region Singleton
-
-    public static NetworkedScenario instance;
-
-    void Awake()
+    /// <summary>
+    /// Called on every NetworkBehaviour when it is activated on a client.
+    /// <para>Objects on the host have this function called, as there is a local client on the host. The values of SyncVars on object are guaranteed to be initialized correctly with the latest state from the server when this function is called on the client.</para>
+    /// </summary>
+    public override void OnStartClient()
     {
-        instance = this;
+        OnlinePlayer.scenario = this;
     }
 
-    #endregion
-
-    // public ScenarioReportButton[] reports;
-    // public ScenarioNameDisplay[] names;
-
-    // void UpdateReports()
-    // {
-    //     for (int i = 0; i < reports.Length; i++)
-    //     {
-    //         reports[i].UpdateVisuals();
-    //     }
-    // }
-
-    // void UpdateNames()
-    // {
-    //     for (int i = 0; i < names.Length; i++)
-    //     {
-    //         names[i].UpdateVisuals();
-    //     }
-    // }
 
     [SyncVar(hook = nameof(IDChanged))]
     public string scenarioID;
@@ -93,34 +73,8 @@ public class NetworkedScenario : NetworkBehaviour
     private void RoomsChanged(int _, int newValue) {}
     private void TexturesChanged(int _, int newValue) {}
     private void ReportChanged(int _, int newValue) {}
-
-    private void NameChanged(string _, string newValue)
-    {
-        // UpdateNames();
-    }
-
-    private void TenantChanged(int _, int newValue)
-    {
-        // UpdateReports();
-    }
-    private void ContractChanged(int _, int newValue)
-    {
-        // UpdateReports();
-    }
-    private void ProtocolChanged(int _, int newValue)
-    {
-        // UpdateReports();
-    }
-
-    public void InitScenario(string _id, string _name, RoomCount _rooms, TextureDifficulty _textures, CaseReport _report, Tenant _tenant, RentalContract _contract, HandoverProtocol _protocol)
-    {
-        scenarioID = _id;
-        scenarioName = _name;
-        rooms = _rooms;
-        textures = _textures;
-        report = _report;
-        tenant = _tenant;
-        contract = _contract;
-        protocol = _protocol;
-    }
+    private void NameChanged(string _, string newValue) {}
+    private void TenantChanged(int _, int newValue) {}
+    private void ContractChanged(int _, int newValue) {}
+    private void ProtocolChanged(int _, int newValue) {}
 }

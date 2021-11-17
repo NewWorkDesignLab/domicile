@@ -8,6 +8,6 @@ public class ScenarioNameDisplay : MonoBehaviour
     public void UpdateVisuals()
     {
         // Scenario Name Display
-        scenarioName.text = NetworkedScenario.instance.scenarioName;
+        scenarioName.text = OnlinePlayer.scenario.scenarioName;
     }
 }

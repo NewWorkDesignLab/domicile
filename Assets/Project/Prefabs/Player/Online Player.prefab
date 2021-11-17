@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7719062317763899479}
   - component: {fileID: 7719062317763899480}
   - component: {fileID: 7719062317763899481}
+  - component: {fileID: 2718995268525755139}
   m_Layer: 0
   m_Name: Online Player
   m_TagString: Untagged
@@ -54,6 +55,15 @@ MonoBehaviour:
   playerName: 
   playerGender: 0
   playerRole: 0
+  playerTarget: 0
+  playerScenario: 
+  playerScenarioName: 
+  playerRooms: 0
+  playerTextures: 0
+  playerReport: 0
+  playerTenant: 0
+  playerContract: 0
+  playerProtocol: 0
 --- !u!114 &7719062317763899478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +171,18 @@ MonoBehaviour:
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   target: {fileID: 4310418006266803896}
+--- !u!114 &2718995268525755139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719062317763899482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b979f26c95d34324ba005bfacfa9c4fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5353953219800643630
 PrefabInstance:
   m_ObjectHideFlags: 0

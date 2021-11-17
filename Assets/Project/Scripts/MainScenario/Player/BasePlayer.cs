@@ -22,9 +22,6 @@ public class BasePlayer : MonoBehaviour
     public CapsuleCollider capsuleCollider;
     public TrackedPoseDriver trackedPoseDriver;
 
-    [Header ("Local Player Prefabs")]
-    public GameObject localPlayerExtensionHead;
-
     [Header ("Settings")]
     public float headNormalHeight = 2.75f;
     public float headCrawlHeight = 0.5f;
@@ -42,7 +39,7 @@ public class BasePlayer : MonoBehaviour
         RenamePlayer ("LocalPlayer");
         SetVisabillity (false);
         SetInteractabillity (true);
-        Instantiate (localPlayerExtensionHead, playerHead.transform, false);
+        Camera.main.gameObject.transform.SetParent(playerHead.transform, false);
     }
 
     public void SetupVisablePlayer ()

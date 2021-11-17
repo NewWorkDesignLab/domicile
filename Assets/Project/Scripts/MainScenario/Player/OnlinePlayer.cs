@@ -12,6 +12,7 @@ using Mirror;
 public class OnlinePlayer : NetworkBehaviour
 {
     public static OnlinePlayer localPlayer;
+    public static NetworkedScenario scenario;
     public BasePlayer player;
 
     [SyncVar] public string playerName;
