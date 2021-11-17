@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Project/Scenes/11_Networking.unity
     guid: 5bcdde1a263f80342aec9105800caabf
   - enabled: 1
-    path: Assets/Project/Scenes/11_Lobby.unity
-    guid: 1b5da3bb6ad27f044be6b6e16b0c0056
-  - enabled: 1
     path: Assets/Project/Scenes/22_Environment.unity
     guid: 0b8e63e5f18fdd841a4db9556cbba2c0
   m_configObjects:
