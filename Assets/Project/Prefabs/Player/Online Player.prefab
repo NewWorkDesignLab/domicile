@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  roomReadyState: 0
   player: {fileID: 6975699717313986405}
   lobbyPlayerUIPrefab: {fileID: 8360196074341007822, guid: 84c63c9287dd38448bfd91326051ccaa, type: 3}
   playerName: 

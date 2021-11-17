@@ -120,7 +120,9 @@ public class DomicileNetManager : NetworkManager
     /// <param name="newSceneName">Name of the scene that's about to be loaded</param>
     /// <param name="sceneOperation">Scene operation that's about to happen</param>
     /// <param name="customHandling">true to indicate that scene loading will be handled through overrides</param>
-    public override void OnClientChangeScene(string newSceneName, SceneOperation sceneOperation, bool customHandling) { }
+    public override void OnClientChangeScene(string newSceneName, SceneOperation sceneOperation, bool customHandling) {
+        Debug.Log("ON CLIENT CHANGE SCENE");
+    }
 
     /// <summary>
     /// Called on clients when a scene has completed loaded, when the scene load was initiated by the server.
@@ -129,6 +131,7 @@ public class DomicileNetManager : NetworkManager
     /// <param name="conn">The network connection that the scene change message arrived on.</param>
     public override void OnClientSceneChanged(NetworkConnection conn)
     {
+        Debug.Log("ON CLIENT SCENE CHANGED");
         base.OnClientSceneChanged(conn);
     }
 
@@ -297,12 +300,6 @@ public class DomicileNetManager : NetworkManager
 
         // create player
         GameObject playerGo = Instantiate (playerPrefab);
-
-        // Do this only on server, not on clients
-        // This is what allows the NetworkSceneChecker on player and scene objects
-        // to isolate matches per scene instance on server.
-        SceneManager.MoveGameObjectToScene(playerGo, targetScene.scene);
-
         OnlinePlayer player = playerGo.GetComponent<OnlinePlayer> ();
         player.playerName = message.name;
         player.playerGender = message.gender;
@@ -311,17 +308,11 @@ public class DomicileNetManager : NetworkManager
         NetworkServer.Spawn (playerGo);
         NetworkServer.AddPlayerForConnection (conn, playerGo);
 
-
         // create synced scenario
+        GameObject scenarioGo = null;
         if (message.target == SessionTarget.create)
         {
-            GameObject scenarioGo = Instantiate (networkedScenarioPrefab);
-            
-            // Do this only on server, not on clients
-            // This is what allows the NetworkSceneChecker on player and scene objects
-            // to isolate matches per scene instance on server.
-            SceneManager.MoveGameObjectToScene(scenarioGo, targetScene.scene);
-
+            scenarioGo = Instantiate (networkedScenarioPrefab);
             NetworkedScenario netScenario = scenarioGo.GetComponent<NetworkedScenario> ();
             netScenario.scenarioID = targetScene.id;
             netScenario.scenarioName = message.scenarioName;
@@ -333,6 +324,13 @@ public class DomicileNetManager : NetworkManager
             netScenario.protocol = message.protocol;
             NetworkServer.Spawn (scenarioGo);
         }
+
+        // Do this only on server, not on clients
+        // This is what allows the NetworkSceneChecker on player and scene objects
+        // to isolate matches per scene instance on server.
+        SceneManager.MoveGameObjectToScene(playerGo, targetScene.scene);
+        if (message.target == SessionTarget.create && scenarioGo != null)
+            SceneManager.MoveGameObjectToScene(scenarioGo, targetScene.scene);
     }
 
     // We're additively loading scenes, so GetSceneAt(0) will return the main "container" scene,

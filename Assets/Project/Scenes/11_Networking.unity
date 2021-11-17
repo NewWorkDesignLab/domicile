@@ -133,10 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 213892943}
   - component: {fileID: 213892942}
-  - component: {fileID: 213892944}
   - component: {fileID: 213892946}
   - component: {fileID: 213892945}
   - component: {fileID: 213892941}
+  - component: {fileID: 213892944}
   m_Layer: 0
   m_Name: Network Manager
   m_TagString: Untagged

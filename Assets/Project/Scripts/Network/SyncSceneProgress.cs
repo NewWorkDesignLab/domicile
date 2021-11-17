@@ -38,7 +38,7 @@ public class SyncSceneProgress : NetworkBehaviour
         }
     }
 
-    [Command]
+    [Command(requiresAuthority = false)]
     public void CmdNextSceneStatus()
     {
         sceneStatus++;
