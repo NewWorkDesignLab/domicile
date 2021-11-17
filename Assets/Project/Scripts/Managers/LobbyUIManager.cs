@@ -8,6 +8,7 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 {
     [Header("Lobby Prefabs")]
     public GameObject lobbyPlayerUIParent;
+    public GameObject canvasGameObject;
 
     [Header("Lobby UI")]
     public GameObject lobbyGroup;
@@ -55,6 +56,12 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
         stage_2_CD_L.SetActive(false);
         stage_2_EF_L.SetActive(false);
         stage_12_SPECTATOR.SetActive(false);
+    }
+
+    public void DisableUI()
+    {
+        HideAll();
+        canvasGameObject.SetActive(false);
     }
 
     #region Lobby

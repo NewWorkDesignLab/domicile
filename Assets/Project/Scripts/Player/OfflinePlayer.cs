@@ -16,6 +16,7 @@ public class OfflinePlayer : MonoBehaviour
         else
         {
             player.SetupLocalPlayer();
+            LobbyUIManager.instance.DisableUI();
         }
     }
 }

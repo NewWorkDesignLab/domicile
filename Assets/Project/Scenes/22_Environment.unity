@@ -30212,6 +30212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
   lobbyPlayerUIParent: {fileID: 920650009}
+  canvasGameObject: {fileID: 1829363466}
   lobbyGroup: {fileID: 229913882}
   lobbyCode: {fileID: 795426581}
   readyButton: {fileID: 229913880}
