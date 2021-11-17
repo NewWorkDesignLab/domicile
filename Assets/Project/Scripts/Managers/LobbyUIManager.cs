@@ -12,7 +12,6 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 
     [Header("Lobby UI")]
     public GameObject lobbyGroup;
-    public TMP_Text lobbyCode;
     public Button readyButton;
     public Button startButton;
 
@@ -32,11 +31,13 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     public GameObject stage_2_CD_L;
     public GameObject stage_2_EF_L;
     public GameObject stage_12_SPECTATOR;
+    public GameObject loading;
 
 
     public void Start()
     {
         HideAll();
+        loading.SetActive(true);
     }
 
     public void HideAll() {
@@ -56,6 +57,7 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
         stage_2_CD_L.SetActive(false);
         stage_2_EF_L.SetActive(false);
         stage_12_SPECTATOR.SetActive(false);
+        loading.SetActive(false);
     }
 
     public void DisableUI()
@@ -69,6 +71,7 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     public void Lobby_EnableUI()
     {
         // Join / Ready Button
+        HideAll();
         bool isCreator = OnlinePlayer.localPlayer.playerTarget == SessionTarget.create;
         readyButton.gameObject.SetActive(!isCreator);
         startButton.gameObject.SetActive(isCreator);

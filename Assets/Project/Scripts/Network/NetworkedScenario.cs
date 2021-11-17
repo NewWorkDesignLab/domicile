@@ -22,59 +22,29 @@ public class NetworkedScenario : NetworkBehaviour
     public string scenarioName;
 
     [SyncVar(hook = nameof(RoomsChanged))]
-    public int _rooms;
-    public RoomCount rooms
-    {
-        get { return (RoomCount)_rooms; }
-        set { _rooms = (int)value; }
-    }
+    public RoomCount rooms;
 
     [SyncVar(hook = nameof(TexturesChanged))]
-    public int _textures;
-    public TextureDifficulty textures
-    {
-        get { return (TextureDifficulty)_textures; }
-        set { _textures = (int)value; }
-    }
+    public TextureDifficulty textures;
 
     [SyncVar(hook = nameof(ReportChanged))]
-    public int _report;
-    public CaseReport report
-    {
-        get { return (CaseReport)_report; }
-        set { _report = (int)value; }
-    }
+    public CaseReport report;
 
     [SyncVar(hook = nameof(TenantChanged))]
-    public int _tenant;
-    public Tenant tenant
-    {
-        get { return (Tenant)_tenant; }
-        set { _tenant = (int)value; }
-    }
+    public Tenant tenant;
 
     [SyncVar(hook = nameof(ContractChanged))]
-    public int _contract;
-    public RentalContract contract
-    {
-        get { return (RentalContract)_contract; }
-        set { _contract = (int)value; }
-    }
+    public RentalContract contract;
 
     [SyncVar(hook = nameof(ProtocolChanged))]
-    public int _protocol;
-    public HandoverProtocol protocol
-    {
-        get { return (HandoverProtocol)_protocol; }
-        set { _protocol = (int)value; }
-    }
+    public HandoverProtocol protocol;
 
     private void IDChanged(string _, string newValue) {}
-    private void RoomsChanged(int _, int newValue) {}
-    private void TexturesChanged(int _, int newValue) {}
-    private void ReportChanged(int _, int newValue) {}
     private void NameChanged(string _, string newValue) {}
-    private void TenantChanged(int _, int newValue) {}
-    private void ContractChanged(int _, int newValue) {}
-    private void ProtocolChanged(int _, int newValue) {}
+    private void RoomsChanged(RoomCount _, RoomCount newValue) {}
+    private void TexturesChanged(TextureDifficulty _, TextureDifficulty newValue) {}
+    private void ReportChanged(CaseReport _, CaseReport newValue) {}
+    private void TenantChanged(Tenant _, Tenant newValue) {}
+    private void ContractChanged(RentalContract _, RentalContract newValue) {}
+    private void ProtocolChanged(HandoverProtocol _, HandoverProtocol newValue) {}
 }

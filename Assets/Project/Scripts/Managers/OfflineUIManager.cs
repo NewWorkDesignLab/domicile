@@ -29,6 +29,9 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
 
     [Header("Offline UI")]
     public GameObject offlineGroup;
+    
+    [Header("Loading UI")]
+    public GameObject loadingGroup;
 
     protected override void Awake()
     {
@@ -45,6 +48,7 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
         scenarioCreateGroupB.SetActive(false);
         scJoinGroup.SetActive(false);
         offlineGroup.SetActive(false);
+        loadingGroup.SetActive(false);
     }
 
     #region Main Landing UI

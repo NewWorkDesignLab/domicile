@@ -191,7 +191,7 @@ MonoBehaviour:
   offlineScene: Assets/Project/Scenes/00_Offline.unity
   onlineScene: 
   transport: {fileID: 213892946}
-  networkAddress: 188.68.56.140
+  networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 7719062317763899482, guid: 2ff5aabf719b6544daa741b6382b832a, type: 3}
@@ -244,7 +244,7 @@ MonoBehaviour:
   DualMode: 1
   NoDelay: 1
   Interval: 10
-  Timeout: 0
+  Timeout: 2147483647
   FastResend: 2
   CongestionWindow: 0
   SendWindowSize: 4096

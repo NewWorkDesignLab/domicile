@@ -14,6 +14,9 @@ public class OnlinePlayer : NetworkBehaviour
     public static OnlinePlayer localPlayer;
     public static NetworkedScenario scenario;
 
+    private static List<OnlinePlayer> playersInScene = new List<OnlinePlayer>();
+    public bool roomReadyState = false;
+
     [Header("Base Player Reference")]
     public BasePlayer player;
 
@@ -21,10 +24,15 @@ public class OnlinePlayer : NetworkBehaviour
     public GameObject lobbyPlayerUIPrefab;
     private GameObject instanciatedLobbyPlayerUI;
 
-    #region Sync Vars & Hooks
+    #region Hooks
 
     public event System.Action<bool> OnReadyStateChanged;
     public event System.Action<PlayerRole> OnRoleChanged;
+    public event System.Action<bool> OnRoomReadyStateChanged;
+
+    #endregion
+
+    #region Sync Vars & Hooks
 
     [Header("Sync Vars")]
     [SyncVar] public string playerName;
@@ -45,6 +53,7 @@ public class OnlinePlayer : NetworkBehaviour
     private void HookReadyStateChanged(bool _, bool newValue)
     {
         OnReadyStateChanged?.Invoke(newValue);
+        localPlayer.CheckAllPlayerReady();
     }
 
     #endregion
@@ -90,6 +99,11 @@ public class OnlinePlayer : NetworkBehaviour
     /// </summary>
     public override void OnStartClient()
     {
+        // add to list of players in scene
+        playersInScene.Add(this);
+        // OnStartLocalPlayer called after OnStartClient - static localPlayer var could be null
+        if (localPlayer != null) localPlayer.CheckAllPlayerReady();
+
         // setup visuals for all clients except localPlayer
         // localPlayer will be setup in OnStartLocalPlayer()
         if (!isLocalPlayer) player.SetupVisablePlayer ();
@@ -111,6 +125,10 @@ public class OnlinePlayer : NetworkBehaviour
     /// </summary>
     public override void OnStopClient()
     {
+        // remove from list of players in scene
+        playersInScene.Remove(this);
+        localPlayer.CheckAllPlayerReady();
+
         // Remove this player's UI object
         Destroy(instanciatedLobbyPlayerUI);
     }
@@ -123,6 +141,8 @@ public class OnlinePlayer : NetworkBehaviour
     {
         localPlayer = this;
         player.SetupLocalPlayer ();
+
+        // set ready State, ReadyStateHook will check for complete Room Ready State
         if (playerTarget == SessionTarget.create) CmdSetReadyState(true);
 
         // enable UI when localPlayer is complete setup
@@ -153,5 +173,23 @@ public class OnlinePlayer : NetworkBehaviour
             NetworkManager.singleton.StopClient();
         else if (NetworkServer.active)
             NetworkManager.singleton.StopServer();
+    }
+
+    private void CheckAllPlayerReady()
+    {
+        bool allPlayersReady = true;
+        for (int i = 0; i < playersInScene.Count; i++)
+        {
+            if (!playersInScene[i].playerReady)
+            {
+                allPlayersReady = false;
+                break;
+            }
+        }
+
+        if (allPlayersReady != roomReadyState) {
+            roomReadyState = allPlayersReady;
+            OnRoomReadyStateChanged?.Invoke(roomReadyState);
+        }
     }
 }

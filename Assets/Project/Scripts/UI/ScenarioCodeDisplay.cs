@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ScenarioNameDisplay : MonoBehaviour
+public class ScenarioCodeDisplay : MonoBehaviour
 {
-    public TMP_Text scenarioName;
+    public TMP_Text scenarioCode;
 
     void OnEnable()
     {
@@ -17,6 +17,6 @@ public class ScenarioNameDisplay : MonoBehaviour
         while (OnlinePlayer.scenario == null)
             yield return null;
 
-        scenarioName.text = OnlinePlayer.scenario.scenarioName;
+        scenarioCode.text = $"Raum-Code: {OnlinePlayer.scenario.scenarioID}";
     }
 }

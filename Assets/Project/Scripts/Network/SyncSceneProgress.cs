@@ -18,7 +18,7 @@ public class SyncSceneProgress : NetworkBehaviour
 
     #endregion
 
-    #region SyncVar
+    public SceneSyncSetting[] SceneSyncSettings;
 
     [SyncVar(hook = nameof(SceneStatusChanged))]
     private int sceneStatus = -1;
@@ -28,9 +28,9 @@ public class SyncSceneProgress : NetworkBehaviour
         if (newStatus < SceneSyncSettings.Length)
         {
             SceneSyncSettings[newStatus].OnSceneSyncAll?.Invoke();
-            // if (DomicileNetworkRoomPlayer.localRoomPlayer.role == PlayerRole.guide) SceneSyncSettings[newStatus].OnSceneSyncGuide?.Invoke();
-            // if (DomicileNetworkRoomPlayer.localRoomPlayer.role == PlayerRole.learner) SceneSyncSettings[newStatus].OnSceneSyncLearner?.Invoke();
-            // if (DomicileNetworkRoomPlayer.localRoomPlayer.role == PlayerRole.spectator) SceneSyncSettings[newStatus].OnSceneSyncSpectator?.Invoke();
+            if (OnlinePlayer.localPlayer.playerRole == PlayerRole.guide) SceneSyncSettings[newStatus].OnSceneSyncGuide?.Invoke();
+            if (OnlinePlayer.localPlayer.playerRole == PlayerRole.learner) SceneSyncSettings[newStatus].OnSceneSyncLearner?.Invoke();
+            if (OnlinePlayer.localPlayer.playerRole == PlayerRole.spectator) SceneSyncSettings[newStatus].OnSceneSyncSpectator?.Invoke();
         }
         else
         {
@@ -43,10 +43,6 @@ public class SyncSceneProgress : NetworkBehaviour
     {
         sceneStatus++;
     }
-
-    #endregion
-
-    public SceneSyncSetting[] SceneSyncSettings;
 }
 
 
