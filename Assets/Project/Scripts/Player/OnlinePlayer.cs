@@ -13,20 +13,57 @@ public class OnlinePlayer : NetworkBehaviour
 {
     public static OnlinePlayer localPlayer;
     public static NetworkedScenario scenario;
+
+    [Header("Base Player Reference")]
     public BasePlayer player;
 
+    [Header("Lobby UI Reference")]
+    public GameObject lobbyPlayerUIPrefab;
+    private GameObject instanciatedLobbyPlayerUI;
+
+    #region Sync Vars & Hooks
+
+    public event System.Action<bool> OnReadyStateChanged;
+    public event System.Action<PlayerRole> OnRoleChanged;
+
+    [Header("Sync Vars")]
     [SyncVar] public string playerName;
     [SyncVar] public Gender playerGender;
-    [SyncVar] public PlayerRole playerRole;
     [SyncVar] public SessionTarget playerTarget;
-    [SyncVar] public string playerScenario;
-    [SyncVar] public string playerScenarioName;
-    [SyncVar] public RoomCount playerRooms;
-    [SyncVar] public TextureDifficulty playerTextures;
-    [SyncVar] public CaseReport playerReport;
-    [SyncVar] public Tenant playerTenant;
-    [SyncVar] public RentalContract playerContract;
-    [SyncVar] public HandoverProtocol playerProtocol;
+
+    [SyncVar(hook = nameof(HookRoleChanged))]
+    public PlayerRole playerRole;
+
+    [SyncVar(hook = nameof(HookReadyStateChanged))]
+    public bool playerReady;
+
+    private void HookRoleChanged(PlayerRole _, PlayerRole newValue)
+    {
+        OnRoleChanged?.Invoke(newValue);
+    }
+
+    private void HookReadyStateChanged(bool _, bool newValue)
+    {
+        OnReadyStateChanged?.Invoke(newValue);
+    }
+
+    #endregion
+
+    #region Commands
+
+    [Command]
+    public void CmdSetRole(PlayerRole value)
+    {
+        playerRole = value;
+    }
+
+    [Command]
+    public void CmdSetReadyState(bool value)
+    {
+        playerReady = value;
+    }
+
+    #endregion
 
     #region Start & Stop Callbacks
 
@@ -35,7 +72,11 @@ public class OnlinePlayer : NetworkBehaviour
     /// <para>This could be triggered by NetworkServer.Listen() for objects in the scene, or by NetworkServer.Spawn() for objects that are dynamically created.</para>
     /// <para>This will be called for objects on a "host" as well as for object on a dedicated server.</para>
     /// </summary>
-    public override void OnStartServer() { }
+    public override void OnStartServer()
+    {
+        Debug.Log ("[InactivePlayer Start] A new Player joined to Server: " + playerName + " - " + playerTarget + " - " + playerRole);
+        player.SetupInactivePlayer ();
+    }
 
     /// <summary>
     /// Invoked on the server when the object is unspawned
@@ -49,30 +90,44 @@ public class OnlinePlayer : NetworkBehaviour
     /// </summary>
     public override void OnStartClient()
     {
-#if UNITY_STANDALONE_LINUX
-        Debug.Log ("[InactivePlayer Start] A new Player joined to Server: " + playerName + " - " + playerTarget + " - " + playerRole);
-        player.SetupInactivePlayer ();
-#else
-        if (isLocalPlayer) {
-            localPlayer = this;
-            player.SetupLocalPlayer ();
-        } else {
-            player.SetupVisablePlayer ();
-        }
-#endif
+        // setup visuals for all clients except localPlayer
+        // localPlayer will be setup in OnStartLocalPlayer()
+        if (!isLocalPlayer) player.SetupVisablePlayer ();
+
+        // instantiate lobby UI
+        instanciatedLobbyPlayerUI = Instantiate(lobbyPlayerUIPrefab, LobbyUIManager.instance.lobbyPlayerUIParent.transform);
+
+        // Set this player object in PlayerUI to wire up event handlers
+        instanciatedLobbyPlayerUI.GetComponent<LobbyPlayerUI>().SetPlayer(this);
+
+        // Invoke all event handlers with the current data
+        OnRoleChanged?.Invoke(playerRole);
+        OnReadyStateChanged?.Invoke(playerReady);
     }
 
     /// <summary>
     /// This is invoked on clients when the server has caused this object to be destroyed.
     /// <para>This can be used as a hook to invoke effects or do client specific cleanup.</para>
     /// </summary>
-    public override void OnStopClient() { }
+    public override void OnStopClient()
+    {
+        // Remove this player's UI object
+        Destroy(instanciatedLobbyPlayerUI);
+    }
 
     /// <summary>
     /// Called when the local player object has been set up.
     /// <para>This happens after OnStartClient(), as it is triggered by an ownership message from the server. This is an appropriate place to activate components or functionality that should only be active for the local player, such as cameras and input.</para>
     /// </summary>
-    public override void OnStartLocalPlayer() { }
+    public override void OnStartLocalPlayer()
+    {
+        localPlayer = this;
+        player.SetupLocalPlayer ();
+        if (playerTarget == SessionTarget.create) CmdSetReadyState(true);
+
+        // enable UI when localPlayer is complete setup
+        LobbyUIManager.instance.Lobby_EnableUI();
+    }
 
     /// <summary>
     /// This is invoked on behaviours that have authority, based on context and <see cref="NetworkIdentity.hasAuthority">NetworkIdentity.hasAuthority</see>.
@@ -88,4 +143,15 @@ public class OnlinePlayer : NetworkBehaviour
     public override void OnStopAuthority() { }
 
     #endregion
+
+
+    public void LeaveLobby()
+    {
+        if (NetworkServer.active && NetworkClient.isConnected)
+            NetworkManager.singleton.StopHost();
+        else if (NetworkClient.isConnected)
+            NetworkManager.singleton.StopClient();
+        else if (NetworkServer.active)
+            NetworkManager.singleton.StopServer();
+    }
 }

@@ -7,7 +7,6 @@ using TMPro;
 public class LobbyUIManager : Singleton<LobbyUIManager>
 {
     [Header("Lobby Prefabs")]
-    public GameObject lobbyPlayerUIPrefab;
     public GameObject lobbyPlayerUIParent;
 
     [Header("Lobby UI")]
@@ -37,8 +36,6 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     public void Start()
     {
         HideAll();
-        lobbyGroup.SetActive(true);
-        Lobby_UpdateUI();
     }
 
     public void HideAll() {
@@ -62,12 +59,13 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 
     #region Lobby
 
-    public void Lobby_UpdateUI()
+    public void Lobby_EnableUI()
     {
         // Join / Ready Button
-        bool isCreator = SessionManager.instance.session.target == SessionTarget.create;
+        bool isCreator = OnlinePlayer.localPlayer.playerTarget == SessionTarget.create;
         readyButton.gameObject.SetActive(!isCreator);
         startButton.gameObject.SetActive(isCreator);
+        lobbyGroup.SetActive(true);
     }
 
     public void Lobby_EnableStartButton(bool value)
@@ -87,19 +85,18 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 
     public void Lobby_SetRole(int role)
     {
-        Debug.Log("Set Role");
-        // TestRoomPlayer.localRoomPlayer.CmdSetTest(Random.Range(0, 100));
+        OnlinePlayer.localPlayer.CmdSetRole((PlayerRole)role);
     }
 
     public void Lobby_ToogleReadyFlag()
     {
-        // bool currentState = DomicileNetworkRoomPlayer.localRoomPlayer.readyToBegin;
-        // DomicileNetworkRoomPlayer.localRoomPlayer.CmdChangeReadyState(!currentState);
+        bool currentState = OnlinePlayer.localPlayer.playerReady;
+        OnlinePlayer.localPlayer.CmdSetReadyState(!currentState);
     }
 
     public void Lobby_LeaveLobby()
     {
-        // DomicileNetworkRoomPlayer.localRoomPlayer.LeaveLobby();
+        OnlinePlayer.localPlayer.LeaveLobby();
     }
 
     #endregion

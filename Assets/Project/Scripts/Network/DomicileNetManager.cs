@@ -303,25 +303,31 @@ public class DomicileNetManager : NetworkManager
         NetworkServer.Spawn (playerGo);
         NetworkServer.AddPlayerForConnection (conn, playerGo);
 
-        // create synced scenario
-        GameObject scenarioGo = Instantiate (networkedScenarioPrefab);
-        NetworkedScenario netScenario = scenarioGo.GetComponent<NetworkedScenario> ();
-        netScenario.scenarioID = targetScene.id;
-        netScenario.scenarioName = message.scenarioName;
-        netScenario.rooms = message.rooms;
-        netScenario.textures = message.textures;
-        netScenario.report = message.report;
-        netScenario.tenant = message.tenant;
-        netScenario.contract = message.contract;
-        netScenario.protocol = message.protocol;
-        NetworkServer.Spawn (scenarioGo);
-
-
         // Do this only on server, not on clients
         // This is what allows the NetworkSceneChecker on player and scene objects
         // to isolate matches per scene instance on server.
         SceneManager.MoveGameObjectToScene(playerGo, targetScene.scene);
-        SceneManager.MoveGameObjectToScene(scenarioGo, targetScene.scene);
+
+        // create synced scenario
+        if (message.target == SessionTarget.create)
+        {
+            GameObject scenarioGo = Instantiate (networkedScenarioPrefab);
+            NetworkedScenario netScenario = scenarioGo.GetComponent<NetworkedScenario> ();
+            netScenario.scenarioID = targetScene.id;
+            netScenario.scenarioName = message.scenarioName;
+            netScenario.rooms = message.rooms;
+            netScenario.textures = message.textures;
+            netScenario.report = message.report;
+            netScenario.tenant = message.tenant;
+            netScenario.contract = message.contract;
+            netScenario.protocol = message.protocol;
+            NetworkServer.Spawn (scenarioGo);
+            
+            // Do this only on server, not on clients
+            // This is what allows the NetworkSceneChecker on player and scene objects
+            // to isolate matches per scene instance on server.
+            SceneManager.MoveGameObjectToScene(scenarioGo, targetScene.scene);
+        }
     }
 
     // We're additively loading scenes, so GetSceneAt(0) will return the main "container" scene,

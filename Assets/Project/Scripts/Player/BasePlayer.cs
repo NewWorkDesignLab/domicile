@@ -16,7 +16,7 @@ public class BasePlayer : MonoBehaviour
 
     [Header ("Local Player")]
     public BasePlayerMovement playerMovement;
-    public PlayerRotation playerRotation;
+    public BasePlayerRotation playerRotation;
     public GameObject movementTrigger;
     public Rigidbody rb;
     public CapsuleCollider capsuleCollider;

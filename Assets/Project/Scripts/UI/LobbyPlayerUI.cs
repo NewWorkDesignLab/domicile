@@ -9,46 +9,38 @@ public class LobbyPlayerUI : MonoBehaviour
     public GameObject readyIcon;
     public GameObject notReadyIcon;
 
-    TestRoomPlayer roomPlayer;
-    string latestName;
+    OnlinePlayer onlinePlayer;
     PlayerRole latestRole;
 
-    public void SetPlayer(TestRoomPlayer _player)
+    public void SetPlayer(OnlinePlayer _player)
     {
-        roomPlayer = _player;
+        onlinePlayer = _player;
+
         // subscribe to the events raised by SyncVar Hooks on the Player object
-        // roomPlayer.OnNameChanged += OnNameChanged;
-        // roomPlayer.OnRoleChanged += OnRoleChanged;
-        // roomPlayer.OnReadyStateChanged += OnReadyStateChanged;
+        onlinePlayer.OnRoleChanged += OnRoleChanged;
+        onlinePlayer.OnReadyStateChanged += OnReadyStateChanged;
     }
     
     void OnDisable()
     {
-        // roomPlayer.OnNameChanged -= OnNameChanged;
-        // roomPlayer.OnReadyStateChanged -= OnReadyStateChanged;
-        // roomPlayer.OnRoleChanged -= OnRoleChanged;
+        onlinePlayer.OnReadyStateChanged -= OnReadyStateChanged;
+        onlinePlayer.OnRoleChanged -= OnRoleChanged;
     }
 
-    // private void UpdateDisplayedName()
-    // {
-    //     nameField.text = System.String.Format("{0} ({1})", latestName, TextGenerator.GenerateRoleText(latestRole));
-    // }
+    private void UpdateDisplayedName()
+    {
+        nameField.text = System.String.Format("{0} ({1})", onlinePlayer.playerName, TextGenerator.GenerateRoleText(latestRole));
+    }
 
-    // void OnNameChanged(string newName)
-    // {
-    //     latestName = newName;
-    //     UpdateDisplayedName();
-    // }
-
-    // void OnReadyStateChanged(bool newState)
-    // {
-    //     readyIcon.SetActive(newState);
-    //     notReadyIcon.SetActive(!newState);
-    // }
+    void OnReadyStateChanged(bool newState)
+    {
+        readyIcon.SetActive(newState);
+        notReadyIcon.SetActive(!newState);
+    }
     
-    // void OnRoleChanged(PlayerRole newRole)
-    // {
-    //     latestRole = newRole;
-    //     UpdateDisplayedName();
-    // }
+    void OnRoleChanged(PlayerRole newRole)
+    {
+        latestRole = newRole;
+        UpdateDisplayedName();
+    }
 }

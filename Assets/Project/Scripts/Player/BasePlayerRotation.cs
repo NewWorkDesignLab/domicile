@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerRotation : MonoBehaviour {
+public class BasePlayerRotation : MonoBehaviour {
     public float sensitivityX = 10F;
     public float sensitivityY = 10F;
 
