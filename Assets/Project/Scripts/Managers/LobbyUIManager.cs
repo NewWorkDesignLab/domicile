@@ -16,51 +16,20 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     public Button startButton;
 
     [Header("Groups")]
-    public GameObject stage_1_A_G;
-    public GameObject stage_1_B_G;
-    public GameObject stage_1_C_G;
-    public GameObject stage_1_A_L;
-    public GameObject stage_1_BC_L;
-    public GameObject stage_2_A_G;
-    public GameObject stage_2_B_G;
-    public GameObject stage_2_C_G;
-    public GameObject stage_2_D_G;
-    public GameObject stage_2_E_G;
-    public GameObject stage_2_F_G;
-    public GameObject stage_2_AB_L;
-    public GameObject stage_2_CD_L;
-    public GameObject stage_2_EF_L;
-    public GameObject stage_12_SPECTATOR;
-    public GameObject loading;
-
-    public GameObject tmpNachbereitung;
-
+    public GameObject loadingGroup;
+    public List<GameObject> allObjects;
 
     public void Start()
     {
         HideAll();
-        loading.SetActive(true);
+        loadingGroup.SetActive(true);
     }
 
     public void HideAll() {
-        lobbyGroup.SetActive(false);
-        stage_1_A_G.SetActive(false);
-        stage_1_B_G.SetActive(false);
-        stage_1_C_G.SetActive(false);
-        stage_1_A_L.SetActive(false);
-        stage_1_BC_L.SetActive(false);
-        stage_2_A_G.SetActive(false);
-        stage_2_B_G.SetActive(false);
-        stage_2_C_G.SetActive(false);
-        stage_2_D_G.SetActive(false);
-        stage_2_E_G.SetActive(false);
-        stage_2_F_G.SetActive(false);
-        stage_2_AB_L.SetActive(false);
-        stage_2_CD_L.SetActive(false);
-        stage_2_EF_L.SetActive(false);
-        stage_12_SPECTATOR.SetActive(false);
-        loading.SetActive(false);
-        tmpNachbereitung.SetActive(false);
+        for (int i = 0; i < allObjects.Count; i++)
+        {
+            allObjects[i].SetActive(false);
+        }
     }
 
     public void DisableUI()
@@ -110,6 +79,20 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     public void Lobby_LeaveLobby()
     {
         OnlinePlayer.localPlayer.LeaveLobby();
+    }
+
+    #endregion
+
+    #region Actions
+
+    public void Button_OpenMaengelliste()
+    {
+        Application.OpenURL("https://tobiasbohn.com/particle-rush/tobias_bohn_particle_rush_dokumentation_umsetzung.pdf");
+    }
+
+    public void Button_OpenTechnischeAnleitung()
+    {
+        Application.OpenURL("https://tobiasbohn.com/particle-rush/tobias_bohn_particle_rush_dokumentation_umsetzung.pdf");
     }
 
     #endregion
