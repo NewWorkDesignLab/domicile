@@ -1,7 +1,7 @@
 using UnityEngine;
 using Mirror;
 
-public class NetworkingScene : MonoBehaviour
+public class NetworkingScene : Singleton<NetworkingScene>
 {
     void Start()
     {

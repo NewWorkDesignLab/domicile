@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 9010014765387655090}
   - component: {fileID: 4521964471571162878}
   - component: {fileID: 6038533368093006566}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Movement Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

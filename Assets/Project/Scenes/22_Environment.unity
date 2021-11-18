@@ -22103,14 +22103,14 @@ PrefabInstance:
     - target: {fileID: 92044410995360116, guid: 54ca45ecb0daa574b8ef17b0c628734d, type: 3}
       propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1806561393}
+      objectReference: {fileID: 912794794}
     - target: {fileID: 92044410995360116, guid: 54ca45ecb0daa574b8ef17b0c628734d, type: 3}
       propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CmdNextSceneStatus
+      value: ExitScenarioButton
       objectReference: {fileID: 0}
     - target: {fileID: 92044410995360116, guid: 54ca45ecb0daa574b8ef17b0c628734d, type: 3}
       propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SyncSceneProgress, Assembly-CSharp
+      value: FloatingMenuComponent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3310728254376722929, guid: 54ca45ecb0daa574b8ef17b0c628734d, type: 3}
       propertyPath: m_Name
@@ -22162,6 +22162,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54ca45ecb0daa574b8ef17b0c628734d, type: 3}
+--- !u!114 &912794794 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3310728254376722930, guid: 54ca45ecb0daa574b8ef17b0c628734d, type: 3}
+  m_PrefabInstance: {fileID: 912794793}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c229c20f4b48e6118e7c02579da48a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &915166228
 GameObject:
   m_ObjectHideFlags: 0
@@ -24193,6 +24204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1006486610}
   - component: {fileID: 1006486609}
+  - component: {fileID: 1006486611}
   m_Layer: 0
   m_Name: Scene Setting Helper
   m_TagString: Untagged
@@ -24228,6 +24240,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1006486611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006486608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf17b0a301a117e4981a26b6830b3f4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1010661909
 GameObject:
   m_ObjectHideFlags: 0

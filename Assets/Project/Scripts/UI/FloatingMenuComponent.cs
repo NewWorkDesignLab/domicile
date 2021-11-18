@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class FloatingMenuComponent : MonoBehaviour {
     public GameObject menuButton;
@@ -87,6 +88,7 @@ public class FloatingMenuComponent : MonoBehaviour {
         //     Show ();
         // });
     }
+    
     public void ExitScenarioButton () {
         if (endConfirmation == false) {
             endConfirmation = true;
@@ -94,7 +96,10 @@ public class FloatingMenuComponent : MonoBehaviour {
                 endConfirmation = false;
             });
         } else {
-            // TODO: End Scenario
+            if (NetworkServer.active || NetworkClient.active)
+                SyncSceneProgress.instance.CmdNextSceneStatus();
+            else
+                EnvironmentScene.instance.LoadSceneOffline();
         }
     }
 

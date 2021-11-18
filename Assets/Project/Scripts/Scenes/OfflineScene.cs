@@ -2,7 +2,7 @@ using UnityEngine;
 using Mirror;
 using UnityEngine.SceneManagement;
 
-public class OfflineScene : MonoBehaviour
+public class OfflineScene : Singleton<OfflineScene>
 {
     [Scene] public string onlineScene;
     [Scene] public string offlineScene;
