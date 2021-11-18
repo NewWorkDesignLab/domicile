@@ -290,20 +290,16 @@ public class DomicileNetManager : NetworkManager
             yield break;
         }
 
-        Debug.Log("going to wait 1 sec");
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForEndOfFrame();
 
-        Debug.Log("sending scene message");
         // Send Scene message to client to additively load the game scene
         conn.Send(new SceneMessage { sceneName = targetScene.scene.path, sceneOperation = SceneOperation.LoadAdditive });
 
-        Debug.Log("going to wait 1 sec");
         // Wait for end of frame before adding the player to ensure Scene Message goes first
         // Wait a bit longer than a Frame because of Behaviour that CreatePlayer is ignored if Scene not loaded
-        // yield return new WaitForEndOfFrame();
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForEndOfFrame();
+        // yield return new WaitForSecondsRealtime(1f);
 
-        Debug.Log("going to create player");
         // create player
         GameObject playerGo = Instantiate (playerPrefab);
         OnlinePlayer player = playerGo.GetComponent<OnlinePlayer> ();

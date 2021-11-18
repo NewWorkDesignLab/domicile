@@ -53,7 +53,7 @@ public class OnlinePlayer : NetworkBehaviour
     private void HookReadyStateChanged(bool _, bool newValue)
     {
         OnReadyStateChanged?.Invoke(newValue);
-        localPlayer.CheckAllPlayerReady();
+        if (localPlayer != null) localPlayer.CheckAllPlayerReady();
     }
 
     #endregion
@@ -146,7 +146,7 @@ public class OnlinePlayer : NetworkBehaviour
         if (playerTarget == SessionTarget.create) CmdSetReadyState(true);
 
         // enable UI when localPlayer is complete setup
-        LobbyUIManager.instance.Lobby_EnableUI();
+        SyncSceneProgress.instance.ApplySceneStatus();
     }
 
     /// <summary>

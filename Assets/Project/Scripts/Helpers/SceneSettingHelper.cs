@@ -6,6 +6,7 @@ using UnityEngine.XR.Management;
 public class SceneSettingHelper : Singleton<SceneSettingHelper>
 {
     public VRSetting settingOnSceneStart;
+    private static string current = "";
 
     void Start ()
     {
@@ -23,6 +24,12 @@ public class SceneSettingHelper : Singleton<SceneSettingHelper>
 
     public static void DisplayVR()
     {
+        if (current == "vr")
+        {
+            Debug.Log("Display Setting already VR. Skipping setup.");
+            return;
+        }
+        current = "vr";
 #if UNITY_ANDROID
         instance.StartCoroutine (SwitchToVR ());
 #endif
@@ -52,7 +59,15 @@ public class SceneSettingHelper : Singleton<SceneSettingHelper>
         Screen.brightness = 1.0f;
     }
 
-    public static void SwitchTo2D () {
+    public static void SwitchTo2D ()
+    {
+        if (current == "normal")
+        {
+            Debug.Log("Display Setting already Normal. Skipping setup.");
+            return;
+        }
+        current = "normal";
+
 #if UNITY_EDITOR
         Debug.Log ("[SceneSettingHelper SwitchTo2D] Would Display Scene in Normal Mode");
 #else

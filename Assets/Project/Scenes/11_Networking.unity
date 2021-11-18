@@ -191,8 +191,8 @@ MonoBehaviour:
   offlineScene: Assets/Project/Scenes/00_Offline.unity
   onlineScene: 
   transport: {fileID: 213892945}
-  networkAddress: 188.68.56.140
-  maxConnections: 100
+  networkAddress: localhost
+  maxConnections: 50
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 7719062317763899482, guid: 2ff5aabf719b6544daa741b6382b832a, type: 3}
   autoCreatePlayer: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 2663831451896267103, guid: 716cdd168c3e37d4b8685976ef61bd35, type: 3}
   gameScene: Assets/Project/Scenes/22_Environment.unity
-  instances: 5
+  instances: 10
   networkedScenarioPrefab: {fileID: 2663831451896267103, guid: 716cdd168c3e37d4b8685976ef61bd35, type: 3}
 --- !u!4 &213892943
 Transform:

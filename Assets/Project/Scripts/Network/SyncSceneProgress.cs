@@ -21,20 +21,21 @@ public class SyncSceneProgress : NetworkBehaviour
     public SceneSyncSetting[] SceneSyncSettings;
 
     [SyncVar(hook = nameof(SceneStatusChanged))]
-    private int sceneStatus = -1;
+    private int sceneStatus = 0;
 
     private void SceneStatusChanged(int _, int newStatus)
     {
-        if (newStatus < SceneSyncSettings.Length)
+        ApplySceneStatus();
+    }
+
+    public void ApplySceneStatus()
+    {
+        if (sceneStatus < SceneSyncSettings.Length && OnlinePlayer.localPlayer != null)
         {
-            SceneSyncSettings[newStatus].OnSceneSyncAll?.Invoke();
-            if (OnlinePlayer.localPlayer.playerRole == PlayerRole.guide) SceneSyncSettings[newStatus].OnSceneSyncGuide?.Invoke();
-            if (OnlinePlayer.localPlayer.playerRole == PlayerRole.learner) SceneSyncSettings[newStatus].OnSceneSyncLearner?.Invoke();
-            if (OnlinePlayer.localPlayer.playerRole == PlayerRole.spectator) SceneSyncSettings[newStatus].OnSceneSyncSpectator?.Invoke();
-        }
-        else
-        {
-            // DomicileNetworkRoomPlayer.localRoomPlayer.CmdSetSceneIngame();
+            SceneSyncSettings[sceneStatus].OnSceneSyncAll?.Invoke();
+            if (OnlinePlayer.localPlayer.playerRole == PlayerRole.guide) SceneSyncSettings[sceneStatus].OnSceneSyncGuide?.Invoke();
+            if (OnlinePlayer.localPlayer.playerRole == PlayerRole.learner) SceneSyncSettings[sceneStatus].OnSceneSyncLearner?.Invoke();
+            if (OnlinePlayer.localPlayer.playerRole == PlayerRole.spectator) SceneSyncSettings[sceneStatus].OnSceneSyncSpectator?.Invoke();
         }
     }
 

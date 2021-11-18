@@ -33,6 +33,8 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     public GameObject stage_12_SPECTATOR;
     public GameObject loading;
 
+    public GameObject tmpNachbereitung;
+
 
     public void Start()
     {
@@ -58,29 +60,30 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
         stage_2_EF_L.SetActive(false);
         stage_12_SPECTATOR.SetActive(false);
         loading.SetActive(false);
+        tmpNachbereitung.SetActive(false);
     }
 
     public void DisableUI()
     {
         HideAll();
         canvasGameObject.SetActive(false);
+        SceneSettingHelper.DisplayVR();
+    }
+    
+    public void EnableUI()
+    {
+        SceneSettingHelper.SwitchTo2D();
+        HideAll();
+        canvasGameObject.SetActive(true);
     }
 
     #region Lobby
 
-    public void Lobby_EnableUI()
+    public void Lobby_SetButtonVisabillity()
     {
-        // Join / Ready Button
-        HideAll();
         bool isCreator = OnlinePlayer.localPlayer.playerTarget == SessionTarget.create;
         readyButton.gameObject.SetActive(!isCreator);
         startButton.gameObject.SetActive(isCreator);
-        lobbyGroup.SetActive(true);
-    }
-
-    public void Lobby_EnableStartButton(bool value)
-    {
-        startButton.interactable = value;
     }
 
     public void Lobby_CopyCode()
