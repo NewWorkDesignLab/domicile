@@ -1,0 +1,322 @@
+fileFormatVersion: 2
+guid: 8130c7d18f664184baac47d3f1746242
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 200813_atlas_KiZi_V3
+    second: {fileID: 2800000, guid: 845b249e5c4f16c4885482640205feb2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 200813_atlas_schla_V2
+    second: {fileID: 2800000, guid: 5ce4b3e81c60fb74b8c6a3c20d1b3d32, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 200918_atlas_flur_V3
+    second: {fileID: 2800000, guid: 60e223db6553f644eaf07efaa5f7c202, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 200918_atlas_kuch_v2
+    second: {fileID: 2800000, guid: c8e19b9c413af8848af86daec328af9c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 210121_atlas_bad
+    second: {fileID: 2800000, guid: 87e352a3ba54e624fa06d0d428386158, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 210121_atlas_bad_objects
+    second: {fileID: 2800000, guid: eca956d73bd4704469b50812b5523325, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 210502_balkon_V3-1
+    second: {fileID: 2800000, guid: c4bb6093c02bc844b9443275fa98870d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 210821_atlas_gegenstaende_V2
+    second: {fileID: 2800000, guid: 48f0f1bdbdc428847b468615dc84d507, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 210821_atlas_gegenstaende_V2-C2
+    second: {fileID: 2800000, guid: 2a4422166e2cc86489ddc245a2d49238, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 210821_atlas_gegenstaende_V2-C3
+    second: {fileID: 2800000, guid: 7703854e89652334e8bb81b3852ee89b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 211008_atlas_flur_OPTIONWALLS
+    second: {fileID: 2800000, guid: 7dd65d4168605d84b85d8c9231235c66, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 211008_atlas_wozi_V4
+    second: {fileID: 2800000, guid: 315844c49ab0e0e4abf91021b09879e8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: AOB_01
+    second: {fileID: 2800000, guid: 3fd1de7c5a79bf6408deeae0484f1988, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ASR_01
+    second: {fileID: 2800000, guid: 172241145f5545a4f86263bd561ca1a2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ASR_02
+    second: {fileID: 2800000, guid: 194587e8f2a6e7d46b56e407b88e3353, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ASR_03
+    second: {fileID: 2800000, guid: b61f805a5e22388428d7721770a1bdcc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ASR_04_KiZi
+    second: {fileID: 2800000, guid: 297ef1e05e499894bbf43aa679cfa938, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ASR_04_Schla
+    second: {fileID: 2800000, guid: 1987ee937ee30bb4d895b02facf74262, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ASR_04_WoZi_1
+    second: {fileID: 2800000, guid: c2cc997c5181c8d44ad27b2e5cb04673, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ASR_04_WoZi_2
+    second: {fileID: 2800000, guid: f7b4583aad424df4391cf7eca89af25f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: AddObjects
+    second: {fileID: 2800000, guid: ae5fa550666405748bcd62579c294f3c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: HeiKoZaehler
+    second: {fileID: 2800000, guid: 4cb26667c4a10a94390e14c34d0ba07a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: OBJ_02
+    second: {fileID: 2800000, guid: 02d73541bb78b17448ae3e9c1c7dda63, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: OBJ_03
+    second: {fileID: 2800000, guid: e8539c15b139939439c2139972b55a29, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SVN_01
+    second: {fileID: 2800000, guid: 0d1332c5336f95c4582b9e40c888fe44, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SVN_02
+    second: {fileID: 2800000, guid: a2ae3b66b3d0f754cb03ab094bfbcf83, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SVN_03_KiZi
+    second: {fileID: 2800000, guid: ed98bdfe6015dbd4597954d9b950c828, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SVN_03_Schla
+    second: {fileID: 2800000, guid: c09e9fbdd44c177439d1bd3a26bf756f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SVN_03_WoZi_1
+    second: {fileID: 2800000, guid: de63a2bab9c35cd4381018eeaa22faa5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SVN_03_WoZi_2
+    second: {fileID: 2800000, guid: 29626c400047850489ef1eb01fbf5f09, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SVN_04
+    second: {fileID: 2800000, guid: a09f0b707e06a77488345642a7ae7c52, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SVN_07
+    second: {fileID: 2800000, guid: cc6ed78da7e1d294c835804c39fdec45, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SVN_08
+    second: {fileID: 2800000, guid: bc4a78c913ad2ad4daa4ed9565f8e666, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SVN_09
+    second: {fileID: 2800000, guid: 8ead99c987c92094ab52d0b63f111eef, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SVN_10
+    second: {fileID: 2800000, guid: 078cb8be15d9e56428e4ed4824ef847e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SVN_12
+    second: {fileID: 2800000, guid: 12e351e117265e44ea9375516d1f01e5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SVN_13
+    second: {fileID: 2800000, guid: d4a59a9590212fc43883e9e3a396360a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SVN_14
+    second: {fileID: 2800000, guid: 9a4e22f5fb421ed44891018ab660b634, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: VSC_01
+    second: {fileID: 2800000, guid: a8ba2c9b9e4045443a3325720257322b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: VSC_02
+    second: {fileID: 2800000, guid: b9b7d8fd64e15bd478ae5467a6451574, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: VSC_04
+    second: {fileID: 2800000, guid: ec728b589f6f02a4190f31a9ddf374e3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: badheizung
+    second: {fileID: 2800000, guid: db9101d8eb4b5f943957911c51233d0e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fenstertex
+    second: {fileID: 2800000, guid: 428eeb4733c3e604faf2963ac71bf88c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wassezaehler_V2
+    second: {fileID: 2800000, guid: 45e8fdeaf51bb274abbf2dcfffa01e0d, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 1
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
