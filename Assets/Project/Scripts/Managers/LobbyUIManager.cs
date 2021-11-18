@@ -72,7 +72,7 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     
     public void EnableUI()
     {
-        SceneSettingHelper.SwitchTo2D();
+        SceneSettingHelper.Display2D();
         HideAll();
         canvasGameObject.SetActive(true);
     }
