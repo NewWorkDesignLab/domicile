@@ -159,18 +159,18 @@ MonoBehaviour:
   port: 7776
   maxMessageSize: 16384
   handshakeMaxSize: 3000
-  noDelay: 1
+  noDelay: 0
   sendTimeout: 5000
   receiveTimeout: 20000
   serverMaxMessagesPerTick: 10000
   clientMaxMessagesPerTick: 1000
-  batchSend: 1
+  batchSend: 0
   waitBeforeSend: 0
   clientUseWss: 0
   sslEnabled: 0
   sslCertJson: ./cert.json
   sslProtocols: 3072
-  _logLevels: 0
+  _logLevels: 4
 --- !u!114 &213892942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,8 +190,8 @@ MonoBehaviour:
   serverTickRate: 30
   offlineScene: Assets/Project/Scenes/00_Offline.unity
   onlineScene: 
-  transport: {fileID: 213892946}
-  networkAddress: localhost
+  transport: {fileID: 213892945}
+  networkAddress: 188.68.56.140
   maxConnections: 100
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 7719062317763899482, guid: 2ff5aabf719b6544daa741b6382b832a, type: 3}
@@ -250,7 +250,7 @@ MonoBehaviour:
   SendWindowSize: 4096
   ReceiveWindowSize: 4096
   NonAlloc: 1
-  debugLog: 0
+  debugLog: 1
   statisticsGUI: 0
   statisticsLog: 0
 --- !u!114 &213892946

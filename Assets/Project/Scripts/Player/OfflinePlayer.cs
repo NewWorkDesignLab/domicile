@@ -17,6 +17,7 @@ public class OfflinePlayer : MonoBehaviour
         {
             player.SetupLocalPlayer();
             LobbyUIManager.instance.DisableUI();
+            SceneSettingHelper.DisplayVR();
         }
     }
 }

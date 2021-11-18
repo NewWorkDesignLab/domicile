@@ -464,8 +464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b40a8ec71543af29285f528e987c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivityX: 8
-  sensitivityY: 8
+  sensitivityX: 4
+  sensitivityY: 4
 --- !u!1 &8009079933650207456
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +526,6 @@ MonoBehaviour:
   rb: {fileID: 2557634687899448841}
   capsuleCollider: {fileID: 1055743214716944710}
   trackedPoseDriver: {fileID: 3772367975374411855}
-  localPlayerExtensionHead: {fileID: 3983690347875079969, guid: e65ba3711cf5cd40c83204f39e60c624, type: 3}
   headNormalHeight: 2.75
   headCrawlHeight: 0.5
 --- !u!114 &4158316544524657722
