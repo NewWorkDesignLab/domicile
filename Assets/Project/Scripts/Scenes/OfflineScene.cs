@@ -9,9 +9,11 @@ public class OfflineScene : Singleton<OfflineScene>
 
     void Start()
     {
-#if UNITY_STANDALONE_LINUX
+        #if UNITY_STANDALONE_LINUX
         LoadSceneOnline();
-#endif
+        #endif
+
+        SessionInstance.instance.ClearSession();
     }
 
     public void LoadSceneOnline()

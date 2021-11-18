@@ -191,7 +191,7 @@ MonoBehaviour:
   offlineScene: Assets/Project/Scenes/00_Offline.unity
   onlineScene: 
   transport: {fileID: 213892945}
-  networkAddress: localhost
+  networkAddress: 188.68.56.140
   maxConnections: 50
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 7719062317763899482, guid: 2ff5aabf719b6544daa741b6382b832a, type: 3}
@@ -326,3 +326,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf17b0a301a117e4981a26b6830b3f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 1

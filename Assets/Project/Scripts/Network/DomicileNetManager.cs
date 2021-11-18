@@ -198,18 +198,18 @@ public class DomicileNetManager : NetworkManager
         base.OnClientConnect(conn);
 
         CreatePlayerMessage createPlayerMessage = new CreatePlayerMessage {
-            name = SessionManager.instance.session.name,
+            name = SessionInstance.instance.session.name,
             role = PlayerRole.spectator,
-            gender = SessionManager.instance.session.gender,
-            target = SessionManager.instance.session.target,
-            scenario = SessionManager.instance.session.scenario,
-            scenarioName = SessionManager.instance.session.scenarioName,
-            rooms = SessionManager.instance.session.rooms,
-            textures = SessionManager.instance.session.textures,
-            report = SessionManager.instance.session.report,
-            tenant = SessionManager.instance.session.tenant,
-            contract = SessionManager.instance.session.contract,
-            protocol = SessionManager.instance.session.protocol
+            gender = SessionInstance.instance.session.gender,
+            target = SessionInstance.instance.session.target,
+            scenario = SessionInstance.instance.session.scenario,
+            scenarioName = SessionInstance.instance.session.scenarioName,
+            rooms = SessionInstance.instance.session.rooms,
+            textures = SessionInstance.instance.session.textures,
+            report = SessionInstance.instance.session.report,
+            tenant = SessionInstance.instance.session.tenant,
+            contract = SessionInstance.instance.session.contract,
+            protocol = SessionInstance.instance.session.protocol
         };
 
         conn.Send (createPlayerMessage);

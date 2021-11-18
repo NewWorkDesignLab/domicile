@@ -15,6 +15,10 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     public Button readyButton;
     public Button startButton;
 
+    [Header("Screenshot Gallerie")]
+    public GameObject galerieParent;
+    public GameObject screenshotPrefab;
+
     [Header("Groups")]
     public GameObject loadingGroup;
     public List<GameObject> allObjects;
@@ -101,4 +105,22 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     }
 
     #endregion
+
+    public void InitGasllerieSetup()
+    {
+        StartCoroutine(SetupScreenshotGallerie());
+    }
+
+    private IEnumerator SetupScreenshotGallerie()
+    {
+        for (int i = 0; i < ScreenshotManager.takenScreenshots.Count; i++)
+        {
+            WWW www = new WWW ($"file:///{ScreenshotManager.takenScreenshots[i]}");
+            while(!www.isDone)
+                yield return null;
+
+            GameObject image = Instantiate(screenshotPrefab, galerieParent.transform);
+            image.GetComponent<RawImage>().texture = www.texture;
+        }
+    }
 }

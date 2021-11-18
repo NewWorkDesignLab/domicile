@@ -83,12 +83,12 @@ public class FloatingMenuComponent : MonoBehaviour {
         CloseMenu ();
     }
     public void ScreenshotButton () {
-        // Hide ();
-        // ScreenshotManager.TakeScreenshot ((success) => {
-        //     Show ();
-        // });
+        Hide ();
+        ScreenshotManager.TakeScreenshot ((success) => {
+            Show ();
+        });
     }
-    
+
     public void ExitScenarioButton () {
         if (endConfirmation == false) {
             endConfirmation = true;

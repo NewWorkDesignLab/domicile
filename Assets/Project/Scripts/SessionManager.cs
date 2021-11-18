@@ -4,76 +4,68 @@ using UnityEngine;
 
 public class SessionManager : Singleton<SessionManager>
 {
-    public Session session;
-    
-    protected override void Awake()
-    {
-        base.Awake();
-        session = new Session();
-    }
-
     public void PrintSession()
     {
-        Debug.Log(session.ToString());
+        Debug.Log(SessionInstance.instance.session.ToString());
     }
 
     public void SetSessionName(string value)
     {
-        session.name = value;
+        SessionInstance.instance.session.name = value;
     }
 
     public void SetSessionGender(int value)
     {
-        session.gender = (Gender)value;
+        SessionInstance.instance.session.gender = (Gender)value;
     }
 
     public void SetSessionConsent(bool value)
     {
-        session.consent = value;
+        SessionInstance.instance.session.consent = value;
     }
 
     public void SetSessionTarget(int value)
     {
-        session.target = (SessionTarget)value;
+        SessionInstance.instance.session.target = (SessionTarget)value;
     }
 
     public void SetSessionScenario(string value)
     {
-        session.scenario = value;
+        SessionInstance.instance.session.scenario = value;
     }
 
     public void SetSessionScenarioName(string value)
     {
-        session.scenarioName = value == "" ? "Scenario" : value;
+        SessionInstance.instance.session.scenarioName = value == "" ? "Scenario" : value;
     }
 
     public void SetSessionRooms(int value)
     {
-        session.rooms = (RoomCount)value;
+        SessionInstance.instance.session.rooms = (RoomCount)value;
     }
 
     public void SetSessionTextures(int value)
     {
-        session.textures = (TextureDifficulty)value;
+        SessionInstance.instance.session.textures = (TextureDifficulty)value;
     }
 
     public void SetSessionReport(int value)
     {
-        session.report = (CaseReport)value;
+        SessionInstance.instance.session.report = (CaseReport)value;
     }
 
     public void SetSessionTenant(int value)
     {
-        session.tenant = (Tenant)value;
+        SessionInstance.instance.session.tenant = (Tenant)value;
     }
 
     public void SetSessionContract(int value)
     {
-        session.contract = (RentalContract)value;
+        SessionInstance.instance.session.contract = (RentalContract)value;
     }
 
     public void SetSessionProtocol(int value)
     {
-        session.protocol = (HandoverProtocol)value;
+        SessionInstance.instance.session.protocol = (HandoverProtocol)value;
     }
 }

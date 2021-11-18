@@ -55,9 +55,9 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
 
     public void MainLanding_CheckButtonInteraction()
     {
-        bool nameReady = SessionManager.instance.session.IsValidName();
-        bool genderReady = SessionManager.instance.session.gender != Gender.unspecified;
-        bool consentReady = SessionManager.instance.session.consent;
+        bool nameReady = SessionInstance.instance.session.IsValidName();
+        bool genderReady = SessionInstance.instance.session.gender != Gender.unspecified;
+        bool consentReady = SessionInstance.instance.session.consent;
         mainLandingButton.interactable = nameReady && genderReady && consentReady;
     }
 
@@ -67,7 +67,7 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
 
     public void MainLanding_SetGreeting()
     {
-        mainMenuText.text = $"Hallo {SessionManager.instance.session.name}. Was möchten Sie tun?";
+        mainMenuText.text = $"Hallo {SessionInstance.instance.session.name}. Was möchten Sie tun?";
     }
 
     #endregion
@@ -76,21 +76,21 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
 
     public void CreateScenario_UpdateRoomDisplay()
     {
-        string txt = TextGenerator.GenerateRoomText(SessionManager.instance.session.rooms);
+        string txt = TextGenerator.GenerateRoomText(SessionInstance.instance.session.rooms);
         scenarioCreateDisplayRooms.buttonText = txt;
         scenarioCreateDisplayRooms.UpdateUI();
     }
 
     public void CreateScenario_UpdateTextureDisplay()
     {
-        string txt = TextGenerator.GenerateTextureText(SessionManager.instance.session.textures);
+        string txt = TextGenerator.GenerateTextureText(SessionInstance.instance.session.textures);
         scenarioCreateDisplayTextures.buttonText = txt;
         scenarioCreateDisplayTextures.UpdateUI();
     }
 
     public void CreateScenario_UpdateReportDisplay()
     {
-        string txt = TextGenerator.GenerateReportText(SessionManager.instance.session.tenant, SessionManager.instance.session.contract, SessionManager.instance.session.protocol);
+        string txt = TextGenerator.GenerateReportText(SessionInstance.instance.session.tenant, SessionInstance.instance.session.contract, SessionInstance.instance.session.protocol);
         scenarioCreateDisplayReport.buttonText = txt;
         scenarioCreateDisplayReport.UpdateUI();
     }
