@@ -42,7 +42,7 @@ public class SyncSceneProgress : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdNextSceneStatus()
     {
-        sceneStatus++;
+        if (sceneStatus < SceneSyncSettings.Length - 1) sceneStatus++;
     }
 }
 

@@ -95,5 +95,10 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
         Application.OpenURL("https://tobiasbohn.com/particle-rush/tobias_bohn_particle_rush_dokumentation_umsetzung.pdf");
     }
 
+    public void Button_OpenCheckliste()
+    {
+        Application.OpenURL("https://tobiasbohn.com/particle-rush/tobias_bohn_particle_rush_dokumentation_umsetzung.pdf");
+    }
+
     #endregion
 }
