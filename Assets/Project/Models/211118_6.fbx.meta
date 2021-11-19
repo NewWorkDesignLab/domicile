@@ -5,6 +5,301 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AOB_01
+    second: {fileID: 2100000, guid: 1a8ed7f1d421c5b4487b64466d686ecb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ASR_01
+    second: {fileID: 2100000, guid: efefa377f7247ee459341734e0c580c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ASR_02
+    second: {fileID: 2100000, guid: 12a2f98e6d2941540a7bac924e0fd07c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ASR_03
+    second: {fileID: 2100000, guid: ddfaeca85e7fde9449967c2668210563, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ASR_03.001
+    second: {fileID: 2100000, guid: 566935ba2f04a1545b5822fc090934fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ASR_03.002
+    second: {fileID: 2100000, guid: 7d65feaf4f0e38a45b4fe4595fbf1e70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ASR_03.003
+    second: {fileID: 2100000, guid: dca040f0c88968f42a1d7b10528cec03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ASR_04_KiZi
+    second: {fileID: 2100000, guid: c2cdef9d4bf56704d8e9d50c6740ce55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ASR_04_Schla
+    second: {fileID: 2100000, guid: 1560cdb321082e64e89940de656d5504, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ASR_04_WoZi_1
+    second: {fileID: 2100000, guid: 89b338fe44f3757449ad91a42b18b6cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ASR_04_WoZi_2
+    second: {fileID: 2100000, guid: 3157fc1cc9e0ae64fbd358b922983987, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Additional
+    second: {fileID: 2100000, guid: d2d53e8b26ca7714992bbb1dea0b4612, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bad
+    second: {fileID: 2100000, guid: dd2ae7234ee68564d8aa735f2798864e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bad_Objects
+    second: {fileID: 2100000, guid: 576d178beb9ed874eac73bb9cb1b9051, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Badheizung
+    second: {fileID: 2100000, guid: b37ba319071c0dd44b4480c3955b6efd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Balkon
+    second: {fileID: 2100000, guid: 61f62a385d7b77b49b3d2da1d4d97bc5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fenster
+    second: {fileID: 2100000, guid: 523f501d208ff81469b89f07be1d2ebe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fenster.001
+    second: {fileID: 2100000, guid: d1dcfce65a704294a9f83c1449170f69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flur
+    second: {fileID: 2100000, guid: 7583d02a1a5bf66459c96aecee30f0c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flur.001
+    second: {fileID: 2100000, guid: 6a48157e687f7d64e9ec7563d0208087, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: KiZi
+    second: {fileID: 2100000, guid: c8c66fbea379dac4c908863355757df3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ku
+    second: {fileID: 2100000, guid: 4063ae993cd4fac40a72da1a5eb0dd98, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ku.001
+    second: {fileID: 2100000, guid: 1e8a899434e033546b2800b08e049181, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 7c04cda5ef51bfe4fbfa829c863c5372, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SVN_01
+    second: {fileID: 2100000, guid: 9009b56dac2cb684180813175379cc40, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SVN_02
+    second: {fileID: 2100000, guid: 4f0614e51a6aa7c4c85e3411fb511501, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SVN_03
+    second: {fileID: 2100000, guid: a9edd22a4e709e842951488bedc8230b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SVN_03_KiZi
+    second: {fileID: 2100000, guid: d647e4c97375f78408b8a9df7f96bfb0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SVN_03_WoZi_1
+    second: {fileID: 2100000, guid: 5f9f08b05a1218941a777f81c660d67a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SVN_03_WoZi_2_
+    second: {fileID: 2100000, guid: 5fe732d80dce4724fbb0562dc38dd7da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SVN_04
+    second: {fileID: 2100000, guid: 62db46e4a8aee6644ad84302ccd714b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SVN_07
+    second: {fileID: 2100000, guid: 1a0dc645dacb7494ea96e60bc12b3c48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SVN_08
+    second: {fileID: 2100000, guid: df9917608df292544af1621538579fe3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SVN_10
+    second: {fileID: 2100000, guid: cefc751dfe59e2541968ac8151fd1d57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SVN_12
+    second: {fileID: 2100000, guid: 2f4a19b4718834b498218a38ac132be6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SVN_13
+    second: {fileID: 2100000, guid: e5bf44bbfb8368d41859d175f83cb130, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SVN_14
+    second: {fileID: 2100000, guid: d3ca1efc2aaba344bb43ada6edfe2385, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Schla
+    second: {fileID: 2100000, guid: c6aa8695447badb44ba10618c2d2b6fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VSC_02
+    second: {fileID: 2100000, guid: a96770f94e7cc6e41bb2fd6ff6a88ddf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VSC_04
+    second: {fileID: 2100000, guid: 223a015ea9addc0428cb0427d5b9fad5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WasserZaehler
+    second: {fileID: 2100000, guid: fcacbdcf0c68eea4e96f28184964f38c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoZi
+    second: {fileID: 2100000, guid: c2836586c6dbb1f439ec8537742b020b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: einbaukueche
+    second: {fileID: 2100000, guid: 43d9e70245521d4449e3d06e2a82c4b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: einbauschrank
+    second: {fileID: 2100000, guid: 3b7182b67576ff749b393ecef6196b7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gegenstaende-C2.001
+    second: {fileID: 2100000, guid: dd2f2d59900b2334facfe118c42d3dad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gegenstaende-C2.002
+    second: {fileID: 2100000, guid: ce922b0f9e35556489aaf089449145da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gegenstaende-C2.003
+    second: {fileID: 2100000, guid: c679c903c5ee47e4a9ef922650a683fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gegenstaende-C2.004
+    second: {fileID: 2100000, guid: 649c9e77425345743bfbd132b28b39c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gegenstaende-C3.001
+    second: {fileID: 2100000, guid: b1b0fa2ea3b963e4e9755ad27e52f539, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gegenstaende-C3.002
+    second: {fileID: 2100000, guid: 242297073e63f2d468915439de0d22dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gegenstaende-C3.003
+    second: {fileID: 2100000, guid: a252a7d003c10e8499b5651ccff7fb85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gegenstaende-C3.004
+    second: {fileID: 2100000, guid: e22175c7714bdb1458e1c15c07449510, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gegenstaende.001
+    second: {fileID: 2100000, guid: 670e9461bb8152e45a894adb92e7e2a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gegenstaende.002
+    second: {fileID: 2100000, guid: 5a24e25398e1fc64988e78a35eb4eb35, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gegenstaende.003
+    second: {fileID: 2100000, guid: 6eb2ec05294065449a95e60eb1024cfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gegenstaende.004
+    second: {fileID: 2100000, guid: 6152d5db5bfd6b7478968a283bcab6af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: optionalwalls
+    second: {fileID: 2100000, guid: d75761987f2ca2f43a5a14be6c6e8f36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: schimmel
+    second: {fileID: 2100000, guid: a5d8e81c7241cff428ee7149cd192e51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: schmutzfenster
+    second: {fileID: 2100000, guid: aae842d061b10d641a1e7f6294454706, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: 200813_atlas_KiZi_V3

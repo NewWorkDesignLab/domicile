@@ -14,7 +14,10 @@ public class ScenarioReportButton : MonoBehaviour
 
     public void OpenReport()
     {
-        Application.OpenURL("https://tobiasbohn.com/particle-rush/tobias_bohn_particle_rush_dokumentation_umsetzung.pdf");
+        if (OnlinePlayer.scenario?.rooms == RoomCount.two)
+            Application.OpenURL("https://tobiasbohn.com/domcl/FA-3m_-A-I_2-Zimmer_Atzenbeck.pdf");
+        else if (OnlinePlayer.scenario?.rooms == RoomCount.three)
+            Application.OpenURL("https://tobiasbohn.com/domcl/FA-2w_-A-I_3-Zimmer_Gebhard.pdf");
     }
 
     private IEnumerator UpdateVisuals()

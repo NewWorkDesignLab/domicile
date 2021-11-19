@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 225965230896744343}
   - component: {fileID: 9190155280329616849}
   - component: {fileID: 5099128983831664249}
-  m_Layer: 6
+  m_Layer: 19
   m_Name: Roomdisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4901442096285444328}
   - component: {fileID: 7393501453622664849}
   - component: {fileID: 4875931635857768586}
-  m_Layer: 6
+  m_Layer: 19
   m_Name: Notification
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 383620008351595448}
-  m_Layer: 6
+  m_Layer: 19
   m_Name: ReticlePointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 8649431303736712974}
   - component: {fileID: 5009014021911568120}
   - component: {fileID: 1498282456995409678}
-  m_Layer: 6
+  m_Layer: 19
   m_Name: RaycastIdle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 7195391958343943867}
   - component: {fileID: 334983452577143567}
   - component: {fileID: 8053666680584076514}
-  m_Layer: 6
+  m_Layer: 19
   m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 1334684221240779213}
   - component: {fileID: 1843445546913239646}
   - component: {fileID: 7470871432030795087}
-  m_Layer: 6
+  m_Layer: 19
   m_Name: RaycastActive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5948800604211438372}
   - component: {fileID: 6886306720979120733}
-  m_Layer: 6
+  m_Layer: 19
   m_Name: HUD Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 439
+    m_Bits: 4407
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -628,7 +628,7 @@ MonoBehaviour:
   raycastIdleImage: {fileID: 1498282456995409678}
   layersToRaycast:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 33558528
 --- !u!1 &4864051578157966704
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +723,7 @@ GameObject:
   - component: {fileID: 295735633860862958}
   - component: {fileID: 5721836322335781564}
   - component: {fileID: 9176967292986228789}
-  m_Layer: 6
+  m_Layer: 19
   m_Name: Posedisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -802,7 +802,7 @@ GameObject:
   - component: {fileID: 7632715837882195087}
   - component: {fileID: 2636099169240296522}
   - component: {fileID: 2408708731213386640}
-  m_Layer: 6
+  m_Layer: 19
   m_Name: GazeTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -928,7 +928,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 34078720
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

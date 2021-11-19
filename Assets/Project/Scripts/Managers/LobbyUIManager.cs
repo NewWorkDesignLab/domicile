@@ -91,7 +91,10 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 
     public void Button_OpenMaengelliste()
     {
-        Application.OpenURL("https://tobiasbohn.com/particle-rush/tobias_bohn_particle_rush_dokumentation_umsetzung.pdf");
+        if (OnlinePlayer.scenario?.rooms == RoomCount.two)
+            Application.OpenURL("https://tobiasbohn.com/domcl/OD-5_M%C3%A4ngelliste_2-Zimmer-Whg_Atzenbeck.pdf");
+        else if (OnlinePlayer.scenario?.rooms == RoomCount.three)
+            Application.OpenURL("https://tobiasbohn.com/domcl/OD-5_M%C3%A4ngelliste_3-Zimmer-Whg_Gebhard.pdf");
     }
 
     public void Button_OpenTechnischeAnleitung()
@@ -101,7 +104,7 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 
     public void Button_OpenCheckliste()
     {
-        Application.OpenURL("https://tobiasbohn.com/particle-rush/tobias_bohn_particle_rush_dokumentation_umsetzung.pdf");
+        Application.OpenURL("https://tobiasbohn.com/domcl/OD-6_Checkliste.pdf");
     }
 
     #endregion
