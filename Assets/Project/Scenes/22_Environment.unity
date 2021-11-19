@@ -46862,12 +46862,36 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 1006486611}
+          m_TargetAssemblyTypeName: EnvironmentScene, Assembly-CSharp
+          m_MethodName: SetupPlayerVisabillity
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     OnSceneSyncSpectator:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1146124836}
           m_TargetAssemblyTypeName: LobbyUIManager, Assembly-CSharp
           m_MethodName: DisableUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1006486611}
+          m_TargetAssemblyTypeName: EnvironmentScene, Assembly-CSharp
+          m_MethodName: SetupPlayerVisabillity
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -46954,7 +46978,19 @@ MonoBehaviour:
           m_CallState: 2
     OnSceneSyncGuide:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1006486611}
+          m_TargetAssemblyTypeName: EnvironmentScene, Assembly-CSharp
+          m_MethodName: SetupPlayerVisabillity
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     OnSceneSyncLearner:
       m_PersistentCalls:
         m_Calls: []
@@ -56104,7 +56140,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 43366786444389583, guid: edc35421971750844a5324832023b864, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 64498169755174409, guid: edc35421971750844a5324832023b864, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56432,7 +56468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3779837750979016099, guid: edc35421971750844a5324832023b864, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3828964471060404724, guid: edc35421971750844a5324832023b864, type: 3}
       propertyPath: m_IsActive
@@ -56620,7 +56656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6107553014840341156, guid: edc35421971750844a5324832023b864, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6180361927684840731, guid: edc35421971750844a5324832023b864, type: 3}
       propertyPath: m_IsActive

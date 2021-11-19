@@ -104,9 +104,8 @@ public class OnlinePlayer : NetworkBehaviour
         // OnStartLocalPlayer called after OnStartClient - static localPlayer var could be null
         if (localPlayer != null) localPlayer.CheckAllPlayerReady();
 
-        // setup visuals for all "learners" except localPlayer
-        // localPlayer will be setup in OnStartLocalPlayer()
-        if (!isLocalPlayer && playerRole == PlayerRole.learner) player.SetupVisablePlayer ();
+        // setup all clients as inactive
+        player.SetupInactivePlayer ();
 
         // instantiate lobby UI
         instanciatedLobbyPlayerUI = Instantiate(lobbyPlayerUIPrefab, LobbyUIManager.instance.lobbyPlayerUIParent.transform);
@@ -190,6 +189,19 @@ public class OnlinePlayer : NetworkBehaviour
         if (allPlayersReady != roomReadyState) {
             roomReadyState = allPlayersReady;
             OnRoomReadyStateChanged?.Invoke(roomReadyState);
+        }
+    }
+
+    public void SetupClientVisabillity()
+    {
+        for (int i = 0; i < playersInScene.Count; i++)
+        {
+            if (playersInScene[i].isLocalPlayer)
+                playersInScene[i].player.SetupLocalPlayer();
+            else if (playersInScene[i].playerRole == PlayerRole.learner)
+                playersInScene[i].player.SetupVisablePlayer();
+            else
+                playersInScene[i].player.SetupInactivePlayer();
         }
     }
 }

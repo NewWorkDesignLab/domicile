@@ -10,4 +10,9 @@ public class EnvironmentScene : Singleton<EnvironmentScene>
     {
         SceneManager.LoadScene(offlineScene);
     }
+
+    public void SetupPlayerVisabillity()
+    {
+        OnlinePlayer.localPlayer.SetupClientVisabillity();
+    }
 }
