@@ -8,6 +8,7 @@ public class EnvironmentScene : Singleton<EnvironmentScene>
 
     public void LoadSceneOffline()
     {
+        SceneSettingHelper.Display2D();
         SceneManager.LoadScene(offlineScene);
     }
 

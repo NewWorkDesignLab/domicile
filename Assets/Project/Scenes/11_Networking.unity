@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
+  m_AmbientSkyColor: {r: 1.4142135, g: 1.4142135, b: 1.4142135, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -200,7 +200,7 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 2663831451896267103, guid: 716cdd168c3e37d4b8685976ef61bd35, type: 3}
   gameScene: Assets/Project/Scenes/22_Environment.unity
-  instances: 10
+  instances: 20
   networkedScenarioPrefab: {fileID: 2663831451896267103, guid: 716cdd168c3e37d4b8685976ef61bd35, type: 3}
 --- !u!4 &213892943
 Transform:
@@ -278,7 +278,6 @@ GameObject:
   m_Component:
   - component: {fileID: 301154589}
   - component: {fileID: 301154590}
-  - component: {fileID: 301154588}
   m_Layer: 0
   m_Name: Scene Manager
   m_TagString: Untagged
@@ -286,20 +285,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &301154588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301154587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2825637e18f1066499554352d3bfd854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 0
-  settingOnSceneStart: 0
 --- !u!4 &301154589
 Transform:
   m_ObjectHideFlags: 0

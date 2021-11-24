@@ -10,14 +10,14 @@ public class ToggleStateHelper : MonoBehaviour
     
     // [SyncVar (hook = nameof (SetCurrentState))]
     // true = open; false = close
-    private bool currentState;
+    public bool currentState = false;
 
     public NetworkToogleStateExtension netExtension;
 
     void Start ()
     {
-        // close on start
-        SetToggleState(false);
+        // user currentState as default Value on Start
+        SetToggleState(currentState);
     }
 
     public void SetToggleState(bool value)

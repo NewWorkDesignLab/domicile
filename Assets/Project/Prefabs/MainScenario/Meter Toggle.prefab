@@ -48,7 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeOnTrue:
   - {fileID: 5218772414595894657}
-  activeOnFalse: []
+  activeOnFalse:
+  - {fileID: 1638863785617753441}
+  currentState: 0
   netExtension: {fileID: 3289620385586554862}
 --- !u!1 &1638863785617753441
 GameObject:
@@ -187,7 +189,7 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   visible: 0
-  m_AssetId: 
+  m_AssetId: ff08120bdd19f0045b42a756ccb71393
   hasSpawned: 0
 --- !u!114 &3289620385586554862
 MonoBehaviour:
