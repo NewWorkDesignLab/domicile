@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
@@ -146,6 +147,21 @@ public class OnlinePlayer : NetworkBehaviour
 
         // enable UI when localPlayer is complete setup
         SyncSceneProgress.instance.ApplySceneStatus();
+
+        if (scenario != null) UpdateSessionWithNetworkedScenario();
+    }
+
+    public void UpdateSessionWithNetworkedScenario()
+    {
+        // set values from networked scenario in session
+        SessionInstance.instance.session.scenario = scenario.scenarioID;
+        SessionInstance.instance.session.scenarioName = scenario.scenarioName;
+        SessionInstance.instance.session.rooms = scenario.rooms;
+        SessionInstance.instance.session.textures = scenario.textures;
+        SessionInstance.instance.session.report = scenario.report;
+        SessionInstance.instance.session.tenant = scenario.tenant;
+        SessionInstance.instance.session.contract = scenario.contract;
+        SessionInstance.instance.session.protocol = scenario.protocol;
     }
 
     /// <summary>
@@ -166,6 +182,7 @@ public class OnlinePlayer : NetworkBehaviour
 
     public void LeaveLobby()
     {
+        SessionInstance.instance.ClearSession();
         if (NetworkServer.active && NetworkClient.isConnected)
             NetworkManager.singleton.StopHost();
         else if (NetworkClient.isConnected)

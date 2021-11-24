@@ -32,13 +32,9 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
     
     [Header("Loading UI")]
     public GameObject loadingGroup;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        HideAll();
-        mainLandingGroup.SetActive(true);
-    }
+    
+    [Header("Reconnect UI")]
+    public GameObject reconnectGroup;
 
     public void HideAll()
     {
@@ -49,6 +45,7 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
         scJoinGroup.SetActive(false);
         offlineGroup.SetActive(false);
         loadingGroup.SetActive(false);
+        reconnectGroup.SetActive(false);
     }
 
     #region Main Landing UI

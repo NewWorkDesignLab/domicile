@@ -72,6 +72,7 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     public void Lobby_SetRole(int role)
     {
         OnlinePlayer.localPlayer.CmdSetRole((PlayerRole)role);
+        SessionInstance.instance.session.localRole = (PlayerRole)role;
     }
 
     public void Lobby_ToogleReadyFlag()

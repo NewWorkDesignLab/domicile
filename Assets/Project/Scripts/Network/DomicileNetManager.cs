@@ -120,9 +120,7 @@ public class DomicileNetManager : NetworkManager
     /// <param name="newSceneName">Name of the scene that's about to be loaded</param>
     /// <param name="sceneOperation">Scene operation that's about to happen</param>
     /// <param name="customHandling">true to indicate that scene loading will be handled through overrides</param>
-    public override void OnClientChangeScene(string newSceneName, SceneOperation sceneOperation, bool customHandling) {
-        Debug.Log("ON CLIENT CHANGE SCENE");
-    }
+    public override void OnClientChangeScene(string newSceneName, SceneOperation sceneOperation, bool customHandling) { }
 
     /// <summary>
     /// Called on clients when a scene has completed loaded, when the scene load was initiated by the server.
@@ -131,7 +129,6 @@ public class DomicileNetManager : NetworkManager
     /// <param name="conn">The network connection that the scene change message arrived on.</param>
     public override void OnClientSceneChanged(NetworkConnection conn)
     {
-        Debug.Log("ON CLIENT SCENE CHANGED");
         base.OnClientSceneChanged(conn);
     }
 
@@ -199,7 +196,7 @@ public class DomicileNetManager : NetworkManager
 
         CreatePlayerMessage createPlayerMessage = new CreatePlayerMessage {
             name = SessionInstance.instance.session.name,
-            role = PlayerRole.spectator,
+            role = SessionInstance.instance.session.localRole,
             gender = SessionInstance.instance.session.gender,
             target = SessionInstance.instance.session.target,
             scenario = SessionInstance.instance.session.scenario,
@@ -274,15 +271,16 @@ public class DomicileNetManager : NetworkManager
         while (!scenePoolLoaded)
             yield return null;
 
-        // get or find scene from pool
-        ScenePoolItem targetScene = message.target switch
+        // get existing scenario from pool
+        ScenePoolItem targetScene = scenePool.Get(message.scenario);
+
+        // create new scenario if not existing jet
+        bool newScenario = false;
+        if (targetScene == null && message.target == SessionTarget.create)
         {
-            SessionTarget.unspecified => null,
-            SessionTarget.create => scenePool.GetUnused(),
-            SessionTarget.join => scenePool.Get(message.scenario),
-            SessionTarget.offline => null,
-            _ => null
-        };
+            targetScene = scenePool.GetUnused();
+            newScenario = true;
+        }
         
         if (targetScene?.scene == null)
         {
@@ -318,7 +316,7 @@ public class DomicileNetManager : NetworkManager
         NetworkServer.AddPlayerForConnection (conn, playerGo);
 
         // create synced scenario
-        if (message.target == SessionTarget.create)
+        if (newScenario)
         {
             GameObject scenarioGo = Instantiate (networkedScenarioPrefab);
             NetworkedScenario netScenario = scenarioGo.GetComponent<NetworkedScenario> ();

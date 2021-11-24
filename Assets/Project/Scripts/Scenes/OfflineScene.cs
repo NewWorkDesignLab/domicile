@@ -11,9 +11,17 @@ public class OfflineScene : Singleton<OfflineScene>
     {
         #if UNITY_STANDALONE_LINUX
         LoadSceneOnline();
-        #endif
+        #else
+        
+        if (SessionInstance.instance.ShouldReconnect()) {
+            OfflineUIManager.instance.HideAll();
+            OfflineUIManager.instance.reconnectGroup.SetActive(true);
+        } else {
+            OfflineUIManager.instance.HideAll();
+            OfflineUIManager.instance.mainLandingGroup.SetActive(true);
+        }
 
-        SessionInstance.instance.ClearSession();
+        #endif
     }
 
     public void LoadSceneOnline()

@@ -12,6 +12,7 @@ public class NetworkedScenario : NetworkBehaviour
     public override void OnStartClient()
     {
         OnlinePlayer.scenario = this;
+        if (OnlinePlayer.localPlayer != null) OnlinePlayer.localPlayer.UpdateSessionWithNetworkedScenario();
     }
 
 

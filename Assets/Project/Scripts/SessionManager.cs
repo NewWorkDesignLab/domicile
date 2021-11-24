@@ -9,6 +9,11 @@ public class SessionManager : Singleton<SessionManager>
         Debug.Log(SessionInstance.instance.session.ToString());
     }
 
+    public void ClearSession()
+    {
+        SessionInstance.instance.ClearSession();
+    }
+
     public void SetSessionName(string value)
     {
         SessionInstance.instance.session.name = value;

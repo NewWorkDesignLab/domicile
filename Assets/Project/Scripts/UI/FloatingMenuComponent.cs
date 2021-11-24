@@ -97,9 +97,14 @@ public class FloatingMenuComponent : MonoBehaviour {
             });
         } else {
             if (NetworkServer.active || NetworkClient.active)
+            {
                 SyncSceneProgress.instance.CmdNextSceneStatus();
+            }
             else
+            {
                 EnvironmentScene.instance.LoadSceneOffline();
+                SessionInstance.instance.ClearSession();
+            }
         }
     }
 

@@ -170,7 +170,7 @@ MonoBehaviour:
   sslEnabled: 0
   sslCertJson: ./cert.json
   sslProtocols: 3072
-  _logLevels: 4
+  _logLevels: 0
 --- !u!114 &213892942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   offlineScene: Assets/Project/Scenes/00_Offline.unity
   onlineScene: 
   transport: {fileID: 213892945}
-  networkAddress: 188.68.56.140
+  networkAddress: localhost
   maxConnections: 50
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 7719062317763899482, guid: 2ff5aabf719b6544daa741b6382b832a, type: 3}
@@ -244,13 +244,13 @@ MonoBehaviour:
   DualMode: 1
   NoDelay: 1
   Interval: 10
-  Timeout: 2147483647
+  Timeout: 10000
   FastResend: 2
   CongestionWindow: 0
   SendWindowSize: 4096
   ReceiveWindowSize: 4096
   NonAlloc: 1
-  debugLog: 1
+  debugLog: 0
   statisticsGUI: 0
   statisticsLog: 0
 --- !u!114 &213892946
@@ -311,4 +311,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf17b0a301a117e4981a26b6830b3f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 1
+  dontDestroyOnLoad: 0

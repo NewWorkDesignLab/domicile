@@ -7,6 +7,7 @@ public class Session
     public string name = "";
     public bool consent = false;
     public Gender gender = Gender.unspecified;
+    public PlayerRole localRole = PlayerRole.spectator;
     public SessionTarget target = SessionTarget.unspecified;
     public string scenario = "";
     public string scenarioName = "Szenario";

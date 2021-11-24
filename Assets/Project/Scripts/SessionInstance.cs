@@ -16,4 +16,9 @@ public class SessionInstance : Singleton<SessionInstance>
     {
         session = new Session();
     }
+
+    public bool ShouldReconnect()
+    {
+        return session.scenario != "";
+    }
 }
