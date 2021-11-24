@@ -14,10 +14,14 @@ public class ScenarioReportButton : MonoBehaviour
 
     public void OpenReport()
     {
-        if (OnlinePlayer.scenario?.rooms == RoomCount.two)
+        if (OnlinePlayer.scenario?.tenant == Tenant.three)
             Application.OpenURL("https://tobiasbohn.com/domcl/FA-3m_-A-I_2-Zimmer_Atzenbeck.pdf");
-        else if (OnlinePlayer.scenario?.rooms == RoomCount.three)
+        else if (OnlinePlayer.scenario?.tenant == Tenant.two)
             Application.OpenURL("https://tobiasbohn.com/domcl/FA-2w_-A-I_3-Zimmer_Gebhard.pdf");
+        else if (OnlinePlayer.scenario?.tenant == Tenant.one && OnlinePlayer.localPlayer.playerGender == Gender.male)
+            Application.OpenURL("https://tobiasbohn.com/domcl/FA-1m_A_I.pdf");
+        else if (OnlinePlayer.scenario?.tenant == Tenant.one && OnlinePlayer.localPlayer.playerGender == Gender.female)
+            Application.OpenURL("https://tobiasbohn.com/domcl/FA-1w_A_I.pdf");
     }
 
     private IEnumerator UpdateVisuals()
