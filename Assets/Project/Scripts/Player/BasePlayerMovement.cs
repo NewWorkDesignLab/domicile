@@ -65,12 +65,12 @@ public class BasePlayerMovement : MonoBehaviour {
         var mouse = Mouse.current;
         if (keyboard != null) {
             if (mouse != null)
-                keyboardWalkDirections.Forward (keyboard.wKey.isPressed || mouse.leftButton.isPressed);
+                keyboardWalkDirections.Forward (keyboard.wKey.isPressed || keyboard.upArrowKey.isPressed || mouse.leftButton.isPressed);
             else
-                keyboardWalkDirections.Forward (keyboard.wKey.isPressed);
-            keyboardWalkDirections.Backward (keyboard.sKey.isPressed);
-            keyboardWalkDirections.Left (keyboard.aKey.isPressed);
-            keyboardWalkDirections.Right (keyboard.dKey.isPressed);
+                keyboardWalkDirections.Forward (keyboard.wKey.isPressed || keyboard.upArrowKey.isPressed );
+            keyboardWalkDirections.Backward (keyboard.sKey.isPressed || keyboard.downArrowKey.isPressed );
+            keyboardWalkDirections.Left (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed );
+            keyboardWalkDirections.Right (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed );
         }
 
         if (keyboardWalkDirections.AnyDirectionActive ()) {
