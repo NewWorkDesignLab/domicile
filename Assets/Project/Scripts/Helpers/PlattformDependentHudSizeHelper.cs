@@ -13,7 +13,7 @@ public class PlattformDependentHudSizeHelper : MonoBehaviour {
 #if UNITY_ANDROID
         float vertical = androidHeightInPercent / 100f;
         float horizontal = androidWidthInPercent / 100f;
-#elif UNITY_WEBGL
+#elif UNITY_WEBGL || UNITY_STANDALONE
         float vertical = webglHeightInPercent / 100f;
         float horizontal = webglWidthInPercent / 100f;
 #else
