@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 225965230896744343}
   - component: {fileID: 9190155280329616849}
   - component: {fileID: 5099128983831664249}
-  m_Layer: 19
+  m_Layer: 20
   m_Name: Roomdisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,11 +67,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 20
+    m_MaxSize: 30
     m_Alignment: 0
     m_AlignByGeometry: 1
     m_RichText: 0
@@ -146,11 +146,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 20
+    m_MaxSize: 30
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 0
@@ -543,6 +543,7 @@ GameObject:
   - component: {fileID: 3983690347875079972}
   - component: {fileID: 3983690347875079975}
   - component: {fileID: 6285297598433696946}
+  - component: {fileID: 612429868}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -622,13 +623,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb555bd8b048e2bccbe1e3c9d855a127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gazeTimerDuration: 1.4
+  gazeTimerDuration: 1.2
   gazeTimerImage: {fileID: 2408708731213386640}
   raycastActiveImage: {fileID: 7470871432030795087}
   raycastIdleImage: {fileID: 1498282456995409678}
   layersToRaycast:
     serializedVersion: 2
     m_Bits: 33558528
+--- !u!114 &612429868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3983690347875079969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fce4ccaea2e6b498ab413ba3978b056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disablePlattform: 3
 --- !u!1 &4864051578157966704
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,7 +706,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 1048631
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 1
@@ -723,7 +737,7 @@ GameObject:
   - component: {fileID: 295735633860862958}
   - component: {fileID: 5721836322335781564}
   - component: {fileID: 9176967292986228789}
-  m_Layer: 19
+  m_Layer: 20
   m_Name: Posedisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,11 +793,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 20
+    m_MaxSize: 30
     m_Alignment: 2
     m_AlignByGeometry: 1
     m_RichText: 0
@@ -877,7 +891,7 @@ GameObject:
   - component: {fileID: 2895370026621668899}
   - component: {fileID: 7706008439937656166}
   m_Layer: 0
-  m_Name: RaycastOverlayCamera
+  m_Name: OverlayCamera
   m_TagString: OverlayCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,7 +942,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 34078720
+    m_Bits: 35127296
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
