@@ -15,8 +15,14 @@ public class BasePlayerRotation : MonoBehaviour {
     float rotationY = 0F;
     Quaternion originalRotation;
 
+    bool followPlayer = false;
+
     void Update () {
-        ApplyMouseRotation ();
+        if (followPlayer) {
+            LookAtPlayer ();
+        } else {
+            ApplyMouseRotation ();
+        }
     }
 
     void ApplyMouseRotation () {
@@ -34,6 +40,16 @@ public class BasePlayerRotation : MonoBehaviour {
             Quaternion yQuaternion = Quaternion.AngleAxis (rotationY, -Vector3.right);
             transform.localRotation = xQuaternion * yQuaternion;
         }
+    }
+
+    void LookAtPlayer() {
+        GameObject objectToLookAt = OnlinePlayer.followPlayer?.player?.followPlayerLookAnchor;
+        if (objectToLookAt != null)
+            transform.LookAt(objectToLookAt.transform);
+    }
+
+    public void ShouldFollowPlayer(bool value) {
+        followPlayer = value;
     }
 
     static float ClampAngle (float angle, float min, float max) {

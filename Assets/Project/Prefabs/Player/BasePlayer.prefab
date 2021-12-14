@@ -515,6 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd619a9eb035a37ecb41edb3dd3152e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followPlayerLookAnchor: {fileID: 6938845844903137142}
   playerHead: {fileID: 6550034684253151901}
   playerBody: {fileID: 7038886255896498076}
   playerVector: {fileID: 3003764249096944746}
@@ -528,6 +529,7 @@ MonoBehaviour:
   trackedPoseDriver: {fileID: 3772367975374411855}
   headNormalHeight: 2.75
   headCrawlHeight: 0.5
+  ignoreWallCollisions: 0
 --- !u!114 &4158316544524657722
 MonoBehaviour:
   m_ObjectHideFlags: 0

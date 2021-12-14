@@ -16,6 +16,8 @@ public class BasePlayerMovement : MonoBehaviour {
 
         movementStatus = PlayerMovementStatus.idle;
         BasePlayer.localPlayer.Stand ();
+        BasePlayer.localPlayer.playerRotation.ShouldFollowPlayer(false);
+        BasePlayer.localPlayer.ignoreWallCollisions = false;
         if (HUD.instance != null)
             HUD.instance.positionText.text = "Stehen";
 
@@ -30,6 +32,8 @@ public class BasePlayerMovement : MonoBehaviour {
 
         movementStatus = PlayerMovementStatus.walk;
         BasePlayer.localPlayer.Stand ();
+        BasePlayer.localPlayer.playerRotation.ShouldFollowPlayer(false);
+        BasePlayer.localPlayer.ignoreWallCollisions = false;
         if (HUD.instance != null)
             HUD.instance.positionText.text = "Laufen";
     }
@@ -40,8 +44,26 @@ public class BasePlayerMovement : MonoBehaviour {
 
         movementStatus = PlayerMovementStatus.crawl;
         BasePlayer.localPlayer.Crawl ();
+        BasePlayer.localPlayer.playerRotation.ShouldFollowPlayer(false);
+        BasePlayer.localPlayer.ignoreWallCollisions = false;
         if (HUD.instance != null)
             HUD.instance.positionText.text = "Hocken";
+
+        if (keyboardWalkDirections == null)
+            keyboardWalkDirections = new KeyboardWalkDirections ();
+        keyboardWalkDirections.Reset ();
+    }
+
+    public void SetModeFollow () {
+        if (movementStatus == PlayerMovementStatus.follow)
+            return;
+
+        movementStatus = PlayerMovementStatus.follow;
+        BasePlayer.localPlayer.Stand ();
+        BasePlayer.localPlayer.playerRotation.ShouldFollowPlayer(true);
+        BasePlayer.localPlayer.ignoreWallCollisions = true;
+        if (HUD.instance != null)
+            HUD.instance.positionText.text = "Folgen";
 
         if (keyboardWalkDirections == null)
             keyboardWalkDirections = new KeyboardWalkDirections ();
@@ -61,9 +83,11 @@ public class BasePlayerMovement : MonoBehaviour {
         if (keyboardWalkDirections == null)
             keyboardWalkDirections = new KeyboardWalkDirections ();
 
+        bool shouldFollow = false;
         var keyboard = Keyboard.current;
         var mouse = Mouse.current;
         if (keyboard != null) {
+            // check movement input
             if (mouse != null)
                 keyboardWalkDirections.Forward (keyboard.wKey.isPressed || keyboard.upArrowKey.isPressed || mouse.leftButton.isPressed);
             else
@@ -71,9 +95,16 @@ public class BasePlayerMovement : MonoBehaviour {
             keyboardWalkDirections.Backward (keyboard.sKey.isPressed || keyboard.downArrowKey.isPressed );
             keyboardWalkDirections.Left (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed );
             keyboardWalkDirections.Right (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed );
+
+            // check follow-mode
+            if (keyboard.spaceKey.isPressed) {
+                shouldFollow = true;
+            }
         }
 
-        if (keyboardWalkDirections.AnyDirectionActive ()) {
+        if (shouldFollow) {
+            SetModeFollow();
+        } else if (keyboardWalkDirections.AnyDirectionActive ()) {
             // Key currently pressed
             SetModeWalk ();
         } else if (keyboardWalkDirections.keyboardActive) {
@@ -109,6 +140,13 @@ public class BasePlayerMovement : MonoBehaviour {
                 if (movementIsFast) transform.position -= sidewayMovement * movementFactorFast * Time.deltaTime;
                 if (!movementIsFast) transform.position -= sidewayMovement * movementFactorSlow * Time.deltaTime;
             }
+        } else if (movementStatus == PlayerMovementStatus.follow) {
+            GameObject target = OnlinePlayer.followPlayer?.player?.followPlayerLookAnchor;
+            if (target != null) {
+                Vector3 targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+                Vector3 followPositionKeepDistance = Vector3.MoveTowards(targetPosition, transform.position, 3f);
+                transform.position = Vector3.MoveTowards(transform.position, followPositionKeepDistance, movementFactorFast * Time.deltaTime);
+            }
         }
     }
 
@@ -121,7 +159,7 @@ public class BasePlayerMovement : MonoBehaviour {
     }
 }
 
-public enum PlayerMovementStatus { load, idle, walk, crawl }
+public enum PlayerMovementStatus { load, idle, walk, crawl, follow }
 public class KeyboardWalkDirections {
     public bool keyboardActive = false;
     public bool forward = false;

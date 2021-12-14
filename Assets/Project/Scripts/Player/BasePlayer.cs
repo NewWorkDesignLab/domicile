@@ -8,6 +8,7 @@ public class BasePlayer : MonoBehaviour
     public static BasePlayer localPlayer;
 
     [Header ("Visibillity")]
+    public GameObject followPlayerLookAnchor;
     public MeshRenderer playerHead;
     public MeshRenderer playerBody;
     public MeshRenderer playerVector;
@@ -25,6 +26,7 @@ public class BasePlayer : MonoBehaviour
     [Header ("Settings")]
     public float headNormalHeight = 2.75f;
     public float headCrawlHeight = 0.5f;
+    public bool ignoreWallCollisions = false;
 
     public void SetupInactivePlayer ()
     {
@@ -126,6 +128,14 @@ public class BasePlayer : MonoBehaviour
         if (Physics.Raycast (Camera.main.transform.position, Camera.main.transform.forward * 50f, out RaycastHit hit, TeleportManager.instance.raycastMaxDistance, TeleportManager.instance.layerToRaycast)) {
             Vector3 targetPos = TeleportManager.instance.GetTeleportPosition (hit.point);
             transform.position = targetPos;
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Traversable Wall" && ignoreWallCollisions)
+        {
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), capsuleCollider);
         }
     }
 }

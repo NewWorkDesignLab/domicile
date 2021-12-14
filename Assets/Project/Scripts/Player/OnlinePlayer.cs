@@ -13,6 +13,7 @@ using Mirror;
 public class OnlinePlayer : NetworkBehaviour
 {
     public static OnlinePlayer localPlayer;
+    public static OnlinePlayer followPlayer;
     public static NetworkedScenario scenario;
 
     private static List<OnlinePlayer> playersInScene = new List<OnlinePlayer>();
@@ -49,6 +50,8 @@ public class OnlinePlayer : NetworkBehaviour
     private void HookRoleChanged(PlayerRole _, PlayerRole newValue)
     {
         OnRoleChanged?.Invoke(newValue);
+        if (newValue == PlayerRole.learner)
+            OnlinePlayer.followPlayer = this;
     }
 
     private void HookReadyStateChanged(bool _, bool newValue)
