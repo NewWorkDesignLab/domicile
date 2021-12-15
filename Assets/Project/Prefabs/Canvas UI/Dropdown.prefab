@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 27.5, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &438159212826476671
 CanvasRenderer:
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8dcd5f373cd25944eb819fc6795f9dfa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a2fe29444778b644b2bf9f8326fb2df, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -921,7 +921,7 @@ MonoBehaviour:
   selectedText: {fileID: 438159214228294845}
   selectedImage: {fileID: 438159212826476668}
   itemParent: {fileID: 438159214536801234}
-  itemObject: {fileID: 1168081051609938, guid: a10f1ce858922584bbbcc45f2e1d1ab1, type: 3}
+  itemObject: {fileID: 3331203579456849099, guid: 4e60fd79331d25049bbbd6e7c21e8816, type: 3}
   scrollbar: {fileID: 438159213012656995}
   itemList: {fileID: 0}
   listParent: {fileID: 0}
@@ -929,7 +929,7 @@ MonoBehaviour:
   currentListParent: {fileID: 0}
   enableIcon: 0
   enableTrigger: 1
-  enableScrollbar: 1
+  enableScrollbar: 0
   setHighPriorty: 0
   outOnPointerExit: 0
   isListItem: 0
@@ -1091,7 +1091,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 0, y: 200}
+  m_SizeDelta: {x: 0, y: 250}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &438159214161329321
 CanvasRenderer:
@@ -1147,8 +1147,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0.5}
-  m_SizeDelta: {x: -100, y: 40}
+  m_AnchoredPosition: {x: 15, y: 0.5}
+  m_SizeDelta: {x: -65, y: 40}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &438159214228294844
 CanvasRenderer:
@@ -1282,7 +1282,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0.000076293945}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &438159214536801239

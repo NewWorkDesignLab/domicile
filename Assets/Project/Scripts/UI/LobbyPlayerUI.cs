@@ -8,6 +8,8 @@ public class LobbyPlayerUI : MonoBehaviour
     public TMP_Text nameField;
     public GameObject readyIcon;
     public GameObject notReadyIcon;
+    public GameObject readyIconLocalPlayer;
+    public GameObject notReadyIconLocalPlayer;
 
     OnlinePlayer onlinePlayer;
     PlayerRole latestRole;
@@ -29,13 +31,18 @@ public class LobbyPlayerUI : MonoBehaviour
 
     private void UpdateDisplayedName()
     {
-        nameField.text = System.String.Format("{0} ({1})", onlinePlayer.playerName, TextGenerator.GenerateRoleText(latestRole));
+        string text = System.String.Format("{0} ({1})", onlinePlayer.playerName, TextGenerator.GenerateRoleText(latestRole));
+        if (onlinePlayer.isLocalPlayer)
+            text = $"<b>{text}</b>";
+        nameField.text = text;
     }
 
     void OnReadyStateChanged(bool newState)
     {
-        readyIcon.SetActive(newState);
-        notReadyIcon.SetActive(!newState);
+        readyIcon.SetActive(newState && !onlinePlayer.isLocalPlayer);
+        notReadyIcon.SetActive(!newState && !onlinePlayer.isLocalPlayer);
+        readyIconLocalPlayer.SetActive(newState && onlinePlayer.isLocalPlayer);
+        notReadyIconLocalPlayer.SetActive(!newState && onlinePlayer.isLocalPlayer);
     }
     
     void OnRoleChanged(PlayerRole newRole)

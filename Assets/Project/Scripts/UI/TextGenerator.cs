@@ -58,10 +58,10 @@ public static class TextGenerator
     {
         string tmp = role switch
         {
-            PlayerRole.spectator => "Zuschauer",
-            PlayerRole.guide => "Mieter",
-            PlayerRole.learner => "Vermieter",
-            _ => "Zuschauer"
+            PlayerRole.spectator => "Zuschauer:in",
+            PlayerRole.guide => "Mieter:in",
+            PlayerRole.learner => "Vermieter:in",
+            _ => "Zuschauer:in"
         };
         return tmp;
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Michsky.UI.ModernUIPack;
 
 public class LobbyUIManager : Singleton<LobbyUIManager>
 {
@@ -13,6 +14,7 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     [Header("Lobby UI")]
     public GameObject lobbyGroup;
     public Button readyButton;
+    public ButtonManagerBasic readyButtonMUIP;
     public Button startButton;
 
     [Header("Screenshot Gallerie")]
@@ -77,8 +79,11 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 
     public void Lobby_ToogleReadyFlag()
     {
+        Debug.Log("CALLLEDDD");
         bool currentState = OnlinePlayer.localPlayer.playerReady;
         OnlinePlayer.localPlayer.CmdSetReadyState(!currentState);
+        readyButtonMUIP.buttonText = currentState ? "Nicht bereit" : "Bereit";
+        readyButtonMUIP.UpdateUI();
     }
 
     public void Lobby_LeaveLobby()

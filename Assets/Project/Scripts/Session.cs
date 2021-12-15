@@ -6,7 +6,7 @@ public class Session
 {
     public string name = "";
     public bool consent = false;
-    public Gender gender = Gender.unspecified;
+    public Gender gender = Gender.divers;
     public PlayerRole localRole = PlayerRole.spectator;
     public SessionTarget target = SessionTarget.unspecified;
     public string scenario = "";
