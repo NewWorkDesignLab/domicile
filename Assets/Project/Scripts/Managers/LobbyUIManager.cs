@@ -92,10 +92,12 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 
     public void Button_OpenMaengelliste()
     {
-        if (OnlinePlayer.scenario?.rooms == RoomCount.two)
+        if (OnlinePlayer.scenario?.rooms == RoomCount.two && OnlinePlayer.scenario?.textures == TextureDifficulty.medium)
             Application.OpenURL("https://tobiasbohn.com/domcl/OD-5_M%C3%A4ngelliste_2-Zimmer-Whg_Atzenbeck.pdf");
-        else if (OnlinePlayer.scenario?.rooms == RoomCount.three)
+        else if (OnlinePlayer.scenario?.rooms == RoomCount.three && OnlinePlayer.scenario?.textures == TextureDifficulty.medium)
             Application.OpenURL("https://tobiasbohn.com/domcl/OD-5_M%C3%A4ngelliste_3-Zimmer-Whg_Gebhard.pdf");
+        else if (OnlinePlayer.scenario?.rooms == RoomCount.two && OnlinePlayer.scenario?.textures == TextureDifficulty.easy)
+            Application.OpenURL("https://tobiasbohn.com/domcl/OD-5_M%C3%A4ngelliste_2-Zimmer-Whg_Lebensr%C3%A4ume%20Hoyerswerda.pdf");
     }
 
     public void Button_OpenTechnischeAnleitung()
