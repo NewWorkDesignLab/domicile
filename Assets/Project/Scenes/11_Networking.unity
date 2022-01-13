@@ -159,12 +159,12 @@ MonoBehaviour:
   port: 7776
   maxMessageSize: 16384
   handshakeMaxSize: 3000
-  noDelay: 0
+  noDelay: 1
   sendTimeout: 5000
   receiveTimeout: 20000
   serverMaxMessagesPerTick: 10000
   clientMaxMessagesPerTick: 1000
-  batchSend: 0
+  batchSend: 1
   waitBeforeSend: 0
   clientUseWss: 0
   sslEnabled: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   serverTickRate: 30
   offlineScene: Assets/Project/Scenes/00_Offline.unity
   onlineScene: 
-  transport: {fileID: 213892945}
+  transport: {fileID: 213892946}
   networkAddress: 188.68.56.140
   maxConnections: 50
   authenticator: {fileID: 0}
