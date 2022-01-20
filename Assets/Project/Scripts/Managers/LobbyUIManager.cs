@@ -19,7 +19,9 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 
     [Header("Screenshot Gallerie")]
     public GameObject galerieParent;
-    public GameObject screenshotPrefab;
+    public GameObject galeriePrefab;
+    public GameObject fullscreenParent;
+    public GameObject fullscreenPrefab;
 
     [Header("Groups")]
     public GameObject loadingGroup;
@@ -130,8 +132,14 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
             while(!www.isDone)
                 yield return null;
 
-            GameObject image = Instantiate(screenshotPrefab, galerieParent.transform);
+            GameObject fullscreen = Instantiate(fullscreenPrefab, fullscreenParent.transform);
+            fullscreen.GetComponent<RawImage>().texture = www.texture;
+
+            GameObject image = Instantiate(galeriePrefab, galerieParent.transform);
             image.GetComponent<RawImage>().texture = www.texture;
+            image.GetComponent<Button>().onClick.AddListener(() => {
+                fullscreen.SetActive(true);
+            });
         }
     }
 }
