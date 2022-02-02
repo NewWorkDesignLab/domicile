@@ -17,12 +17,14 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
 
     [Header("Create Scenario A UI")]
     public GameObject scenarioCreateGroupA;
+    public SliderManager scenarioCreateADiffSlider;
     
     [Header("Create Scenario B UI")]
     public GameObject scenarioCreateGroupB;
     public ButtonManagerBasic scenarioCreateDisplayRooms;
     public ButtonManagerBasic scenarioCreateDisplayTextures;
     public ButtonManagerBasic scenarioCreateDisplayReport;
+    public SliderManager scenarioCreateBDiffSlider;
     
     [Header("Join Scenario UI")]
     public GameObject scJoinGroup;
@@ -90,6 +92,32 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
         string txt = TextGenerator.GenerateReportText(SessionInstance.instance.session.tenant, SessionInstance.instance.session.contract, SessionInstance.instance.session.protocol);
         scenarioCreateDisplayReport.buttonText = txt;
         scenarioCreateDisplayReport.UpdateUI();
+    }
+
+    public void CreateScenario_UpdateDifficultyIndicator()
+    {
+        float selectedDiff = SessionInstance.instance.session.difficulty;
+        TextureDifficulty selectedTexture = SessionInstance.instance.session.textures;
+
+        float calculatedDiff = selectedTexture switch
+        {
+            TextureDifficulty.easy => selectedDiff.Remap(1, 5, 8, 12),
+            TextureDifficulty.medium => selectedDiff.Remap(1, 5, 12, 16.5f),
+            TextureDifficulty.hard => selectedDiff.Remap(1, 5, 12, 16.5f),
+            _ => selectedDiff.Remap(1, 5, 8, 16.5f)
+        };
+
+        if (SessionInstance.instance.session.rooms == RoomCount.three)
+        {
+            calculatedDiff *= 1.16f;
+        }
+
+        // float SLIDER_MIN = 8.0f;
+        // float SLIDER_MAX = 19.14f;
+
+        scenarioCreateADiffSlider.mainSlider.value = calculatedDiff;
+        scenarioCreateBDiffSlider.mainSlider.value = calculatedDiff;
+        Debug.Log(calculatedDiff);
     }
 
     #endregion

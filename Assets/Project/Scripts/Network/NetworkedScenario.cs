@@ -28,6 +28,9 @@ public class NetworkedScenario : NetworkBehaviour
     [SyncVar(hook = nameof(TexturesChanged))]
     public TextureDifficulty textures;
 
+    [SyncVar(hook = nameof(DifficultyChanged))]
+    public float difficulty;
+
     [SyncVar(hook = nameof(ReportChanged))]
     public CaseReport report;
 
@@ -44,6 +47,7 @@ public class NetworkedScenario : NetworkBehaviour
     private void NameChanged(string _, string newValue) {}
     private void RoomsChanged(RoomCount _, RoomCount newValue) {}
     private void TexturesChanged(TextureDifficulty _, TextureDifficulty newValue) {}
+    private void DifficultyChanged(float _, float newValue) {}
     private void ReportChanged(CaseReport _, CaseReport newValue) {}
     private void TenantChanged(Tenant _, Tenant newValue) {}
     private void ContractChanged(RentalContract _, RentalContract newValue) {}

@@ -161,6 +161,7 @@ public class OnlinePlayer : NetworkBehaviour
         SessionInstance.instance.session.scenarioName = scenario.scenarioName;
         SessionInstance.instance.session.rooms = scenario.rooms;
         SessionInstance.instance.session.textures = scenario.textures;
+        SessionInstance.instance.session.difficulty = scenario.difficulty;
         SessionInstance.instance.session.report = scenario.report;
         SessionInstance.instance.session.tenant = scenario.tenant;
         SessionInstance.instance.session.contract = scenario.contract;

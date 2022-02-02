@@ -10,6 +10,7 @@ public struct CreatePlayerMessage : NetworkMessage {
 
     public RoomCount rooms;
     public TextureDifficulty textures;
+    public float difficulty;
     public CaseReport report;
     public Tenant tenant;
     public RentalContract contract;

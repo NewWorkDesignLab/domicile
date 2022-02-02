@@ -54,6 +54,11 @@ public class SessionManager : Singleton<SessionManager>
         SessionInstance.instance.session.textures = (TextureDifficulty)value;
     }
 
+    public void SetSessionDifficulty(float value)
+    {
+        SessionInstance.instance.session.difficulty = value;
+    }
+
     public void SetSessionReport(int value)
     {
         SessionInstance.instance.session.report = (CaseReport)value;

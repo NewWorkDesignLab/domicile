@@ -203,6 +203,7 @@ public class DomicileNetManager : NetworkManager
             scenarioName = SessionInstance.instance.session.scenarioName,
             rooms = SessionInstance.instance.session.rooms,
             textures = SessionInstance.instance.session.textures,
+            difficulty = SessionInstance.instance.session.difficulty,
             report = SessionInstance.instance.session.report,
             tenant = SessionInstance.instance.session.tenant,
             contract = SessionInstance.instance.session.contract,
@@ -288,15 +289,16 @@ public class DomicileNetManager : NetworkManager
             yield break;
         }
 
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSecondsRealtime(1f);
+        // yield return new WaitForEndOfFrame();
 
         // Send Scene message to client to additively load the game scene
         conn.Send(new SceneMessage { sceneName = targetScene.scene.path, sceneOperation = SceneOperation.LoadAdditive });
 
         // Wait for end of frame before adding the player to ensure Scene Message goes first
         // Wait a bit longer than a Frame because of Behaviour that CreatePlayer is ignored if Scene not loaded
-        yield return new WaitForEndOfFrame();
-        // yield return new WaitForSecondsRealtime(1f);
+        // yield return new WaitForEndOfFrame();
+        yield return new WaitForSecondsRealtime(1f);
 
         // create player
         GameObject playerGo = Instantiate (playerPrefab);
@@ -324,6 +326,7 @@ public class DomicileNetManager : NetworkManager
             netScenario.scenarioName = message.scenarioName;
             netScenario.rooms = message.rooms;
             netScenario.textures = message.textures;
+            netScenario.difficulty = message.difficulty;
             netScenario.report = message.report;
             netScenario.tenant = message.tenant;
             netScenario.contract = message.contract;
