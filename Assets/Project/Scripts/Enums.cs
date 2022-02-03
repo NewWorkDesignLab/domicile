@@ -66,3 +66,8 @@ public enum HandoverProtocol
     two = 2,
     three = 3
 };
+
+public enum OnlineState {
+    online,
+    offline
+};
