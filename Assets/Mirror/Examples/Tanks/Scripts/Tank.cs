@@ -9,6 +9,7 @@ namespace Mirror.Examples.Tanks
         public NavMeshAgent agent;
         public Animator animator;
         public TextMesh healthBar;
+        public Transform turret;
 
         [Header("Movement")]
         public float rotationSpeed = 100;
@@ -23,7 +24,8 @@ namespace Mirror.Examples.Tanks
 
         void Update()
         {
-            // update health bar
+            // always update health bar.
+            // (SyncVar hook would only update on clients, not on server)
             healthBar.text = new string('-', health);
 
             // movement for local player
@@ -44,6 +46,8 @@ namespace Mirror.Examples.Tanks
                 {
                     CmdFire();
                 }
+
+                RotateTurret();
             }
         }
 
@@ -51,7 +55,7 @@ namespace Mirror.Examples.Tanks
         [Command]
         void CmdFire()
         {
-            GameObject projectile = Instantiate(projectilePrefab, projectileMount.position, transform.rotation);
+            GameObject projectile = Instantiate(projectilePrefab, projectileMount.position, projectileMount.rotation);
             NetworkServer.Spawn(projectile);
             RpcOnFire();
         }
@@ -71,6 +75,18 @@ namespace Mirror.Examples.Tanks
                 --health;
                 if (health == 0)
                     NetworkServer.Destroy(gameObject);
+            }
+        }
+
+        void RotateTurret()
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                Debug.DrawLine(ray.origin, hit.point);
+                Vector3 lookRotation = new Vector3(hit.point.x, turret.transform.position.y, hit.point.z);
+                turret.transform.LookAt(lookRotation);
             }
         }
     }

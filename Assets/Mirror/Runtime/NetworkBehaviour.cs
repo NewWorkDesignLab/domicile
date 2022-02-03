@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Mirror.RemoteCalls;
 using UnityEngine;
 
@@ -59,6 +60,9 @@ namespace Mirror
         // SyncLists, SyncSets, etc.
         protected readonly List<SyncObject> syncObjects = new List<SyncObject>();
 
+        // NetworkBehaviourInspector needs to know if we have SyncObjects
+        internal bool HasSyncObjects() => syncObjects.Count > 0;
+
         // NetworkIdentity based values set from NetworkIdentity.Awake(),
         // which is way more simple and way faster than trying to figure out
         // component index from in here by searching all NetworkComponents.
@@ -87,14 +91,18 @@ namespace Mirror
         // TODO 64 SyncLists are too much. consider smaller mask later.
         internal ulong syncObjectDirtyBits;
 
-        // hook guard to avoid deadlocks when calling hooks in host mode
+        // Weaver replaces '[SyncVar] int health' with 'Networkhealth' property.
+        // setter calls the hook if value changed.
+        // if we then modify the [SyncVar] from inside the setter,
+        // the setter would call the hook and we deadlock.
+        // hook guard prevents that.
         ulong syncVarHookGuard;
 
         // USED BY WEAVER to set syncvars in host mode without deadlocking
         protected bool GetSyncVarHookGuard(ulong dirtyBit) =>
             (syncVarHookGuard & dirtyBit) != 0UL;
 
-        // DEPRECATED 2021-09-16 (old weavers used it)
+        // Deprecated 2021-09-16 (old weavers used it)
         [Obsolete("Renamed to GetSyncVarHookGuard (uppercase)")]
         protected bool getSyncVarHookGuard(ulong dirtyBit) => GetSyncVarHookGuard(dirtyBit);
 
@@ -109,7 +117,7 @@ namespace Mirror
                 syncVarHookGuard &= ~dirtyBit;
         }
 
-        // DEPRECATED 2021-09-16 (old weavers used it)
+        // Deprecated 2021-09-16 (old weavers used it)
         [Obsolete("Renamed to SetSyncVarHookGuard (uppercase)")]
         protected void setSyncVarHookGuard(ulong dirtyBit, bool value) => SetSyncVarHookGuard(dirtyBit, value);
 
@@ -120,7 +128,7 @@ namespace Mirror
             syncVarDirtyBits |= dirtyBit;
         }
 
-        // DEPRECATED 2021-09-19
+        // Deprecated 2021-09-19
         [Obsolete("SetDirtyBit was renamed to SetSyncVarDirtyBit because that's what it does")]
         public void SetDirtyBit(ulong dirtyBit) => SetSyncVarDirtyBit(dirtyBit);
 
@@ -159,7 +167,7 @@ namespace Mirror
         {
             if (syncObject == null)
             {
-                Debug.LogError("Uninitialized SyncObject. Manually call the constructor on your SyncList, SyncSet or SyncDictionary");
+                Debug.LogError("Uninitialized SyncObject. Manually call the constructor on your SyncList, SyncSet, SyncDictionary or SyncField<T>");
                 return;
             }
 
@@ -190,18 +198,22 @@ namespace Mirror
                 return;
             }
 
+            // previously we used NetworkClient.readyConnection.
+            // now we check .ready separately.
+            if (!NetworkClient.ready)
+            {
+                // Unreliable Cmds from NetworkTransform may be generated,
+                // or client may have been set NotReady intentionally, so
+                // only warn if on the reliable channel.
+                if (channelId == Channels.Reliable)
+                    Debug.LogWarning("Send command attempted while NetworkClient is not ready.\nThis may be ignored if client intentionally set NotReady.");
+                return;
+            }
+
             // local players can always send commands, regardless of authority, other objects must have authority.
             if (!(!requiresAuthority || isLocalPlayer || hasAuthority))
             {
                 Debug.LogWarning($"Trying to send command for object without authority. {invokeClass}.{cmdName}");
-                return;
-            }
-
-            // previously we used NetworkClient.readyConnection.
-            // now we check .ready separately and use .connection instead.
-            if (!NetworkClient.ready)
-            {
-                Debug.LogError("Send command attempted while NetworkClient is not ready.");
                 return;
             }
 
@@ -220,7 +232,7 @@ namespace Mirror
             CommandMessage message = new CommandMessage
             {
                 netId = netId,
-                componentIndex = ComponentIndex,
+                componentIndex = (byte)ComponentIndex,
                 // type+func so Inventory.RpcUse != Equipment.RpcUse
                 functionHash = RemoteCallHelper.GetMethodHash(invokeClass, cmdName),
                 // segment to avoid reader allocations
@@ -255,7 +267,7 @@ namespace Mirror
             RpcMessage message = new RpcMessage
             {
                 netId = netId,
-                componentIndex = ComponentIndex,
+                componentIndex = (byte)ComponentIndex,
                 // type+func so Inventory.RpcUse != Equipment.RpcUse
                 functionHash = RemoteCallHelper.GetMethodHash(invokeClass, rpcName),
                 // segment to avoid reader allocations
@@ -302,7 +314,7 @@ namespace Mirror
             RpcMessage message = new RpcMessage
             {
                 netId = netId,
-                componentIndex = ComponentIndex,
+                componentIndex = (byte)ComponentIndex,
                 // type+func so Inventory.RpcUse != Equipment.RpcUse
                 functionHash = RemoteCallHelper.GetMethodHash(invokeClass, rpcName),
                 // segment to avoid reader allocations
@@ -313,10 +325,10 @@ namespace Mirror
         }
 
         // helper function for [SyncVar] GameObjects.
-        // IMPORTANT: keep as 'protected', not 'internal', otherwise Weaver
-        //            can't resolve it
-        // TODO make this static and adjust weaver to find it
-        protected bool SyncVarGameObjectEqual(GameObject newGameObject, uint netIdField)
+        // needs to be public so that tests & NetworkBehaviours from other
+        // assemblies both find it
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public static bool SyncVarGameObjectEqual(GameObject newGameObject, uint netIdField)
         {
             uint newNetId = 0;
             if (newGameObject != null)
@@ -356,7 +368,7 @@ namespace Mirror
                 }
             }
 
-            // Debug.Log("SetSyncVar GameObject " + GetType().Name + " bit [" + dirtyBit + "] netfieldId:" + netIdField + "->" + newNetId);
+            //Debug.Log($"SetSyncVar GameObject {GetType().Name} bit:{dirtyBit} netfieldId:{netIdField} -> {newNetId}");
             SetSyncVarDirtyBit(dirtyBit);
             // assign new one on the server, and in case we ever need it on client too
             gameObjectField = newGameObject;
@@ -381,9 +393,10 @@ namespace Mirror
         }
 
         // helper function for [SyncVar] NetworkIdentities.
-        // IMPORTANT: keep as 'protected', not 'internal', otherwise Weaver
-        //            can't resolve it
-        protected bool SyncVarNetworkIdentityEqual(NetworkIdentity newIdentity, uint netIdField)
+        // needs to be public so that tests & NetworkBehaviours from other
+        // assemblies both find it
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public static bool SyncVarNetworkIdentityEqual(NetworkIdentity newIdentity, uint netIdField)
         {
             uint newNetId = 0;
             if (newIdentity != null)
@@ -416,7 +429,7 @@ namespace Mirror
                 }
             }
 
-            // Debug.Log("SetSyncVarNetworkIdentity NetworkIdentity " + GetType().Name + " bit [" + dirtyBit + "] netIdField:" + netIdField + "->" + newNetId);
+            //Debug.Log($"SetSyncVarNetworkIdentity NetworkIdentity {GetType().Name} bit:{dirtyBit} netIdField:{netIdField} -> {newNetId}");
             SetSyncVarDirtyBit(dirtyBit);
             netIdField = newNetId;
             // assign new one on the server, and in case we ever need it on client too
@@ -439,7 +452,7 @@ namespace Mirror
             return identityField;
         }
 
-        protected bool SyncVarNetworkBehaviourEqual<T>(T newBehaviour, NetworkBehaviourSyncVar syncField) where T : NetworkBehaviour
+        protected static bool SyncVarNetworkBehaviourEqual<T>(T newBehaviour, NetworkBehaviourSyncVar syncField) where T : NetworkBehaviour
         {
             uint newNetId = 0;
             int newComponentIndex = 0;
@@ -536,16 +549,19 @@ namespace Mirror
             }
         }
 
-        protected bool SyncVarEqual<T>(T value, ref T fieldValue)
+        protected static bool SyncVarEqual<T>(T value, ref T fieldValue)
         {
             // newly initialized or changed value?
+            // value.Equals(fieldValue) allocates without 'where T : IEquatable'
+            // seems like we use EqualityComparer to avoid allocations,
+            // because not all SyncVars<T> are IEquatable
             return EqualityComparer<T>.Default.Equals(value, fieldValue);
         }
 
         // dirtyBit is a mask like 00010
         protected void SetSyncVar<T>(T value, ref T fieldValue, ulong dirtyBit)
         {
-            // Debug.Log("SetSyncVar " + GetType().Name + " bit [" + dirtyBit + "] " + fieldValue + "->" + value);
+            //Debug.Log($"SetSyncVar {GetType().Name} bit:{dirtyBit} fieldValue:{value}");
             SetSyncVarDirtyBit(dirtyBit);
             fieldValue = value;
         }
@@ -558,20 +574,10 @@ namespace Mirror
         //   note: SyncVar hooks are only called when inital=false
         public virtual bool OnSerialize(NetworkWriter writer, bool initialState)
         {
-            bool objectWritten = false;
             // if initialState: write all SyncVars.
             // otherwise write dirtyBits+dirty SyncVars
-            if (initialState)
-            {
-                objectWritten = SerializeObjectsAll(writer);
-            }
-            else
-            {
-                objectWritten = SerializeObjectsDelta(writer);
-            }
-
+            bool objectWritten = initialState ? SerializeObjectsAll(writer) : SerializeObjectsDelta(writer);
             bool syncVarWritten = SerializeSyncVars(writer, initialState);
-
             return objectWritten || syncVarWritten;
         }
 

@@ -1,0 +1,329 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &449083343104535631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 449083343104535630}
+  m_Layer: 0
+  m_Name: Texture Distribution
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449083343104535630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449083343104535631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 449083343567885530}
+  - {fileID: 449083343798228464}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &449083343567885528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 449083343567885530}
+  - component: {fileID: 449083343567885531}
+  m_Layer: 0
+  m_Name: Texture Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449083343567885530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449083343567885528}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 449083343104535630}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &449083343567885531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449083343567885528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5168c954765a38947b118ea95d51ab80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  ASR:
+  - id: ASR_01
+    name: 
+    type: 0
+    texture: {fileID: 0}
+    difficulty: 1
+    placements: []
+    alreadyUsed: 0
+  - id: ASR_02
+    name: 
+    type: 0
+    texture: {fileID: 0}
+    difficulty: 2
+    placements: []
+    alreadyUsed: 0
+  - id: ASR_03
+    name: 
+    type: 0
+    texture: {fileID: 0}
+    difficulty: 3
+    placements: []
+    alreadyUsed: 0
+  - id: ASR_04
+    name: 
+    type: 0
+    texture: {fileID: 0}
+    difficulty: 1
+    placements: []
+    alreadyUsed: 0
+  AOB:
+  - id: AOB_01
+    name: 
+    type: 1
+    texture: {fileID: 0}
+    difficulty: 2
+    placements: []
+    alreadyUsed: 0
+  SVN:
+  - id: SVN_01
+    name: 
+    type: 2
+    texture: {fileID: 0}
+    difficulty: 1
+    placements: []
+    alreadyUsed: 0
+  - id: SVN_02
+    name: 
+    type: 2
+    texture: {fileID: 0}
+    difficulty: 2
+    placements: []
+    alreadyUsed: 0
+  - id: SVN_03
+    name: 
+    type: 2
+    texture: {fileID: 0}
+    difficulty: 2
+    placements: []
+    alreadyUsed: 0
+  - id: SVN_04
+    name: 
+    type: 2
+    texture: {fileID: 0}
+    difficulty: 3
+    placements: []
+    alreadyUsed: 0
+  - id: SVN_07
+    name: 
+    type: 2
+    texture: {fileID: 0}
+    difficulty: 2
+    placements: []
+    alreadyUsed: 0
+  - id: SVN_08
+    name: 
+    type: 2
+    texture: {fileID: 0}
+    difficulty: 2
+    placements: []
+    alreadyUsed: 0
+  - id: SVN_09
+    name: 
+    type: 2
+    texture: {fileID: 0}
+    difficulty: 3
+    placements: []
+    alreadyUsed: 0
+  - id: SVN_10
+    name: 
+    type: 2
+    texture: {fileID: 0}
+    difficulty: 1
+    placements: []
+    alreadyUsed: 0
+  - id: SVN_12
+    name: 
+    type: 2
+    texture: {fileID: 0}
+    difficulty: 2
+    placements: []
+    alreadyUsed: 0
+  - id: SVN_13
+    name: 
+    type: 2
+    texture: {fileID: 0}
+    difficulty: 1
+    placements: []
+    alreadyUsed: 0
+  - id: SVN_14
+    name: 
+    type: 2
+    texture: {fileID: 0}
+    difficulty: 2
+    placements: []
+    alreadyUsed: 0
+  VSC:
+  - id: VSC_01
+    name: 
+    type: 3
+    texture: {fileID: 0}
+    difficulty: 2
+    placements: []
+    alreadyUsed: 0
+  - id: VSC_02
+    name: 
+    type: 3
+    texture: {fileID: 0}
+    difficulty: 2
+    placements: []
+    alreadyUsed: 0
+  - id: VSC_04
+    name: 
+    type: 3
+    texture: {fileID: 0}
+    difficulty: 2
+    placements: []
+    alreadyUsed: 0
+  OBJ:
+  - id: OBJ_01
+    name: 
+    type: 4
+    texture: {fileID: 0}
+    difficulty: 2
+    placements: []
+    alreadyUsed: 0
+  - id: OBJ_02
+    name: 
+    type: 4
+    texture: {fileID: 0}
+    difficulty: 2
+    placements: []
+    alreadyUsed: 0
+  - id: OBJ_03
+    name: 
+    type: 4
+    texture: {fileID: 0}
+    difficulty: 2
+    placements: []
+    alreadyUsed: 0
+  - id: OBJ_04
+    name: 
+    type: 4
+    texture: {fileID: 0}
+    difficulty: 1
+    placements: []
+    alreadyUsed: 0
+  - id: OBJ_05
+    name: 
+    type: 4
+    texture: {fileID: 0}
+    difficulty: 1
+    placements: []
+    alreadyUsed: 0
+  - id: OBJ_06
+    name: 
+    type: 4
+    texture: {fileID: 0}
+    difficulty: 1
+    placements: []
+    alreadyUsed: 0
+  - id: OBJ_08
+    name: 
+    type: 4
+    texture: {fileID: 0}
+    difficulty: 1
+    placements: []
+    alreadyUsed: 0
+--- !u!1 &449083343798228462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 449083343798228464}
+  - component: {fileID: 449083343798228465}
+  m_Layer: 0
+  m_Name: Texture Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449083343798228464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449083343798228462}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 449083343104535630}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &449083343798228465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449083343798228462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff953947a1338a4388a2c92c4bd9797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  ASR:
+    textureCountEasy: 1
+    textureCountMiddle: 2
+    textureCountHard: 2
+  AOB:
+    textureCountEasy: 0
+    textureCountMiddle: 1
+    textureCountHard: 1
+  SVN:
+    textureCountEasy: 3
+    textureCountMiddle: 4
+    textureCountHard: 4
+  VSC:
+    textureCountEasy: 2
+    textureCountMiddle: 2
+    textureCountHard: 2
+  OBJ:
+    textureCountEasy: 1
+    textureCountMiddle: 1
+    textureCountHard: 1
