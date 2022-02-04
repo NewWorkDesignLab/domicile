@@ -19,7 +19,7 @@ public class TextureDefinition : System.ICloneable
 
     public override string ToString()
     {
-        string retStrn = System.String.Format("Texture {0} with difficulty {1}", id, difficulty);
+        string retStrn = System.String.Format("Texture {0} ({1})", id, difficulty);
         return retStrn;
     }
 
@@ -44,13 +44,16 @@ public class TextureDefinition : System.ICloneable
         while (maxIterations >= 0)
         {
             maxIterations--;
-            int randomVariantIndex = Random.Range(0, placements.Length);
-            if (placements[randomVariantIndex] != null) {
-                bool variantIsInKizi = placements[randomVariantIndex].placementLocation == Location.Kinderzimmer;
+
+            // shuffle to get random Variant
+            placements.Shuffle();
+
+            if (placements[0] != null) {
+                bool variantIsInKizi = placements[0].placementLocation == Location.Kinderzimmer;
                 bool kiziIncluded = SessionInstance.instance.session.rooms == RoomCount.three;
                 if ((variantIsInKizi && kiziIncluded) || !variantIsInKizi)
                 {
-                    return placements[randomVariantIndex];
+                    return placements[0];
                 }
             }
         }

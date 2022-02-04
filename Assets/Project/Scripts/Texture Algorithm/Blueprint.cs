@@ -94,7 +94,7 @@ public class Blueprint
         string retStrn = System.String.Format("Schadenverteilung enthält {0} Texturen mit einer Diff von {1}:", selectedTextures.Length, CurrentDifficulty());
         for (int i = 0; i < selectedTextures.Length; i++)
         {
-            retStrn += System.String.Format("\nIndex {0}: {1}", i, selectedTextures[i]?.ToString());
+            retStrn += System.String.Format("\nIndex {0}: {1} on Position {2}", i, selectedTextures[i]?.ToString(), selectedPlacements[i]?.placementName);
         }
         return retStrn;
     }

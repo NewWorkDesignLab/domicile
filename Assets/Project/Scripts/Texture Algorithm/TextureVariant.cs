@@ -8,6 +8,11 @@ public class TextureVariant : NetworkBehaviour
     public Collider _collider;
     public Renderer _renderer;
 
+    // some textures need to be available 2 times (textures at open door / closed door)
+    // clones will be activated along if this texture is going to be shown
+    public Collider cloneCollider;
+    public Renderer cloneRenderer;
+
     [SyncVar (hook = nameof (StateChanged))]
     private bool currentState = false;
 
@@ -17,7 +22,6 @@ public class TextureVariant : NetworkBehaviour
     /// </summary>
     public override void OnStartClient()
     {
-        Debug.LogWarning(currentState);
         SetVisabillity(currentState);
     }
 
@@ -25,6 +29,8 @@ public class TextureVariant : NetworkBehaviour
     {
         if (_collider != null) _collider.enabled = value;
         if (_renderer != null) _renderer.enabled = value;
+        if (cloneCollider != null) cloneCollider.enabled = value;
+        if (cloneRenderer != null) cloneRenderer.enabled = value;
     }
 
     public void StateChanged(bool _, bool value)
