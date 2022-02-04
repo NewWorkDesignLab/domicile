@@ -8,10 +8,9 @@ public class TextureDefinition : System.ICloneable
     public string id;
     public string name;
     public TextureType type;
-    public Texture texture;
     public TextureDifficulty difficulty;
-    public Transform[] placements;
-    public bool alreadyUsed = false;
+    public TextureVariant[] placements;
+    [HideInInspector] public bool alreadyUsed = false;
 
     public object Clone()
     {
@@ -34,5 +33,27 @@ public class TextureDefinition : System.ICloneable
             _ => 1.5f
         };
         return _ret;
+    }
+
+    public TextureVariant GetRandomTextureVariant()
+    {
+        if (placements.Length <= 0)
+            return null;
+
+        int maxIterations = 10;
+        while (maxIterations >= 0)
+        {
+            maxIterations--;
+            int randomVariantIndex = Random.Range(0, placements.Length);
+            if (placements[randomVariantIndex] != null) {
+                bool variantIsInKizi = placements[randomVariantIndex].placementLocation == Location.Kinderzimmer;
+                bool kiziIncluded = SessionInstance.instance.session.rooms == RoomCount.three;
+                if ((variantIsInKizi && kiziIncluded) || !variantIsInKizi)
+                {
+                    return placements[randomVariantIndex];
+                }
+            }
+        }
+        return null;
     }
 }

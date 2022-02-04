@@ -12,6 +12,7 @@ public class Blueprint
     private int obj;
 
     public TextureDefinition[] selectedTextures;
+    public TextureVariant[] selectedPlacements;
 
     public Blueprint(int asr_slots, int aob_slots, int svn_slots, int vsc_slots, int obj_slots) 
     {
@@ -23,6 +24,7 @@ public class Blueprint
 
         int sum = asr_slots + aob_slots + svn_slots + vsc_slots + obj_slots;
         selectedTextures = new TextureDefinition[sum];
+        selectedPlacements = new TextureVariant[sum];
     }
 
     public void DistributeTextures(float targetDifficulty, TextureDifficulty textureDifficulty)
@@ -71,6 +73,14 @@ public class Blueprint
             }
         }
         Debug.Log("Finnished Approach");
+    }
+
+    public void SelectPlacementsForTextures()
+    {
+        for (int i = 0; i < selectedTextures.Length; i++)
+        {
+            selectedPlacements[i] = selectedTextures[i].GetRandomTextureVariant();
+        }
     }
 
     public float CurrentDifficulty()

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class TextureManager : Singleton<TextureManager>
+public class TextureManager : NetworkBehaviour
 {
     public DistributionSetting ASR;
     public DistributionSetting AOB;
@@ -10,12 +11,22 @@ public class TextureManager : Singleton<TextureManager>
     public DistributionSetting VSC;
     public DistributionSetting OBJ;
 
-    void Start()
+    public Blueprint blueprint;
+
+    /// <summary>
+    /// Called on every NetworkBehaviour when it is activated on a client.
+    /// <para>Objects on the host have this function called, as there is a local client on the host. The values of SyncVars on object are guaranteed to be initialized correctly with the latest state from the server when this function is called on the client.</para>
+    /// </summary>
+    public override void OnStartClient()
     {
-        DistributeTextures();
+        if (SessionInstance.instance.session.target == SessionTarget.create)
+        {
+            DistributeTextures();
+            EnableSelectedPlacements();
+        }
     }
 
-    public void DistributeTextures()
+    private void DistributeTextures()
     {
         TextureDifficulty currentLevel = SessionInstance.instance.session.textures;
         float currentDifficulty = SessionInstance.instance.session.difficulty;
@@ -28,7 +39,7 @@ public class TextureManager : Singleton<TextureManager>
             _ => currentDifficulty.Remap(1, 5, 8, 16.5f)
         };
 
-        Blueprint bp = new Blueprint(
+        blueprint = new Blueprint(
             ASR.GetSetting(currentLevel),
             AOB.GetSetting(currentLevel),
             SVN.GetSetting(currentLevel),
@@ -36,11 +47,19 @@ public class TextureManager : Singleton<TextureManager>
             OBJ.GetSetting(currentLevel)
         );
 
-        Debug.Log(bp.ToString());
-        bp.DistributeTextures(mappedDifficulty, currentLevel);
-        Debug.Log(bp.ToString());
-        bp.ApproachOptimumDifficulty(mappedDifficulty);
-        Debug.Log(bp.ToString());
+        blueprint.DistributeTextures(mappedDifficulty, currentLevel);
+        blueprint.ApproachOptimumDifficulty(mappedDifficulty);
+        blueprint.SelectPlacementsForTextures();
+        Debug.Log(blueprint.ToString());
+    }
+
+    private void EnableSelectedPlacements()
+    {
+        for (int i = 0; i < blueprint.selectedPlacements.Length; i++)
+        {
+            if (blueprint.selectedPlacements[i] != null)
+                blueprint.selectedPlacements[i].CmdSetState(true);
+        }
     }
 }
 
