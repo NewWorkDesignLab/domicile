@@ -31,7 +31,8 @@ public class BasePlayer : MonoBehaviour
     public void SetupInactivePlayer ()
     {
         RenamePlayer ("InactivePlayer");
-        SetVisabillity (false);
+        SetBodyVisabillity (false);
+        SetVectorVisabillity (false);
         SetInteractabillity (false);
     }
 
@@ -39,15 +40,17 @@ public class BasePlayer : MonoBehaviour
     {
         localPlayer = this;
         RenamePlayer ("LocalPlayer");
-        SetVisabillity (false);
+        SetBodyVisabillity (false);
+        SetVectorVisabillity (false);
         SetInteractabillity (true);
         Camera.main.gameObject.transform.SetParent(playerHead.transform, false);
     }
 
-    public void SetupVisablePlayer ()
+    public void SetupVisablePlayer (bool showVector)
     {
         RenamePlayer ("VisablePlayer");
-        SetVisabillity (true);
+        SetBodyVisabillity (true);
+        SetVectorVisabillity (showVector);
         SetInteractabillity (false);
     }
 
@@ -57,10 +60,14 @@ public class BasePlayer : MonoBehaviour
         transform.gameObject.tag = type;
     }
 
-    private void SetVisabillity (bool value)
+    private void SetBodyVisabillity (bool value)
     {
         playerHead.enabled = value;
         playerBody.enabled = value;
+    }
+
+    private void SetVectorVisabillity (bool value)
+    {
         playerVector.enabled = value;
         playerVector.gameObject.SetActive (value);
         viewportInner.enabled = value;

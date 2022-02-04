@@ -215,24 +215,16 @@ public class OnlinePlayer : NetworkBehaviour
 
     public void SetupClientVisabillity()
     {
-        // old script only showed learners
-        // for (int i = 0; i < playersInScene.Count; i++)
-        // {
-        //     if (playersInScene[i].isLocalPlayer)
-        //         playersInScene[i].player.SetupLocalPlayer();
-        //     else if (playersInScene[i].playerRole == PlayerRole.learner)
-        //         playersInScene[i].player.SetupVisablePlayer();
-        //     else
-        //         playersInScene[i].player.SetupInactivePlayer();
-        // }
-
-        // new script everyone execpt local player visable
         for (int i = 0; i < playersInScene.Count; i++)
         {
             if (playersInScene[i].isLocalPlayer)
                 playersInScene[i].player.SetupLocalPlayer();
+            else if (playersInScene[i].playerRole == PlayerRole.learner)
+                playersInScene[i].player.SetupVisablePlayer(true);
+            else if (playersInScene[i].playerRole == PlayerRole.guide)
+                playersInScene[i].player.SetupVisablePlayer(false);
             else
-                playersInScene[i].player.SetupVisablePlayer();
+                playersInScene[i].player.SetupInactivePlayer();
         }
     }
 }
