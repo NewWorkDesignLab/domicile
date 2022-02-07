@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuButton: {fileID: 92044411026603938}
   menuItems: {fileID: 3310728254385593149}
+  closeButton: {fileID: 92044411109830444}
 --- !u!114 &3310728254376722932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,19 +118,55 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: blockRaycasting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastExit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
       propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastExit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastExit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 92044411109830444}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastExit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastExit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetBlockRaycasting
       objectReference: {fileID: 0}
     - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
       propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
       propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3310728254376722930}
     - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 92044411109830444}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
       propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
@@ -137,11 +174,35 @@ PrefabInstance:
       value: CloseMenu
       objectReference: {fileID: 0}
     - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetBlockRaycasting
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastExit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CameraRaycastReceiver, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
       propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: FloatingMenuComponent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CameraRaycastReceiver, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastExit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
       propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3221498878244423529, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
@@ -167,6 +228,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3221498878244423529, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
   m_PrefabInstance: {fileID: 3310728253099403332}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &92044411109830444 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+  m_PrefabInstance: {fileID: 3310728253099403332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2248135302d841df8ab832303ef04561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3310728253284088052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,11 +267,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
       propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3310728254376722930}
     - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 92044411026603932}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
       propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
@@ -207,11 +291,23 @@ PrefabInstance:
       value: OpenMenu
       objectReference: {fileID: 0}
     - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_allowRaycasting
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
       propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: FloatingMenuComponent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CameraRaycastReceiver, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
       propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+      propertyPath: raycastGazedEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3221498878244423529, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
@@ -258,6 +354,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3221498878244423529, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
   m_PrefabInstance: {fileID: 3310728253284088052}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &92044411026603932 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3221498878244423528, guid: 2381b19d3adffd5978f81ce6fd2005d3, type: 3}
+  m_PrefabInstance: {fileID: 3310728253284088052}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92044411026603938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2248135302d841df8ab832303ef04561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3310728253318383132
 PrefabInstance:
   m_ObjectHideFlags: 0

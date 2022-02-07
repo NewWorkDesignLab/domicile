@@ -20,23 +20,27 @@ public class CameraRaycaster : MonoBehaviour {
 
     public void Update () {
         // Update Gaze Timer
-        if (gazeTimerActive) {
+        if (gazeTimerActive)
+        {
             elapsedTime += Time.deltaTime;
             gazeTimerImage.fillAmount = elapsedTime / gazeTimerDuration;
         }
 
         // Check for new Raycast Hits
-        if (Physics.Raycast (transform.position, transform.forward, out RaycastHit hit, maxDistance, layersToRaycast)) {
+        if (Physics.Raycast (transform.position, transform.forward, out RaycastHit hit, maxDistance, layersToRaycast))
+        {
             // GameObject detected in front of the camera.
-            if (gazedAtAnyObject != hit.transform.gameObject) {
+            if (gazedAtAnyObject != hit.transform.gameObject)
+            {
                 // New GameObject.
                 gazedAtAnyObject = hit.transform.gameObject;
 
                 CameraRaycastReceiver receiver = gazedAtAnyObject.GetComponent<CameraRaycastReceiver> ();
-                if (receiver != null) {
+                if (receiver != null)
+                {
                     // Is RaycastReceiver
-                    raycastActiveImage.gameObject.SetActive (true);
-                    raycastIdleImage.gameObject.SetActive (false);
+                    raycastActiveImage.gameObject.SetActive (!receiver.blockRaycasting);
+                    raycastIdleImage.gameObject.SetActive (receiver.blockRaycasting);
 
                     if (gazedAtRaycastReceiver != gazedAtAnyObject) {
                         // New RaycastReceiver GameObject.
@@ -44,7 +48,7 @@ public class CameraRaycaster : MonoBehaviour {
                         gazedAtRaycastReceiver = gazedAtAnyObject;
                         gazedAtRaycastReceiver.SendMessage ("RaycastEnter", null, SendMessageOptions.DontRequireReceiver);
 
-                        if (receiver.GazeEventPresent ())
+                        if (receiver.GazeEventPresent() && !receiver.blockRaycasting)
                             StartGazeTimer ();
                     }
                 } else {

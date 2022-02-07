@@ -6,6 +6,7 @@ using Mirror;
 public class FloatingMenuComponent : MonoBehaviour {
     public GameObject menuButton;
     public GameObject menuItems;
+    public CameraRaycastReceiver closeButton;
     private float centerDistaceBreakpoint = .75f;
     private float buttonDistancePlayer = 1.5f;
     private bool endConfirmation = false;
@@ -61,6 +62,7 @@ public class FloatingMenuComponent : MonoBehaviour {
             menuIsOpen = false;
             menuItems.SetActive (false);
             menuButton.SetActive (true);
+            closeButton.SetBlockRaycasting(true);
         }
     }
     public void OpenMenu () {

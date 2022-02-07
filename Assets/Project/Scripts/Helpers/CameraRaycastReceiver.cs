@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CameraRaycastReceiver : MonoBehaviour {
+public class CameraRaycastReceiver : MonoBehaviour
+{
+    public bool blockRaycasting = false;
 
     public UnityEvent raycastEnter;
     public UnityEvent raycastExit;
@@ -11,17 +13,20 @@ public class CameraRaycastReceiver : MonoBehaviour {
     public UnityEvent raycastGazedEnter;
 
     public void RaycastEnter () {
-        raycastEnter.Invoke ();
+        if (!blockRaycasting)
+            raycastEnter.Invoke ();
     }
     public void RaycastExit () {
         raycastExit.Invoke ();
     }
     public void RaycastClick () {
-        raycastClick.Invoke ();
+        if (!blockRaycasting)
+            raycastClick.Invoke ();
     }
 
     public void RaycastGazedEnter () {
-        raycastGazedEnter.Invoke ();
+        if (!blockRaycasting)
+            raycastGazedEnter.Invoke ();
     }
 
     public bool GazeEventPresent () {
@@ -31,5 +36,10 @@ public class CameraRaycastReceiver : MonoBehaviour {
             }
         }
         return false;
+    }
+
+    public void SetBlockRaycasting(bool value)
+    {
+        blockRaycasting = value;
     }
 }
