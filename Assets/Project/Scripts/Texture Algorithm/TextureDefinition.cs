@@ -3,19 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class TextureDefinition : System.ICloneable
+public class TextureDefinition : MonoBehaviour
 {
     public string id;
-    public string name;
+    public string description;
     public TextureType type;
     public TextureDifficulty difficulty;
     public TextureVariant[] placements;
     [HideInInspector] public bool alreadyUsed = false;
-
-    public object Clone()
-    {
-        return this.MemberwiseClone();
-    }
 
     public override string ToString()
     {

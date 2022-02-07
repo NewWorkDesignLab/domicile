@@ -23,6 +23,10 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     public GameObject fullscreenParent;
     public GameObject fullscreenPrefab;
 
+    [Header("Mängelliste")]
+    public GameObject maengellistePrefab;
+    public GameObject maengellisteParent;
+
     [Header("Groups")]
     public GameObject loadingGroup;
     public List<GameObject> allObjects;
@@ -81,10 +85,9 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 
     public void Lobby_ToogleReadyFlag()
     {
-        Debug.Log("CALLLEDDD");
         bool currentState = OnlinePlayer.localPlayer.playerReady;
         OnlinePlayer.localPlayer.CmdSetReadyState(!currentState);
-        readyButtonMUIP.buttonText = currentState ? "Nicht bereit" : "Bereit";
+        readyButtonMUIP.buttonText = currentState ? "Bereit" : "Nicht bereit";
         readyButtonMUIP.UpdateUI();
     }
 
@@ -96,16 +99,6 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     #endregion
 
     #region Actions
-
-    public void Button_OpenMaengelliste()
-    {
-        if (OnlinePlayer.scenario?.rooms == RoomCount.two && OnlinePlayer.scenario?.textures == TextureDifficulty.medium)
-            Application.OpenURL("https://tobiasbohn.com/domcl/OD-5_M%C3%A4ngelliste_2-Zimmer-Whg_Atzenbeck.pdf");
-        else if (OnlinePlayer.scenario?.rooms == RoomCount.three && OnlinePlayer.scenario?.textures == TextureDifficulty.medium)
-            Application.OpenURL("https://tobiasbohn.com/domcl/OD-5_M%C3%A4ngelliste_3-Zimmer-Whg_Gebhard.pdf");
-        else if (OnlinePlayer.scenario?.rooms == RoomCount.two && OnlinePlayer.scenario?.textures == TextureDifficulty.easy)
-            Application.OpenURL("https://tobiasbohn.com/domcl/OD-5_M%C3%A4ngelliste_2-Zimmer-Whg_Lebensr%C3%A4ume%20Hoyerswerda.pdf");
-    }
 
     public void Button_OpenTechnischeAnleitung()
     {

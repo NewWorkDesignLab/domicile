@@ -4,7 +4,8 @@ using Mirror;
 public class TextureVariant : NetworkBehaviour
 {
     public string placementName;
-    public Location placementLocation; 
+    public TextureDefinition textureDefinition;
+    public Location placementLocation;
     public Collider _collider;
     public Renderer _renderer;
 
@@ -12,6 +13,8 @@ public class TextureVariant : NetworkBehaviour
     // clones will be activated along if this texture is going to be shown
     public Collider cloneCollider;
     public Renderer cloneRenderer;
+
+    private GameObject maengellisteInstance;
 
     [SyncVar (hook = nameof (StateChanged))]
     private bool currentState = false;
@@ -31,6 +34,20 @@ public class TextureVariant : NetworkBehaviour
         if (_renderer != null) _renderer.enabled = value;
         if (cloneCollider != null) cloneCollider.enabled = value;
         if (cloneRenderer != null) cloneRenderer.enabled = value;
+
+        if (value && maengellisteInstance == null)
+        {
+            string listString = $"<b>{placementLocation.ToString()}:</b> {textureDefinition.description}";
+            // Debug.LogWarning("Would add this TextureVariant to Mängelliste: " + listString);
+            maengellisteInstance = Instantiate(LobbyUIManager.instance.maengellistePrefab, LobbyUIManager.instance.maengellisteParent.transform);
+            MaengellisteEntryHelper helper = maengellisteInstance.GetComponent<MaengellisteEntryHelper>();
+            helper.text.text = listString;
+        }
+        else if (!value && maengellisteInstance != null)
+        {
+            Destroy(maengellisteInstance.gameObject);
+            maengellisteInstance = null;
+        }
     }
 
     public void StateChanged(bool _, bool value)
