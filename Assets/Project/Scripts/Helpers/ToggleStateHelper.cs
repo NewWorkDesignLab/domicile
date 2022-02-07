@@ -7,6 +7,7 @@ public class ToggleStateHelper : MonoBehaviour
 {
     public GameObject[] activeOnTrue;
     public GameObject[] activeOnFalse;
+    public bool allowStateToggle = true;
     
     // [SyncVar (hook = nameof (SetCurrentState))]
     // true = open; false = close
@@ -23,12 +24,12 @@ public class ToggleStateHelper : MonoBehaviour
     public void SetToggleState(bool value)
     {
         currentState = value;
-        if (activeOnTrue != null) {
+        if (activeOnTrue != null && allowStateToggle) {
             for (int i = 0; i < activeOnTrue.Length; i++) {
                 activeOnTrue[i].SetActive(currentState);
             }
         }
-        if (activeOnFalse != null) {
+        if (activeOnFalse != null && allowStateToggle) {
             for (int i = 0; i < activeOnFalse.Length; i++) {
                 activeOnFalse[i].SetActive(!currentState);
             }
@@ -40,5 +41,10 @@ public class ToggleStateHelper : MonoBehaviour
         bool isNetworked = NetworkServer.active || NetworkClient.active;
         if (!isNetworked) SetToggleState(!currentState);
         if (isNetworked) netExtension.CmdToggle();
+    }
+
+    public void AllowStateToggle(bool value)
+    {
+        allowStateToggle = value;
     }
 }

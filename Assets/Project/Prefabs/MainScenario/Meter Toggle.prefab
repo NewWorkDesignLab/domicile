@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 5218772414595894657}
   activeOnFalse:
   - {fileID: 1638863785617753441}
+  allowStateToggle: 1
   currentState: 0
   netExtension: {fileID: 3289620385586554862}
 --- !u!114 &4510985335714315079
@@ -75,6 +76,18 @@ MonoBehaviour:
   evntSuccess:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 7690912818598075246}
+        m_TargetAssemblyTypeName: ToggleStateHelper, Assembly-CSharp
+        m_MethodName: AllowStateToggle
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 5218772414595894657}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -120,21 +133,9 @@ MonoBehaviour:
   evntSuccess:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5218772414595894657}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1638863785617753441}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 7690912818598075246}
+        m_TargetAssemblyTypeName: ToggleStateHelper, Assembly-CSharp
+        m_MethodName: AllowStateToggle
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
