@@ -66,7 +66,7 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
 
     public void MainLanding_SetGreeting()
     {
-        mainMenuText.text = $"Hallo {SessionInstance.instance.session.name}. Was möchten Sie tun?";
+        mainMenuText.text = $"Hallo <b>{SessionInstance.instance.session.name}.</b> Was möchten Sie tun?";
     }
 
     #endregion
