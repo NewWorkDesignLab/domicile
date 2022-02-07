@@ -102,12 +102,12 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 
     public void Button_OpenTechnischeAnleitung()
     {
-        Application.OpenURL("https://tobiasbohn.com/particle-rush/tobias_bohn_particle_rush_dokumentation_umsetzung.pdf");
+        Application.OpenURL("https://tobiasbohn.com/domcl/domicile_technische_hinweise_20220208.pdf");
     }
 
     public void Button_OpenCheckliste()
     {
-        Application.OpenURL("https://tobiasbohn.com/domcl/OD-6_Checkliste.pdf");
+        Application.OpenURL("https://tobiasbohn.com/domcl/domicile_checkliste_20220208.pdf");
     }
 
     #endregion

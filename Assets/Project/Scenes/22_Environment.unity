@@ -5654,7 +5654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: SVN_02
-  description: Schimmelbefall der Tapete
+  description: Schimmelbefall an der Tapete
   type: 2
   difficulty: 2
   placements:
@@ -5693,7 +5693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: OBJ_08
-  description: Wischtuch
+  description: zu entfernendes Tischtuch
   type: 4
   difficulty: 1
   placements:
@@ -10028,7 +10028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: SVN_10
-  description: "Kratzspuren an T\xFCren"
+  description: "Kratzspuren an einer T\xFCr"
   type: 2
   difficulty: 1
   placements:
@@ -12290,7 +12290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: VSC_02
-  description: "Verschmutzung am Heizk\xF6rper"
+  description: "verschmutzter Heizk\xF6rper"
   type: 3
   difficulty: 2
   placements:
@@ -16411,7 +16411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: OBJ_01
-  description: Gardinenstange
+  description: zu entfernende Gardinenstange
   type: 4
   difficulty: 2
   placements:
@@ -16463,7 +16463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: ASR_03
-  description: "unsauber verspachtelte Bohrl\xF6cher"
+  description: "nicht bzw. unsauber verspachtelte Bohrl\xF6cher"
   type: 0
   difficulty: 3
   placements:
@@ -21612,7 +21612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: AOB_01
-  description: "Lackschaden am Heizk\xF6rper"
+  description: "kleiner Lackschaden am Heizk\xF6rper"
   type: 1
   difficulty: 2
   placements:
@@ -22172,7 +22172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: OBJ_04
-  description: Kehrschaufel und Besen
+  description: zu entfernende Kehrschaufel und Besen
   type: 4
   difficulty: 1
   placements:
@@ -22759,7 +22759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: OBJ_03
-  description: "Einbauk\xFCche"
+  description: "zu entfernende K\xFCche"
   type: 4
   difficulty: 2
   placements:
@@ -23407,7 +23407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: VSC_01
-  description: Verschmutzung der Fensterscheiben
+  description: verschmutzte Fensterscheiben
   type: 3
   difficulty: 2
   placements:
@@ -26740,7 +26740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: SVN_13
-  description: Schimmelbefall von Fliesenfugen
+  description: Schimmelbefall der Fliesenfugen
   type: 2
   difficulty: 1
   placements:
@@ -28405,7 +28405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: OBJ_05
-  description: "M\xFCllbeutel"
+  description: "zu entfernender M\xFCllbeutel"
   type: 4
   difficulty: 1
   placements:
@@ -37777,7 +37777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: OBJ_02
-  description: Einbauschrank
+  description: zu entfernendes Regal
   type: 4
   difficulty: 2
   placements:
@@ -40261,7 +40261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: OBJ_06
-  description: Wischer
+  description: zu entfernender Wischer
   type: 4
   difficulty: 1
   placements:
@@ -48629,7 +48629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: VSC_04
-  description: "Kleber\xFCckst\xE4nde an Fliesen"
+  description: "Kleber\xFCckst\xE4nde an den Fliesen"
   type: 3
   difficulty: 2
   placements:
