@@ -7,6 +7,8 @@ using Michsky.UI.ModernUIPack;
 
 public class LobbyUIManager : Singleton<LobbyUIManager>
 {
+    public GameObject mainGameObject;
+
     [Header("Lobby Prefabs")]
     public GameObject lobbyPlayerUIParent;
     public GameObject canvasGameObject;
@@ -29,10 +31,14 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 
     [Header("Groups")]
     public GameObject loadingGroup;
-    public List<GameObject> allObjects;
+    public GameObject leavePopupGroup;
+    private List<GameObject> allObjects = new List<GameObject>();
 
     public void Start()
     {
+        foreach (Transform child in mainGameObject.transform)
+            allObjects.Add(child.gameObject);
+        
         HideAll();
         loadingGroup.SetActive(true);
     }
@@ -69,12 +75,20 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 
     public void Lobby_CopyCode()
     {
-        Debug.Log("TODO: Copy code");
+        GUIUtility.systemCopyBuffer = OnlinePlayer.scenario.scenarioID;
     }
 
     public void Lobby_EmailCode()
     {
-        Debug.Log("TODO: Email code");
+        string email = "";
+        string subject = MyEscapeURL("Hier ist dein Szenario-Code für Domicile-VR");
+        string body = MyEscapeURL("Hallo, bitte nutze folgenden Code, um dem Szenario in Domicile beizutreten:\n\n" + OnlinePlayer.scenario.scenarioID);
+        Application.OpenURL("mailto:" + email + "?subject=" + subject + "&body=" + body);
+    }
+
+    private string MyEscapeURL (string url)
+    {
+        return WWW.EscapeURL(url).Replace("+","%20");
     }
 
     public void Lobby_SetRole(int role)
@@ -87,11 +101,17 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     {
         bool currentState = OnlinePlayer.localPlayer.playerReady;
         OnlinePlayer.localPlayer.CmdSetReadyState(!currentState);
-        readyButtonMUIP.buttonText = currentState ? "Bereit" : "Nicht bereit";
+        readyButtonMUIP.buttonText = currentState ? "Ich bin bereit." : "Ich bin nicht bereit.";
         readyButtonMUIP.UpdateUI();
     }
 
     public void Lobby_LeaveLobby()
+    {
+        // open ui and ask if they are shure
+        leavePopupGroup.SetActive(true);
+    }
+
+    public void Lobby_LeaveLobbyFinal()
     {
         OnlinePlayer.localPlayer.LeaveLobby();
     }

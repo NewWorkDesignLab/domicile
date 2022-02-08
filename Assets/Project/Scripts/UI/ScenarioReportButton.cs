@@ -5,7 +5,7 @@ using Michsky.UI.ModernUIPack;
 
 public class ScenarioReportButton : MonoBehaviour
 {
-    public ButtonManagerBasic button;
+    public ButtonManagerBasicWithIcon button;
 
     void OnEnable()
     {

@@ -59,8 +59,8 @@ public static class TextGenerator
         string tmp = role switch
         {
             PlayerRole.spectator => "Zuschauer:in",
-            PlayerRole.guide => "Mieter:in",
-            PlayerRole.learner => "Vermieter:in",
+            PlayerRole.guide => "Lernbegleiter:in",
+            PlayerRole.learner => "Lernende:r",
             _ => "Zuschauer:in"
         };
         return tmp;

@@ -29,6 +29,11 @@ public class SessionManager : Singleton<SessionManager>
         SessionInstance.instance.session.consent = value;
     }
 
+    public void SetSessionRole(int value)
+    {
+        SessionInstance.instance.session.localRole = (PlayerRole)value;
+    }
+
     public void SetSessionTarget(int value)
     {
         SessionInstance.instance.session.target = (SessionTarget)value;

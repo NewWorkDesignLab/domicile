@@ -44,6 +44,18 @@ public class SyncSceneProgress : NetworkBehaviour
     {
         if (sceneStatus < SceneSyncSettings.Length - 1) sceneStatus++;
     }
+
+    [Command(requiresAuthority = false)]
+    public void CmdPreviousSceneStatus()
+    {
+        if (sceneStatus > 0) sceneStatus--;
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetSceneStatusDirectly(int index)
+    {
+        sceneStatus = index;
+    }
 }
 
 
