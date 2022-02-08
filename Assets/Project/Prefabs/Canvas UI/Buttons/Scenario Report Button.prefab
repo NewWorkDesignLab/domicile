@@ -356,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIManagerAsset: {fileID: 11400000, guid: 2a619a9609984be49b53b928dd94e61b, type: 2}
   buttonType: 2
-  webglMode: 0
+  webglMode: 1
   basicFilled: {fileID: 0}
   basicText: {fileID: 0}
   basicOnlyIconFilled: {fileID: 0}
