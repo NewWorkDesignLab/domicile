@@ -14,33 +14,20 @@ public class ScenarioReportButton : MonoBehaviour
 
     public void OpenReport()
     {
-        Application.OpenURL("https://tobiasbohn.com/domcl/domicile_fallakte_20220208.pdf");
-        
-        // if (OnlinePlayer.scenario?.tenant == Tenant.three)
-        //     Application.OpenURL("https://tobiasbohn.com/domcl/FA-3m_-A-I_2-Zimmer_Atzenbeck.pdf");
-        // else if (OnlinePlayer.scenario?.tenant == Tenant.two)
-        //     Application.OpenURL("https://tobiasbohn.com/domcl/FA-2w_-A-I_3-Zimmer_Gebhard.pdf");
-        // else if (OnlinePlayer.scenario?.tenant == Tenant.one) {
-        //     if (OnlinePlayer.scenario?.textures == TextureDifficulty.medium) {
-        //         if (OnlinePlayer.localPlayer.playerGender == Gender.male)
-        //             Application.OpenURL("https://tobiasbohn.com/domcl/FA-1m_A_I.pdf");
-        //         else if (OnlinePlayer.localPlayer.playerGender == Gender.female)
-        //             Application.OpenURL("https://tobiasbohn.com/domcl/FA-1w_A_I.pdf");
-        //     }
-        //     else if (OnlinePlayer.scenario?.textures == TextureDifficulty.easy) {
-        //         if (OnlinePlayer.localPlayer.playerGender == Gender.male)
-        //             Application.OpenURL("https://tobiasbohn.com/domcl/FA-1m_A_I_Lebensraume_Hoyerswerda.pdf");
-        //         else if (OnlinePlayer.localPlayer.playerGender == Gender.female)
-        //             Application.OpenURL("https://tobiasbohn.com/domcl/FA-1w_A_I_Lebensraume_Hoyerswerda.pdf");
-        //     }
-        // }
+        var rooms = SessionInstance.instance.session.rooms == RoomCount.two ? 2 : 3;
+        var gender = SessionInstance.instance.session.gender == Gender.divers ? "m" : null;
+        gender = SessionInstance.instance.session.gender == Gender.male ? "m" : gender;
+        gender = SessionInstance.instance.session.gender == Gender.female ? "w" : gender;
+
+        var link = string.Format("https://www.domicile-vr.de/webinterface/{0}_{1}-Zimmer_{2}.pdf", gender, rooms, SessionInstance.instance.session.randomDocumentNumber);
+        Application.OpenURL(link);
     }
 
     private IEnumerator UpdateVisuals()
     {
         while (OnlinePlayer.scenario == null)
             yield return null;
-            
+
         string reportTxt = TextGenerator.GenerateReportText(
             OnlinePlayer.scenario.tenant,
             OnlinePlayer.scenario.contract,

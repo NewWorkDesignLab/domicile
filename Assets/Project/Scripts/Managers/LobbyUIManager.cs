@@ -38,7 +38,7 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
     {
         foreach (Transform child in mainGameObject.transform)
             allObjects.Add(child.gameObject);
-        
+
         HideAll();
         loadingGroup.SetActive(true);
     }
@@ -56,7 +56,7 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
         canvasGameObject.SetActive(false);
         SceneSettingHelper.DisplayVR();
     }
-    
+
     public void EnableUI()
     {
         SceneSettingHelper.Display2D();
@@ -122,12 +122,12 @@ public class LobbyUIManager : Singleton<LobbyUIManager>
 
     public void Button_OpenTechnischeAnleitung()
     {
-        Application.OpenURL("https://tobiasbohn.com/domcl/domicile_technische_hinweise_20220208.pdf");
+        Application.OpenURL("https://www.domicile-vr.de/webinterface/domicile_technische_hinweise.pdf");
     }
 
     public void Button_OpenCheckliste()
     {
-        Application.OpenURL("https://tobiasbohn.com/domcl/domicile_checkliste_20220208.pdf");
+        Application.OpenURL("https://www.domicile-vr.de/webinterface/domicile_checkliste.pdf");
     }
 
     #endregion

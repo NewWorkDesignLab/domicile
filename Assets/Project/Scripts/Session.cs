@@ -4,6 +4,8 @@ using UnityEngine;
 [Serializable]
 public class Session
 {
+  // There are 9 Versions for each comination available on Server numbered from 1 to 9
+    public int randomDocumentNumber;
     public string name = "";
     public bool consent = false;
     public Gender gender = Gender.divers;
