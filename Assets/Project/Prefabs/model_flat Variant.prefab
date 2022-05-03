@@ -146,6 +146,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_11
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 0}
   _renderer: {fileID: 504341927358838565}
@@ -296,6 +297,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Flur_01
+  textureDefinition: {fileID: 0}
   placementLocation: 0
   _collider: {fileID: 0}
   _renderer: {fileID: 7684084495884132224}
@@ -610,6 +612,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_18
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 5296545569354457978}
@@ -760,6 +763,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_10
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 7790353844544119290}
@@ -945,6 +949,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_13
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 7761900665406210144}
@@ -1014,6 +1019,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Bad_11
+  textureDefinition: {fileID: 0}
   placementLocation: 4
   _collider: {fileID: 0}
   _renderer: {fileID: 3248069272774249517}
@@ -1199,6 +1205,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_17
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 9126595183414288573}
   _renderer: {fileID: 6894579903518421801}
@@ -1350,6 +1357,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_09
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 0}
   _renderer: {fileID: 705781616591008688}
@@ -1419,6 +1427,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_07
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 0}
   _renderer: {fileID: 6525461595774902080}
@@ -1851,6 +1860,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_09
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 4263709906573129025}
@@ -2002,6 +2012,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Loggia_03
+  textureDefinition: {fileID: 0}
   placementLocation: 6
   _collider: {fileID: 0}
   _renderer: {fileID: 9208633779221838196}
@@ -2318,6 +2329,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_16
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 3701185424724842201}
   _renderer: {fileID: 3921812647329033896}
@@ -2469,6 +2481,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Flur_07
+  textureDefinition: {fileID: 0}
   placementLocation: 0
   _collider: {fileID: 0}
   _renderer: {fileID: 114653757271160902}
@@ -2688,6 +2701,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_13
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 636769899025730010}
@@ -3229,6 +3243,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Bad_01
+  textureDefinition: {fileID: 0}
   placementLocation: 4
   _collider: {fileID: 0}
   _renderer: {fileID: 8052568976012235050}
@@ -3380,6 +3395,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Loggia_02
+  textureDefinition: {fileID: 0}
   placementLocation: 6
   _collider: {fileID: 0}
   _renderer: {fileID: 2237741688327541318}
@@ -3449,6 +3465,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_21
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 8299433973661885186}
@@ -3763,6 +3780,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: SchlaZi_07
+  textureDefinition: {fileID: 0}
   placementLocation: 2
   _collider: {fileID: 0}
   _renderer: {fileID: 3402981249753172381}
@@ -3914,6 +3932,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_02
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 23015862193251791}
@@ -3983,6 +4002,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_08
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 1637398852224311647}
@@ -4133,6 +4153,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: SchlaZi_13
+  textureDefinition: {fileID: 0}
   placementLocation: 2
   _collider: {fileID: 0}
   _renderer: {fileID: 4351898505960065502}
@@ -4202,6 +4223,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Flur_03
+  textureDefinition: {fileID: 0}
   placementLocation: 0
   _collider: {fileID: 0}
   _renderer: {fileID: 4838363017168662341}
@@ -4271,6 +4293,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: SchlaZi_06
+  textureDefinition: {fileID: 0}
   placementLocation: 2
   _collider: {fileID: 0}
   _renderer: {fileID: 6363381687945492785}
@@ -4421,6 +4444,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_08
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 3168388745746870840}
@@ -4654,6 +4678,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Bad_08
+  textureDefinition: {fileID: 0}
   placementLocation: 4
   _collider: {fileID: 0}
   _renderer: {fileID: 6247823431737220799}
@@ -4757,6 +4782,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Flur_12
+  textureDefinition: {fileID: 0}
   placementLocation: 0
   _collider: {fileID: 0}
   _renderer: {fileID: 3664779255849239688}
@@ -4939,6 +4965,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_10
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 6016314319794240379}
@@ -5008,6 +5035,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_07
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 6943180761298128310}
@@ -5077,6 +5105,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: SchlaZi_09
+  textureDefinition: {fileID: 0}
   placementLocation: 2
   _collider: {fileID: 0}
   _renderer: {fileID: 4326497508583423919}
@@ -5146,6 +5175,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_06
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 2687539736544677591}
@@ -5526,6 +5556,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Bad_07
+  textureDefinition: {fileID: 0}
   placementLocation: 4
   _collider: {fileID: 0}
   _renderer: {fileID: 8825208230116030165}
@@ -6314,6 +6345,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_05
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 2528017895616645519}
@@ -6383,6 +6415,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_01
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 5731356904166909892}
@@ -6942,6 +6975,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: SchlaZi_08
+  textureDefinition: {fileID: 0}
   placementLocation: 2
   _collider: {fileID: 0}
   _renderer: {fileID: 7044913117455158576}
@@ -7011,6 +7045,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: SchlaZi_12
+  textureDefinition: {fileID: 0}
   placementLocation: 2
   _collider: {fileID: 0}
   _renderer: {fileID: 7231557773592639774}
@@ -7162,6 +7197,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Flur_06
+  textureDefinition: {fileID: 0}
   placementLocation: 0
   _collider: {fileID: 0}
   _renderer: {fileID: 8160340431395883320}
@@ -7231,6 +7267,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: SchlaZi_02
+  textureDefinition: {fileID: 0}
   placementLocation: 2
   _collider: {fileID: 0}
   _renderer: {fileID: 1349916357941901238}
@@ -7300,6 +7337,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_17
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 2154194976614335087}
@@ -7369,6 +7407,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_12
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 0}
   _renderer: {fileID: 6423256262349055677}
@@ -7438,6 +7477,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_01
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 6560490108104284443}
@@ -7671,6 +7711,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Flur_10
+  textureDefinition: {fileID: 0}
   placementLocation: 0
   _collider: {fileID: 0}
   _renderer: {fileID: 1439745821623822104}
@@ -7904,6 +7945,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Loggia_01
+  textureDefinition: {fileID: 0}
   placementLocation: 6
   _collider: {fileID: 0}
   _renderer: {fileID: 2019665624872890782}
@@ -8137,6 +8179,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Bad_06
+  textureDefinition: {fileID: 0}
   placementLocation: 4
   _collider: {fileID: 0}
   _renderer: {fileID: 5682695617927547646}
@@ -8288,6 +8331,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Loggia_04
+  textureDefinition: {fileID: 0}
   placementLocation: 6
   _collider: {fileID: 0}
   _renderer: {fileID: 8466924379514459502}
@@ -8520,6 +8564,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_16
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 3614781714206661006}
@@ -8589,6 +8634,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Bad_14
+  textureDefinition: {fileID: 0}
   placementLocation: 4
   _collider: {fileID: 0}
   _renderer: {fileID: 4486101178362625834}
@@ -8658,6 +8704,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_19
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 3750006606162104788}
@@ -8727,6 +8774,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_11
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 1227612307254256420}
@@ -8749,7 +8797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8836378256292100394
 Transform:
   m_ObjectHideFlags: 0
@@ -8877,6 +8925,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_04
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 4384851204721049524}
@@ -8946,6 +8995,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_05
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 4130552561928974261}
@@ -9261,6 +9311,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_14
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 4571832548495935405}
@@ -9561,6 +9612,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_14
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 0}
   _renderer: {fileID: 723084453794773592}
@@ -9630,6 +9682,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_12
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 5137280379203538405}
@@ -9945,6 +9998,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_11
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 2769590131928196315}
@@ -10177,6 +10231,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Bad_10
+  textureDefinition: {fileID: 0}
   placementLocation: 4
   _collider: {fileID: 0}
   _renderer: {fileID: 6184401562241854678}
@@ -10506,6 +10561,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_08
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 0}
   _renderer: {fileID: 9160917370954550611}
@@ -10820,6 +10876,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Flur_05
+  textureDefinition: {fileID: 0}
   placementLocation: 0
   _collider: {fileID: 0}
   _renderer: {fileID: 4292309676430111487}
@@ -10889,6 +10946,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_12
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 1717233449920845786}
@@ -11398,6 +11456,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_03
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 365772371484843207}
@@ -11467,6 +11526,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_04
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 2964173411059132040}
@@ -11536,6 +11596,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_15
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 6783082441843789637}
   _renderer: {fileID: 7752197155627690989}
@@ -11674,6 +11735,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_04
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 0}
   _renderer: {fileID: 3285506304882190731}
@@ -11907,6 +11969,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Bad_02
+  textureDefinition: {fileID: 0}
   placementLocation: 4
   _collider: {fileID: 0}
   _renderer: {fileID: 8083357601364813894}
@@ -12196,6 +12259,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_15
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 7094998363364219511}
   _renderer: {fileID: 9144394089578068268}
@@ -12265,6 +12329,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Flur_04
+  textureDefinition: {fileID: 0}
   placementLocation: 0
   _collider: {fileID: 0}
   _renderer: {fileID: 1241896729288898243}
@@ -12532,6 +12597,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_13
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 0}
   _renderer: {fileID: 7571254768998150757}
@@ -12601,6 +12667,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: SchlaZi_11
+  textureDefinition: {fileID: 0}
   placementLocation: 2
   _collider: {fileID: 0}
   _renderer: {fileID: 8287710982746302607}
@@ -12670,6 +12737,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Bad_03
+  textureDefinition: {fileID: 0}
   placementLocation: 4
   _collider: {fileID: 0}
   _renderer: {fileID: 5519187380996481579}
@@ -12739,6 +12807,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_06
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 5710758855874813455}
@@ -12808,6 +12877,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_01
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 0}
   _renderer: {fileID: 3771575519917793537}
@@ -13157,6 +13227,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_14
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 3384133605248820879}
@@ -13226,6 +13297,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_02
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 0}
   _renderer: {fileID: 3339780739040167252}
@@ -13411,6 +13483,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: SchlaZi_05
+  textureDefinition: {fileID: 0}
   placementLocation: 2
   _collider: {fileID: 0}
   _renderer: {fileID: 6652366644573324019}
@@ -13480,6 +13553,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Flur_02
+  textureDefinition: {fileID: 0}
   placementLocation: 0
   _collider: {fileID: 0}
   _renderer: {fileID: 2947548114733134663}
@@ -13549,6 +13623,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_03
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 0}
   _renderer: {fileID: 8263596298441083047}
@@ -13849,6 +13924,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_20
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 5681769749728179150}
@@ -13950,6 +14026,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_19
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 1918037627639631762}
@@ -14019,6 +14096,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Bad_04
+  textureDefinition: {fileID: 0}
   placementLocation: 4
   _collider: {fileID: 0}
   _renderer: {fileID: 5399519951516860358}
@@ -14088,6 +14166,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Bad_12
+  textureDefinition: {fileID: 0}
   placementLocation: 4
   _collider: {fileID: 0}
   _renderer: {fileID: 3695447433067681378}
@@ -14254,6 +14333,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: SchlaZi_01
+  textureDefinition: {fileID: 0}
   placementLocation: 2
   _collider: {fileID: 0}
   _renderer: {fileID: 8039618817272999063}
@@ -14439,6 +14519,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Flur_11
+  textureDefinition: {fileID: 0}
   placementLocation: 0
   _collider: {fileID: 0}
   _renderer: {fileID: 6060390208779730820}
@@ -14768,6 +14849,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_10
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 0}
   _renderer: {fileID: 4597424932294817982}
@@ -14837,6 +14919,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: SchlaZi_03
+  textureDefinition: {fileID: 0}
   placementLocation: 2
   _collider: {fileID: 0}
   _renderer: {fileID: 9137696894204154953}
@@ -15220,6 +15303,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: SchlaZi_10
+  textureDefinition: {fileID: 0}
   placementLocation: 2
   _collider: {fileID: 0}
   _renderer: {fileID: 4369943638934229150}
@@ -15289,6 +15373,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_18
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 2223724754196931282}
@@ -15603,6 +15688,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_15
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 5317715338825440940}
@@ -15672,6 +15758,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Kueche_07
+  textureDefinition: {fileID: 0}
   placementLocation: 5
   _collider: {fileID: 0}
   _renderer: {fileID: 2081146210772898614}
@@ -15741,6 +15828,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Bad_13
+  textureDefinition: {fileID: 0}
   placementLocation: 4
   _collider: {fileID: 0}
   _renderer: {fileID: 6251363595715826058}
@@ -16171,6 +16259,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_09
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 8538677500933506325}
@@ -16322,6 +16411,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Bad_05
+  textureDefinition: {fileID: 0}
   placementLocation: 4
   _collider: {fileID: 0}
   _renderer: {fileID: 9208159094367958218}
@@ -16473,6 +16563,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: SchlaZi_04
+  textureDefinition: {fileID: 0}
   placementLocation: 2
   _collider: {fileID: 0}
   _renderer: {fileID: 5748451066983219616}
@@ -16542,6 +16633,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi_02
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 6379497807478219543}
@@ -16891,6 +16983,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_05
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 0}
   _renderer: {fileID: 727358061863105146}
@@ -17305,6 +17398,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: WoZi_06
+  textureDefinition: {fileID: 0}
   placementLocation: 3
   _collider: {fileID: 0}
   _renderer: {fileID: 6729661986597877563}
@@ -17456,6 +17550,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Bad_09
+  textureDefinition: {fileID: 0}
   placementLocation: 4
   _collider: {fileID: 0}
   _renderer: {fileID: 3416090728208318818}
@@ -17525,6 +17620,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Flur_08
+  textureDefinition: {fileID: 0}
   placementLocation: 0
   _collider: {fileID: 8523925745827687573}
   _renderer: {fileID: 3725401224859684887}
@@ -17594,6 +17690,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: Flur_09
+  textureDefinition: {fileID: 0}
   placementLocation: 0
   _collider: {fileID: 0}
   _renderer: {fileID: 6924827584265684723}
@@ -17745,6 +17842,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   placementName: KiZi 03
+  textureDefinition: {fileID: 0}
   placementLocation: 1
   _collider: {fileID: 0}
   _renderer: {fileID: 8708333627899201142}
@@ -18045,7 +18143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
       propertyPath: m_Name
-      value: Wohnung
+      value: model_flat Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1205922101070158733, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
       propertyPath: m_TagString
@@ -18151,6 +18249,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Traversable Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 7741721969412309511, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7878813995444387782, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -18185,79 +18287,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
---- !u!1 &2868289370805580714 stripped
+--- !u!1 &3560632487009008638 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 173084609950231169, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7407387997689108646 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -4367213636468424307, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4067157140989877034 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2150943449202524673, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6245383620430027603 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -935392863829048712, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2931899264526843679 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 943764352469001780, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7553489505847117895 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5583263808574853484, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &121841365385794727 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2600829226131803532, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8871433218964433308 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6824492716432765111, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1263757922864380036 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -5467058408456445521, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5809620103516620187 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -777094405791343440, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3202294893386878256 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8514045988240763877, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2788305085051045274 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -8999649153740137295, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5978276330794842162 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -621561811729620711, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2703947826987472007 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -9210278718708544084, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5290280957562084258 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7836831752735605385, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_CorrespondingSourceObject: {fileID: -7727836023846231339, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &9196055762247528111 stripped
@@ -18265,64 +18297,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6500433189138085764, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4700336279703250925 stripped
+--- !u!1 &3676423009677748834 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7246903696432922310, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1082100889089810298 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -6148333285339855279, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3824846599890846374 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1205922101070158733, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &295086091224042055 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2427586751127081836, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3560632487009008638 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -7727836023846231339, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5194270594197720815 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1315860466946861116, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1738425401501795407 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4434073952704879972, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5738199012259074906 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7641187913664662129, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4460687841391240504 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1751712788445264915, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1690536708143638006 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3665121236887174365, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3901144557232870809 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -7815020531549287246, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4997833511927956719 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6985929011202153924, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1634130786806707017, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5791251490482516149 stripped
@@ -18330,9 +18307,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8500112159884700062, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6872099422041103322 stripped
+--- !u!1 &295086091224042055 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8860344594389517041, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2427586751127081836, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5194270594197720815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1315860466946861116, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3015766312913598301 stripped
@@ -18340,19 +18322,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 897053118502760054, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7302670740019806532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4679400737179670639, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3901144557232870809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7815020531549287246, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1690536708143638006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3665121236887174365, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1738425401501795407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4434073952704879972, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4828629969306100400 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1825537662618616933, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1719564409161042043 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3636024262881202512, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3676423009677748834 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1634130786806707017, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6784599176705564780 stripped
@@ -18360,19 +18352,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8903444340236351815, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7613952908337331815 stripped
+--- !u!1 &2612938358626839874 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5477203572178364236, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2169964592435217236 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -4920854147470173569, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5795958670749450910 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8486962882629819317, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_CorrespondingSourceObject: {fileID: 138445979861873769, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1862524745703405493 stripped
@@ -18380,19 +18362,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4355502103117442718, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2662311570786220961 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -9125787966557298038, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9022831214664117602 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6385918840921060425, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
-  m_PrefabInstance: {fileID: 2713663370787985707}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8638987495605029554 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -3293530806842371175, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &4310055896689482491 stripped
@@ -18400,24 +18372,114 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -7027661103642475568, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7407387997689108646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4367213636468424307, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8871433218964433308 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6824492716432765111, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5290280957562084258 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7836831752735605385, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1263757922864380036 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5467058408456445521, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3202294893386878256 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8514045988240763877, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1624604389983878494 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3684823419616617589, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2266440526269717921 stripped
+--- !u!1 &2931899264526843679 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4241508850858296458, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_CorrespondingSourceObject: {fileID: 943764352469001780, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7302670740019806532 stripped
+--- !u!1 &1082100889089810298 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4679400737179670639, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_CorrespondingSourceObject: {fileID: -6148333285339855279, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4749293820857905936 stripped
+--- !u!1 &2788305085051045274 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7223844052699966011, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_CorrespondingSourceObject: {fileID: -8999649153740137295, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5809620103516620187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -777094405791343440, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1719564409161042043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3636024262881202512, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4700336279703250925 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7246903696432922310, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2703947826987472007 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -9210278718708544084, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5978276330794842162 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -621561811729620711, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &121841365385794727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2600829226131803532, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6245383620430027603 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -935392863829048712, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7553489505847117895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5583263808574853484, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4460687841391240504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1751712788445264915, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5795958670749450910 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8486962882629819317, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2169964592435217236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4920854147470173569, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4997833511927956719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6985929011202153924, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3824846599890846374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1205922101070158733, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1288848253274036725 stripped
@@ -18425,14 +18487,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -5455487675152301858, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3599885480178449576 stripped
+--- !u!1 &2662311570786220961 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: -7755899290134649469, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_CorrespondingSourceObject: {fileID: -9125787966557298038, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1498255125783644026 stripped
+--- !u!1 &4067157140989877034 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: -5664963817693471151, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2150943449202524673, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4749293820857905936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7223844052699966011, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2266440526269717921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4241508850858296458, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5738199012259074906 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7641187913664662129, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8403716834258748036 stripped
@@ -18440,11 +18517,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5852183189811370927, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2612938358626839874 stripped
+--- !u!1 &6872099422041103322 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 138445979861873769, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8860344594389517041, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
   m_PrefabInstance: {fileID: 2713663370787985707}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1498255125783644026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5664963817693471151, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7613952908337331815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5477203572178364236, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3599885480178449576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7755899290134649469, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2868289370805580714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 173084609950231169, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8638987495605029554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3293530806842371175, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+  m_PrefabInstance: {fileID: 2713663370787985707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1672342481813145820
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121841365385794727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5625698936222603735, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
 --- !u!64 &3278262725436991314
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18529,6 +18645,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -9043527939165418017, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+--- !u!64 &857513084676477306
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719564409161042043}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2388341406630801706, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
 --- !u!64 &424372851297860125
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18571,20 +18701,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5791812404024406478, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
---- !u!64 &8294371457526555380
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2868289370805580714}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7625298423797479055, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
 --- !u!64 &6399313618683726815
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18641,6 +18757,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6235479699516098303, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
+--- !u!64 &8294371457526555380
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2868289370805580714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7625298423797479055, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
 --- !u!64 &2266470411651680714
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18669,20 +18799,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5053925668127403250, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
---- !u!64 &1672342481813145820
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121841365385794727}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5625698936222603735, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
 --- !u!64 &1030667070871491566
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19057,20 +19173,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1184007556164235266, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
---- !u!64 &857513084676477306
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719564409161042043}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2388341406630801706, guid: 8130c7d18f664184baac47d3f1746242, type: 3}
 --- !u!64 &3389811222537953
 MeshCollider:
   m_ObjectHideFlags: 0
