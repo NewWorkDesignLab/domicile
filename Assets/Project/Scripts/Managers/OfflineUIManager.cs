@@ -15,26 +15,29 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
     public GameObject mainMenuGroup;
     public TMP_Text mainMenuText;
 
+    [Header("Impressum UI")]
+    public GameObject impressumGroup;
+
     [Header("Create Scenario A UI")]
     public GameObject scenarioCreateGroupA;
     public SliderManager scenarioCreateADiffSlider;
-    
+
     [Header("Create Scenario B UI")]
     public GameObject scenarioCreateGroupB;
     public ButtonManagerBasic scenarioCreateDisplayRooms;
     public ButtonManagerBasic scenarioCreateDisplayTextures;
     public ButtonManagerBasic scenarioCreateDisplayReport;
     public SliderManager scenarioCreateBDiffSlider;
-    
+
     [Header("Join Scenario UI")]
     public GameObject scJoinGroup;
 
     [Header("Offline UI")]
     public GameObject offlineGroup;
-    
+
     [Header("Loading UI")]
     public GameObject loadingGroup;
-    
+
     [Header("Reconnect UI")]
     public GameObject reconnectGroup;
 
@@ -42,6 +45,7 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
     {
         mainLandingGroup.SetActive(false);
         mainMenuGroup.SetActive(false);
+        impressumGroup.SetActive(false);
         scenarioCreateGroupA.SetActive(false);
         scenarioCreateGroupB.SetActive(false);
         scJoinGroup.SetActive(false);
@@ -60,6 +64,26 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
         mainLandingButton.interactable = nameReady && genderReady && consentReady;
     }
 
+    public void ButtonImpressum()
+    {
+        Application.OpenURL("https://www.afbb.de/de/impressum.html");
+    }
+
+    public void ButtonDatenschutz()
+    {
+        Application.OpenURL("https://www.afbb.de/de/datenschutz.html");
+    }
+
+    public void ButtonTeam()
+    {
+        Application.OpenURL("https://www.domicile-vr.de/partner.html");
+    }
+
+    public void ButtonWebsite()
+    {
+        Application.OpenURL("https://www.domicile-vr.de/");
+    }
+
     #endregion
 
     #region Main Menu
@@ -70,7 +94,7 @@ public class OfflineUIManager : Singleton<OfflineUIManager>
     }
 
     #endregion
-    
+
     #region Create Scenario
 
     public void CreateScenario_UpdateRoomDisplay()
