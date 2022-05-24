@@ -1,4 +1,5 @@
-Copyright (c) 2022 Akademie für berufliche Bildung gGmbH
+Copyright (c) 2022 New Work Design Lab an der Fachhochschule Dresden GmbH (techn. Umsetzung)
+Projektkoordination Akademie für berufliche Bildung gGmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
