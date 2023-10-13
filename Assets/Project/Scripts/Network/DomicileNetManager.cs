@@ -63,12 +63,12 @@ public class DomicileNetManager : NetworkManager
         StartCoroutine(ServerLoadSubScenes());
     }
 
-    void OnCreatePlayer (NetworkConnection conn, CreatePlayerMessage message)
+    void OnCreatePlayer (NetworkConnectionToClient conn, CreatePlayerMessage message)
     {
         StartCoroutine(OnCreatePlayerDelayed(conn, message));
     }
 
-    IEnumerator OnCreatePlayerDelayed(NetworkConnection conn, CreatePlayerMessage message)
+    IEnumerator OnCreatePlayerDelayed(NetworkConnectionToClient conn, CreatePlayerMessage message)
     {
         // wait for server to async load all subscenes for game instances
         while (!scenePoolLoaded)
@@ -84,7 +84,7 @@ public class DomicileNetManager : NetworkManager
             targetScene = scenePool.GetUnused();
             newScenario = true;
         }
-        
+
         if (targetScene?.scene == null)
         {
             Debug.LogWarning("REQUESTED SCENE NOT FOUND OR NO SCENE AVAILABLE");

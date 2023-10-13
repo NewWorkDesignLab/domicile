@@ -156,7 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0110f245bfcfc7d459681f7bd9ebc590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  port: 7770
+  port: 443
+  ClientUseDefaultPort: 0
   maxMessageSize: 16384
   handshakeMaxSize: 3000
   noDelay: 1
@@ -165,12 +166,12 @@ MonoBehaviour:
   serverMaxMessagesPerTick: 10000
   clientMaxMessagesPerTick: 1000
   batchSend: 1
-  waitBeforeSend: 0
+  waitBeforeSend: 1
   clientUseWss: 1
-  sslEnabled: 0
+  sslEnabled: 1
   sslCertJson: ./cert.json
   sslProtocols: 3072
-  _logLevels: 0
+  _logLevels: 4
 --- !u!114 &213892942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,18 +187,35 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   runInBackground: 1
   autoStartServerBuild: 1
-  serverTickRate: 30
+  autoConnectClientBuild: 0
+  sendRate: 30
   offlineScene: Assets/Project/Scenes/00_Offline.unity
   onlineScene: 
   transport: {fileID: 213892946}
-  networkAddress: 188.68.56.140
+  networkAddress: backend.domicile-vr.de
   maxConnections: 50
+  disconnectInactiveConnections: 0
+  disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 7719062317763899482, guid: 2ff5aabf719b6544daa741b6382b832a, type: 3}
   autoCreatePlayer: 0
   playerSpawnMethod: 0
   spawnPrefabs:
   - {fileID: 2663831451896267103, guid: 716cdd168c3e37d4b8685976ef61bd35, type: 3}
+  exceptionsDisconnect: 1
+  snapshotSettings:
+    bufferTimeMultiplier: 2
+    bufferLimit: 32
+    catchupNegativeThreshold: -1
+    catchupPositiveThreshold: 1
+    catchupSpeed: 0.019999999552965164
+    slowdownSpeed: 0.03999999910593033
+    driftEmaDuration: 1
+    dynamicAdjustment: 1
+    dynamicAdjustmentTolerance: 1
+    deliveryTimeEmaDuration: 2
+  connectionQualityInterval: 3
+  timeInterpolationGui: 0
   gameScene: Assets/Project/Scenes/22_Environment.unity
   instances: 20
   networkedScenarioPrefab: {fileID: 2663831451896267103, guid: 716cdd168c3e37d4b8685976ef61bd35, type: 3}

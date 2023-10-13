@@ -1,0 +1,6 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+<Files "*.wasm">
+    AddType application/wasm .wasm
+</Files>
