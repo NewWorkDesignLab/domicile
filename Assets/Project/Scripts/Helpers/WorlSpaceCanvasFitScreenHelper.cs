@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WorlSpaceCanvasFitScreenHelper : MonoBehaviour {
     private RectTransform targetRectTransform;
-    private ScreenOrientation lastOrientation = ScreenOrientation.Landscape;
+    private ScreenOrientation lastOrientation = ScreenOrientation.LandscapeLeft;
     private Vector2 lastResolution = Vector2.zero;
 
     void Awake () {
