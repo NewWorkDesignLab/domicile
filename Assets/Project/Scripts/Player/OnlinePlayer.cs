@@ -224,7 +224,7 @@ public class OnlinePlayer : NetworkBehaviour
             else if (playersInScene[i].playerRole == PlayerRole.learner)
                 playersInScene[i].player.SetupVisablePlayer(true);
             else if (playersInScene[i].playerRole == PlayerRole.guide)
-                playersInScene[i].player.SetupVisablePlayer(false);
+                playersInScene[i].player.SetupVisablePlayer(true);
             else
                 playersInScene[i].player.SetupInactivePlayer();
         }
