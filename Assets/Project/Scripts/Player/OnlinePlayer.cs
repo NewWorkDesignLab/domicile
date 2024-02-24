@@ -159,6 +159,7 @@ public class OnlinePlayer : NetworkBehaviour
         // set values from networked scenario in session
         SessionInstance.instance.session.scenario = scenario.scenarioID;
         SessionInstance.instance.session.scenarioName = scenario.scenarioName;
+        SessionInstance.instance.session.scenarioGender = scenario.scenarioGender;
         SessionInstance.instance.session.rooms = scenario.rooms;
         SessionInstance.instance.session.textures = scenario.textures;
         SessionInstance.instance.session.difficulty = scenario.difficulty;

@@ -18,9 +18,12 @@ public class NetworkedScenario : NetworkBehaviour
 
     [SyncVar(hook = nameof(IDChanged))]
     public string scenarioID;
-    
+
     [SyncVar(hook = nameof(NameChanged))]
     public string scenarioName;
+
+    [SyncVar(hook = nameof(GenderChanged))]
+    public Gender scenarioGender;
 
     [SyncVar(hook = nameof(RoomsChanged))]
     public RoomCount rooms;
@@ -45,6 +48,7 @@ public class NetworkedScenario : NetworkBehaviour
 
     private void IDChanged(string _, string newValue) {}
     private void NameChanged(string _, string newValue) {}
+    private void GenderChanged(Gender _, Gender newValue) {}
     private void RoomsChanged(RoomCount _, RoomCount newValue) {}
     private void TexturesChanged(TextureDifficulty _, TextureDifficulty newValue) {}
     private void DifficultyChanged(float _, float newValue) {}

@@ -15,9 +15,9 @@ public class ScenarioReportButton : MonoBehaviour
     public void OpenReport()
     {
         var rooms = SessionInstance.instance.session.rooms == RoomCount.two ? 2 : 3;
-        var gender = SessionInstance.instance.session.gender == Gender.divers ? "m" : null;
-        gender = SessionInstance.instance.session.gender == Gender.male ? "m" : gender;
-        gender = SessionInstance.instance.session.gender == Gender.female ? "w" : gender;
+        var gender = SessionInstance.instance.session.scenarioGender == Gender.divers ? "m" : null;
+        gender = SessionInstance.instance.session.scenarioGender == Gender.male ? "m" : gender;
+        gender = SessionInstance.instance.session.scenarioGender == Gender.female ? "w" : gender;
 
         var link = string.Format("https://www.domicile-vr.de/webinterface/{0}_{1}-Zimmer_{2}.pdf", gender, rooms, SessionInstance.instance.session.randomDocumentNumber);
         Application.OpenURL(link);

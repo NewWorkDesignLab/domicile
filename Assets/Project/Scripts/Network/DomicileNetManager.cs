@@ -126,6 +126,7 @@ public class DomicileNetManager : NetworkManager
             NetworkedScenario netScenario = scenarioGo.GetComponent<NetworkedScenario> ();
             netScenario.scenarioID = targetScene.id;
             netScenario.scenarioName = message.scenarioName;
+            netScenario.scenarioGender = message.gender;
             netScenario.rooms = message.rooms;
             netScenario.textures = message.textures;
             netScenario.difficulty = message.difficulty;

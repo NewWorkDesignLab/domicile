@@ -13,6 +13,7 @@ public class Session
     public SessionTarget target = SessionTarget.unspecified;
     public string scenario = "";
     public string scenarioName = "Szenario";
+    public Gender scenarioGender = Gender.divers;
 
     public RoomCount rooms = RoomCount.two;
     public TextureDifficulty textures = TextureDifficulty.medium;
