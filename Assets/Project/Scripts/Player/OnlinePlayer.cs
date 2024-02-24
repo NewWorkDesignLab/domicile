@@ -160,6 +160,7 @@ public class OnlinePlayer : NetworkBehaviour
         SessionInstance.instance.session.scenario = scenario.scenarioID;
         SessionInstance.instance.session.scenarioName = scenario.scenarioName;
         SessionInstance.instance.session.scenarioGender = scenario.scenarioGender;
+        SessionInstance.instance.session.randomDocumentNumber = scenario.scenarioRandomDocumentNumber;
         SessionInstance.instance.session.rooms = scenario.rooms;
         SessionInstance.instance.session.textures = scenario.textures;
         SessionInstance.instance.session.difficulty = scenario.difficulty;

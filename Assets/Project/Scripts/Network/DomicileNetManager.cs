@@ -127,6 +127,7 @@ public class DomicileNetManager : NetworkManager
             netScenario.scenarioID = targetScene.id;
             netScenario.scenarioName = message.scenarioName;
             netScenario.scenarioGender = message.gender;
+            netScenario.scenarioRandomDocumentNumber = UnityEngine.Random.Range(1, 10);
             netScenario.rooms = message.rooms;
             netScenario.textures = message.textures;
             netScenario.difficulty = message.difficulty;
