@@ -49,15 +49,59 @@ public class NetworkedScenario : NetworkBehaviour
     [SyncVar(hook = nameof(ProtocolChanged))]
     public HandoverProtocol protocol;
 
-    private void IDChanged(string _, string newValue) {}
-    private void NameChanged(string _, string newValue) {}
-    private void GenderChanged(Gender _, Gender newValue) {}
-    private void RandomDocumentNumberChanged(int _, int newValue) {}
-    private void RoomsChanged(RoomCount _, RoomCount newValue) {}
-    private void TexturesChanged(TextureDifficulty _, TextureDifficulty newValue) {}
-    private void DifficultyChanged(float _, float newValue) {}
-    private void ReportChanged(CaseReport _, CaseReport newValue) {}
-    private void TenantChanged(Tenant _, Tenant newValue) {}
-    private void ContractChanged(RentalContract _, RentalContract newValue) {}
-    private void ProtocolChanged(HandoverProtocol _, HandoverProtocol newValue) {}
+    private void IDChanged(string _, string newValue)
+    {
+        // update the local session with the networked scenario data
+        if (OnlinePlayer.localPlayer != null) OnlinePlayer.localPlayer.UpdateSessionWithNetworkedScenario();
+    }
+    private void NameChanged(string _, string newValue)
+    {
+        // update the local session with the networked scenario data
+        if (OnlinePlayer.localPlayer != null) OnlinePlayer.localPlayer.UpdateSessionWithNetworkedScenario();
+    }
+    private void GenderChanged(Gender _, Gender newValue)
+    {
+        // update the local session with the networked scenario data
+        if (OnlinePlayer.localPlayer != null) OnlinePlayer.localPlayer.UpdateSessionWithNetworkedScenario();
+    }
+    private void RandomDocumentNumberChanged(int _, int newValue)
+    {
+        // update the local session with the networked scenario data
+        if (OnlinePlayer.localPlayer != null) OnlinePlayer.localPlayer.UpdateSessionWithNetworkedScenario();
+    }
+    private void RoomsChanged(RoomCount _, RoomCount newValue)
+    {
+        // update the local session with the networked scenario data
+        if (OnlinePlayer.localPlayer != null) OnlinePlayer.localPlayer.UpdateSessionWithNetworkedScenario();
+    }
+    private void TexturesChanged(TextureDifficulty _, TextureDifficulty newValue)
+    {
+        // update the local session with the networked scenario data
+        if (OnlinePlayer.localPlayer != null) OnlinePlayer.localPlayer.UpdateSessionWithNetworkedScenario();
+    }
+    private void DifficultyChanged(float _, float newValue)
+    {
+        // update the local session with the networked scenario data
+        if (OnlinePlayer.localPlayer != null) OnlinePlayer.localPlayer.UpdateSessionWithNetworkedScenario();
+    }
+    private void ReportChanged(CaseReport _, CaseReport newValue)
+    {
+        // update the local session with the networked scenario data
+        if (OnlinePlayer.localPlayer != null) OnlinePlayer.localPlayer.UpdateSessionWithNetworkedScenario();
+    }
+    private void TenantChanged(Tenant _, Tenant newValue)
+    {
+        // update the local session with the networked scenario data
+        if (OnlinePlayer.localPlayer != null) OnlinePlayer.localPlayer.UpdateSessionWithNetworkedScenario();
+    }
+    private void ContractChanged(RentalContract _, RentalContract newValue)
+    {
+        // update the local session with the networked scenario data
+        if (OnlinePlayer.localPlayer != null) OnlinePlayer.localPlayer.UpdateSessionWithNetworkedScenario();
+    }
+    private void ProtocolChanged(HandoverProtocol _, HandoverProtocol newValue)
+    {
+        // update the local session with the networked scenario data
+        if (OnlinePlayer.localPlayer != null) OnlinePlayer.localPlayer.UpdateSessionWithNetworkedScenario();
+    }
 }

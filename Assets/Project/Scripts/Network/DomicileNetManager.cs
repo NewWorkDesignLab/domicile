@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Mirror;
+using UnityEngine.Networking;
 
 /*
 	Documentation: https://mirror-networking.gitbook.io/docs/components/network-manager
@@ -140,8 +141,14 @@ public class DomicileNetManager : NetworkManager
             // This is what allows the NetworkSceneChecker on player and scene objects
             // to isolate matches per scene instance on server.
             SceneManager.MoveGameObjectToScene(scenarioGo, targetScene.scene);
+            targetScene.scenario = netScenario;
 
             NetworkServer.Spawn (scenarioGo);
+        }
+
+        // update the scenario gender wit this gender if this is a tenant
+        if (targetScene.scenario != null && message.role == PlayerRole.guide) {
+            targetScene.scenario.scenarioGender = message.gender;
         }
     }
 

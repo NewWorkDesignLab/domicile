@@ -57,6 +57,7 @@ public class ScenePoolItem
     public Scene scene;
     public string id;
     public bool used = false;
+    public NetworkedScenario scenario;
 
     public ScenePoolItem(Scene scene)
     {

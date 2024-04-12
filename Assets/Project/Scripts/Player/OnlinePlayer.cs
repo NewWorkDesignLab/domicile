@@ -67,7 +67,24 @@ public class OnlinePlayer : NetworkBehaviour
     [Command]
     public void CmdSetRole(PlayerRole value)
     {
+        // change the actual role value
         playerRole = value;
+
+        // find all online playes in this lobby
+        OnlinePlayer[] list = GameObject.FindObjectsByType<OnlinePlayer>(FindObjectsSortMode.None);
+        // iterate all and return the gender of the first tenant
+        foreach (OnlinePlayer item in list)
+        {
+            if (item.playerRole == PlayerRole.guide) {
+                // as we are on the server, te scenario variable is not present
+                // search for the current networked scenario to set the scenario gender
+                NetworkedScenario scen = GameObject.FindObjectOfType<NetworkedScenario>();
+                // update the scenario gender to the gende rof this first tenant
+                if (scen != null) scen.scenarioGender = item.playerGender;
+                // dont care about all other tenants if there are multiple in this lobby
+                break;
+            }
+        }
     }
 
     [Command]
